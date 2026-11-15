@@ -3,7 +3,8 @@
 **/.pytest_cache
 **/.data
 **/.models
-**/.hf-models
+**/node_modules
+**/.next
 **/docs-sm
 **/runs
 **/rag-handoff
@@ -18,7 +19,11 @@ model.safetensors
 .env
 .env.*
 !.env.example
+**/.env
 .git
-
-# Complete-product source is outside this integration image.
-back/
+# Frontends deploy separately (Vercel); the superseded slice Backend is not part of any image.
+front/
+back/front/
+services/backend/
+back/services/backend/tests/
+# Pinned tokenizer/config files under services/llm/.hf-models ARE included (small, hash-locked).

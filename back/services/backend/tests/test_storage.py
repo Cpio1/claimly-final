@@ -152,3 +152,71 @@ def test_bucket_metadata_failures_have_actionable_categories(caplog, response, e
 def test_api_url_suffix_is_rejected():
     with pytest.raises(ConfigurationError):
         StorageSettings("https://synthetic.supabase.co/rest/v1", "sb_secret_test_only")
+
+
+# ── S3-compatible and local adapters ─────────────────────────────────────────────────
+def s3_pair():
+    import boto3
+    from botocore.stub import Stubber
+    from app.config import S3Settings
+    from app.storage import S3Storage
+    kwargs = {"region_name": "auto", "endpoint_url": "https://s3.test", "aws_access_key_id": "k", "aws_secret_access_key": "s"}
+    client, anonymous = boto3.client("s3", **kwargs), boto3.client("s3", **kwargs)
+    storage = S3Storage(S3Settings("https://s3.test", "claimly-private", "auto", "k", "s"), client=client, anonymous=anonymous)
+    return storage, Stubber(client), Stubber(anonymous)
+
+
+def test_s3_private_bucket_check_passes_when_anonymous_access_is_denied():
+    storage, signed, anon = s3_pair()
+    signed.add_response("head_bucket", {}, {"Bucket": "claimly-private"})
+    anon.add_client_error("list_objects_v2", "AccessDenied", http_status_code=403)
+    with signed, anon:
+        storage.ensure_private()
+
+
+def test_s3_public_bucket_is_rejected():
+    storage, signed, anon = s3_pair()
+    signed.add_response("head_bucket", {}, {"Bucket": "claimly-private"})
+    anon.add_response("list_objects_v2", {"KeyCount": 0}, {"Bucket": "claimly-private", "MaxKeys": 1})
+    with signed, anon, pytest.raises(StorageError) as error:
+        storage.ensure_private()
+    assert error.value.category == "bucket_not_private"
+
+
+def test_s3_errors_are_sanitized():
+    storage, signed, _ = s3_pair()
+    signed.add_client_error("get_object", "NoSuchKey", "remote-private-information", http_status_code=404)
+    with signed, pytest.raises(StorageError) as error:
+        storage.download("sessions/x/y.pdf")
+    assert "remote-private-information" not in error.value.message and error.value.category == "not_found"
+
+
+def test_s3_settings_require_https_and_keys():
+    from app.config import S3Settings
+    with pytest.raises(ConfigurationError):
+        S3Settings("http://s3.test", "claimly-private", "auto", "k", "s")
+    with pytest.raises(ConfigurationError):
+        S3Settings("https://s3.test", "claimly-private", "auto", "", "")
+
+
+def test_local_storage_rejects_path_escape_and_overwrite(tmp_path):
+    from app.storage import LocalStorage
+    storage = LocalStorage(str(tmp_path))
+    storage.upload("sessions/a/b.pdf", b"x", "application/pdf")
+    with pytest.raises(StorageError):
+        storage.upload("sessions/a/b.pdf", b"y", "application/pdf")
+    with pytest.raises(StorageError):
+        storage.upload("../escape.pdf", b"x", "application/pdf")
+    assert storage.download("sessions/a/b.pdf") == b"x"
+    storage.delete("sessions/a/b.pdf")
+    storage.delete("sessions/a/b.pdf")  # idempotent
+
+
+def test_settings_reject_local_storage_and_sqlite_without_local_dev():
+    from app.settings import Settings
+    with pytest.raises(ConfigurationError):
+        Settings(storage_backend="local").checked()
+    with pytest.raises(ConfigurationError):
+        Settings(database_url="sqlite:///x.db").checked()
+    with pytest.raises(ConfigurationError):
+        Settings(frontend_origins=("*",)).checked()

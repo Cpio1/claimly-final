@@ -1,66 +1,53 @@
-# Explicit local integration defaults; use PostgreSQL/Supabase and LOCAL_DEV_STORAGE=false for production.
-x-runtime: &runtime
-  build:
-    context: .
-    dockerfile: services/llm/Dockerfile
+# Local full stack for the merged product Backend (explicit dev settings; not a production config).
+#   cp back/services/backend/.env.example .env   # fill LLM_SERVICE_TOKEN, HF_* only if you have endpoints
+#   docker compose up --build
+# Production uses PostgreSQL + a private bucket on Railway; see back/services/backend/DEPLOYMENT.md.
+x-backend: &backend
+  build: { context: ., dockerfile: back/services/backend/Dockerfile.worker }
   restart: unless-stopped
-x-model: &model
-  HF_TOKEN: ${HF_TOKEN:-}
-  HF_EMBEDDING_URL: ${HF_EMBEDDING_URL:-}
-  MODEL_BASE_URL: ${MODEL_BASE_URL:-}
-  MODEL_NAME: Qwen/Qwen3.8-27B
-  MODEL_TIMEOUT_SECONDS: ${MODEL_TIMEOUT_SECONDS:-90}
-  MODEL_INPUT_TOKENS: ${MODEL_INPUT_TOKENS:-24000}
-  MODEL_OUTPUT_TOKENS: ${MODEL_OUTPUT_TOKENS:-2048}
-  EMBEDDING_CHUNK_TOKENS: ${EMBEDDING_CHUNK_TOKENS:-768}
-  LLM_SERVICE_TOKEN: ${LLM_SERVICE_TOKEN:?Set a stable internal service token in .env}
-x-storage: &storage
-  LOCAL_DEV_STORAGE: ${LOCAL_DEV_STORAGE:-true}
-  DATABASE_URL: ${DATABASE_URL:-sqlite:////data/claimly.sqlite}
-  LOCAL_STORAGE_DIR: /data/originals
-  SUPABASE_URL: ${SUPABASE_URL:-}
-  SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY:-}
-  SUPABASE_BUCKET: ${SUPABASE_BUCKET:-claimly-private}
+  environment: &backend-env
+    DATABASE_URL: postgresql://claimly:claimly@postgres:5432/claimly?sslmode=disable
+    LOCAL_DEV: "true"
+    STORAGE_BACKEND: local
+    LOCAL_STORAGE_DIR: /data/originals
+    LLM_BASE_URL: http://llm:8001
+    LLM_SERVICE_TOKEN: ${LLM_SERVICE_TOKEN:?Set LLM_SERVICE_TOKEN in .env}
+    SCHEDULER_SECRET: ${SCHEDULER_SECRET:-}
+    FRONTEND_ORIGINS: ${FRONTEND_ORIGINS:-http://localhost:3000}
+    SOURCE_REVIEW_MODE: ${SOURCE_REVIEW_MODE:-operator}
+    HF_TOKEN: ${HF_TOKEN:-}
+    HF_EMBEDDING_URL: ${HF_EMBEDDING_URL:-}
+    EMBEDDING_PROVIDER: ${EMBEDDING_PROVIDER:-hf_endpoint}
+  volumes: [claimly-originals:/data/originals]
+  depends_on:
+    postgres: { condition: service_healthy }
 services:
+  postgres:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: claimly, POSTGRES_PASSWORD: claimly, POSTGRES_DB: claimly }
+    volumes: [claimly-pg:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD", "pg_isready", "-U", "claimly"], interval: 5s, retries: 20 }
   migrate:
-    <<: *runtime
-    environment: *storage
-    volumes: [claimly-data:/data]
+    <<: *backend
     restart: "no"
-    command: ["python", "-B", "-m", "services.backend.db"]
-  llm:
-    <<: *runtime
-    environment: *model
-    volumes:
-      - ./services/llm/.hf-models:/app/services/llm/.hf-models:ro
-      - ./services/llm/parsing/.models/docling:/app/services/llm/parsing/.models/docling:ro
-  backend:
-    <<: *runtime
-    environment:
-      <<: *storage
-      LLM_BASE_URL: http://llm:8001
-      LLM_SERVICE_TOKEN: ${LLM_SERVICE_TOKEN:?Set a stable internal service token in .env}
-      FRONTEND_ORIGINS: ${FRONTEND_ORIGINS:-http://localhost:8000}
-      DEMO_SESSION_TTL_HOURS: ${DEMO_SESSION_TTL_HOURS:-168}
-    volumes: [claimly-data:/data]
-    depends_on:
-      migrate:
-        condition: service_completed_successfully
+    command: ["python", "-m", "app.migrate"]
+  api:
+    <<: *backend
+    build: { context: ., dockerfile: back/services/backend/Dockerfile.api }
     ports: ["127.0.0.1:8000:8000"]
-    command: ["python", "-B", "-m", "uvicorn", "services.backend.api:app", "--host", "0.0.0.0", "--port", "8000", "--no-access-log"]
+    depends_on: { migrate: { condition: service_completed_successfully } }
   worker:
-    <<: *runtime
+    <<: *backend
+    depends_on: { migrate: { condition: service_completed_successfully } }
+  llm:
+    build: { context: ., dockerfile: services/llm/Dockerfile }
+    restart: unless-stopped
     environment:
-      <<: [*model, *storage]
-      LLM_BASE_URL: http://llm:8001
-    volumes:
-      - claimly-data:/data
-      - ./services/llm/.hf-models:/app/services/llm/.hf-models:ro
-    depends_on:
-      migrate:
-        condition: service_completed_successfully
-      llm:
-        condition: service_started
-    command: ["python", "-B", "-m", "services.backend.worker"]
+      LLM_SERVICE_TOKEN: ${LLM_SERVICE_TOKEN:?Set LLM_SERVICE_TOKEN in .env}
+      HF_TOKEN: ${HF_TOKEN:-}
+      HF_EMBEDDING_URL: ${HF_EMBEDDING_URL:-}
+      MODEL_BASE_URL: ${MODEL_BASE_URL:-}
+      MODEL_NAME: Qwen/Qwen3.8-27B
 volumes:
-  claimly-data:
+  claimly-pg:
+  claimly-originals:

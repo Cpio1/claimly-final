@@ -1,0 +1,4 @@
+# Worker = API deps + pinned Qwen tokenizer runtime for exact, untruncated chunk budgeting.
+-r requirements.txt
+transformers==5.23.0
+tokenizers==0.23.3

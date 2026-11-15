@@ -1,62 +1,12 @@
-"""Explicit server-side database configuration; no connections at import time."""
+"""Validated Storage adapter settings. Process-wide settings live in app.settings."""
 
-import os
-from dataclasses import dataclass, field
-from pathlib import Path
-from uuid import UUID
-from urllib.parse import urlsplit
 import re
+from dataclasses import dataclass, field
+from urllib.parse import urlsplit
 
-from dotenv import load_dotenv
-from psycopg.conninfo import conninfo_to_dict
+from app.settings import ConfigurationError, Settings
 
-DEMO_WORKSPACE_ID = UUID("10000000-0000-4000-8000-000000000000")
-ENV_FILE = Path(__file__).resolve().parents[1] / ".env"
-
-
-class ConfigurationError(RuntimeError):
-    """Required server configuration is missing or invalid."""
-
-
-@dataclass(frozen=True)
-class DatabaseSettings:
-    database_url: str = field(repr=False)
-    workspace_id: UUID = DEMO_WORKSPACE_ID
-    connect_timeout_seconds: int = 10
-
-    def __post_init__(self) -> None:
-        if not self.database_url.strip():
-            raise ConfigurationError("DATABASE_URL is required for database operations.")
-        if not self.database_url.startswith(("postgresql://", "postgres://")):
-            raise ConfigurationError("DATABASE_URL must be a PostgreSQL connection URI.")
-        try:
-            parameters = conninfo_to_dict(self.database_url)
-        except Exception:
-            raise ConfigurationError("DATABASE_URL is not a valid PostgreSQL URI.") from None
-        if not parameters.get("host") or not parameters.get("dbname"):
-            raise ConfigurationError("DATABASE_URL must include a host and database name.")
-        port = parameters.get("port", "5432")
-        if not port.isascii() or not port.isdigit() or not 1 <= int(port) <= 65535:
-            raise ConfigurationError("DATABASE_URL port must be a number between 1 and 65535.")
-        if self.workspace_id != DEMO_WORKSPACE_ID:
-            raise ConfigurationError("DEMO_WORKSPACE_ID must match the single migrated demo workspace.")
-        if not 1 <= self.connect_timeout_seconds <= 60:
-            raise ConfigurationError("DATABASE_CONNECT_TIMEOUT_SECONDS must be between 1 and 60.")
-
-
-def get_database_settings() -> DatabaseSettings:
-    """Read backend/.env without overriding environment variables supplied by hosting."""
-    load_dotenv(ENV_FILE, override=False)
-    try:
-        workspace_id = UUID(os.environ.get("DEMO_WORKSPACE_ID", str(DEMO_WORKSPACE_ID)))
-        timeout = int(os.environ.get("DATABASE_CONNECT_TIMEOUT_SECONDS", "10"))
-    except ValueError:
-        raise ConfigurationError("Invalid DEMO_WORKSPACE_ID or DATABASE_CONNECT_TIMEOUT_SECONDS.") from None
-    return DatabaseSettings(
-        database_url=os.environ.get("DATABASE_URL", "").strip(),
-        workspace_id=workspace_id,
-        connect_timeout_seconds=timeout,
-    )
+__all__ = ["ConfigurationError", "StorageSettings", "S3Settings", "storage_settings", "s3_settings"]
 
 
 @dataclass(frozen=True)
@@ -78,10 +28,31 @@ class StorageSettings:
             raise ConfigurationError("SUPABASE_STORAGE_BUCKET is invalid.")
 
 
-def get_storage_settings() -> StorageSettings:
-    load_dotenv(ENV_FILE, override=False)
-    return StorageSettings(
-        url=os.environ.get("SUPABASE_URL", "").strip(),
-        secret_key=os.environ.get("SUPABASE_SECRET_KEY", "").strip(),
-        bucket=os.environ.get("SUPABASE_STORAGE_BUCKET", "claimly-documents").strip(),
-    )
+@dataclass(frozen=True)
+class S3Settings:
+    endpoint: str
+    bucket: str
+    region: str = "auto"
+    access_key_id: str = field(default="", repr=False)
+    secret_access_key: str = field(default="", repr=False)
+    addressing_style: str = "virtual"
+
+    def __post_init__(self):
+        if self.addressing_style not in ("virtual", "path"):
+            raise ConfigurationError("S3_ADDRESSING_STYLE must be virtual or path.")
+        parsed = urlsplit(self.endpoint)
+        if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.query or parsed.fragment:
+            raise ConfigurationError("S3_ENDPOINT must be an HTTPS S3-compatible endpoint.")
+        if not re.fullmatch(r"[a-z0-9][a-z0-9.\-]{1,61}[a-z0-9]", self.bucket):
+            raise ConfigurationError("S3_BUCKET is invalid.")
+        if not self.access_key_id or not self.secret_access_key:
+            raise ConfigurationError("S3_ACCESS_KEY_ID and S3_SECRET_ACCESS_KEY are required.")
+
+
+def storage_settings(settings: Settings) -> StorageSettings:
+    return StorageSettings(settings.supabase_url, settings.supabase_secret_key, settings.supabase_bucket)
+
+
+def s3_settings(settings: Settings) -> S3Settings:
+    return S3Settings(settings.s3_endpoint, settings.s3_bucket, settings.s3_region,
+                      settings.s3_access_key_id, settings.s3_secret_access_key, settings.s3_addressing_style)

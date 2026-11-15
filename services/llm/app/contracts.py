@@ -102,3 +102,53 @@ def answer_check(value, context):
             raise Failure('INVALID_LLM_OUTPUT', 'The answer action references an unavailable object.', 502)
     if not value['evidence_refs'] and value != insufficient_answer(bool(context['documents'])):
         raise Failure('INVALID_LLM_OUTPUT', 'Uncited output must be a controlled insufficient-evidence response.', 502)
+
+
+def allowed_targets(context):
+    """IDs a model may reference: only objects present in the authorized context."""
+    return {
+        'open_benefit': {b['id'] for b in context['benefits']},
+        'open_case': {context['case']['id']} if context['case'] else set(),
+        'add_document': {e['id'] for e in context['entries']},
+        'ask_question': set(),
+    }
+
+def actions_check(actions, context):
+    allowed = allowed_targets(context)
+    for action in actions:
+        if action['target_id'] is not None and action['target_id'] not in allowed[action['type']]:
+            raise Failure('INVALID_LLM_OUTPUT', 'An action references an unavailable object.', 502)
+
+def usable_pages(context):
+    return any(p['text'].strip() and not p['needs_review'] for d in context['documents'] for p in d['pages'])
+
+def insufficient_assessment(has_documents):
+    return {'status': 'insufficient_evidence',
+            'summary': ('The supplied passages do not provide enough evidence to assess this case.' if has_documents
+                        else 'No approved document evidence is linked to this case yet.'),
+            'reasons': [], 'evidence_refs': [],
+            'missing_info': ['The document that describes the relevant coverage, service or terms'],
+            'next_actions': []}
+
+def guard_assessment(value, context):
+    validate('Assessment', value, output=True)
+    if not value['evidence_refs'] and value['status'] != 'insufficient_evidence':
+        # A positive or exclusion assessment without citations is not allowed.
+        raise Failure('INVALID_LLM_OUTPUT', 'An uncited assessment must report insufficient evidence.', 502)
+    evidence_check(value, context['documents'])
+    actions_check(value['next_actions'], context)
+
+def guard_draft(value, context, extra_text=''):
+    validate('DraftContent', value, output=True)
+    evidence_check(value, context['documents'])
+    if value['contact'] is not None:
+        sources = [p['text'] for d in context['documents'] for p in d['pages']]
+        case = context['case'] or {}
+        sources += [case.get('situation') or '', case.get('desired_result') or '', extra_text]
+        if value['contact_origin'] == 'unknown' or not any(normalized(value['contact']) in normalized(t) for t in sources if t):
+            raise Failure('INVALID_LLM_OUTPUT', 'A draft contact must be quoted from supplied documents or user text.', 502)
+
+def guard_reply(value, context):
+    validate('ReplyAnalysis', value, output=True)
+    evidence_check(value, context['documents'])
+    actions_check(value['next_actions'], context)

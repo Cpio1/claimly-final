@@ -1,191 +1,91 @@
-# Claimly backend
+# Claimly product Backend (merged)
 
-Python/FastAPI backend with health, shared-workspace entry creation, private
-document upload, document metadata, and queued-job status. Public response shapes
-follow Claimly contract **2.0.0**; its session requirement conflicts with the
-approved shared-workspace design (see [UPLOADS.md](UPLOADS.md)). Health does not
-require configuration. Data endpoints require real PostgreSQL and Storage settings.
-AI analysis is not implemented: accepted jobs remain queued with no fabricated result.
+FastAPI API + durable worker for the Claimly frontend (`front/apps/frontend`), implementing all
+43 operations of `backend.openapi.json` **2.0.0** without contract changes. It merges this product
+Backend (tracked upload intents, idempotency, rate/capacity limits, private Storage checks, curated
+errors) with the integration slice (`services/backend/`, now superseded): isolated anonymous sessions,
+durable worker, Docling/Qwen adapters, source-quality gate, retrieval and cited chat.
 
-See [UPLOADS.md](UPLOADS.md) for migration 0003, safe testing commands, safeguards,
-failure recovery, and remaining frontend work.
+Deployment, environment variables and the list of external prerequisites: [DEPLOYMENT.md](DEPLOYMENT.md).
 
-## Install on Windows PowerShell
+## Architecture
 
-Install Python 3.11 or newer and make sure `python --version` works.
-Run these commands from any PowerShell window:
-
-```powershell
-Set-Location C:\Users\Lenovo\zimran-project\services\backend
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+```
+Browser (Vercel, NEXT_PUBLIC_API_MODE=http)
+   │  HTTPS, X-Demo-Session, Idempotency-Key
+   ▼
+API  (app.main)  ── PostgreSQL (claimly schema: sessions, objects, jobs, chunks, usage, limits)
+   │                └─ private bucket (S3-compatible / Supabase / local-dev) for originals
+   └─ creates durable jobs ─▶ Worker (app.worker) ── private network ─▶ LLM service (services/llm)
+                               │  extract → gate → chunk → embed      │  Docling/OCR, Qwen chat via
+                               │  answer / match / assess / draft /   │  protected HF endpoint, schema +
+                               │  analyze_reply → validate → publish  │  citation/ID guards (stateless)
+                               └─ embeddings: HF TEI endpoint or local Qwen3-Embedding (CPU)
 ```
 
-The virtual environment keeps this backend's dependencies separate from other
-projects. `requirements-dev.txt` installs both runtime and test dependencies.
-For a runtime-only installation, use `requirements.txt` instead.
-Dependency files specify compatible version ranges rather than a frozen lockfile.
-
-These commands use the virtual environment's Python directly, so activation and
-PowerShell execution-policy changes are unnecessary.
+- **Sessions.** `POST /api/v1/demo/sessions` (no body, no login) returns a ≥32-byte random token; only
+  its SHA-256 is stored; TTL 7 days; creation is rate-limited per client IP. Every data route resolves
+  the owner from `X-Demo-Session`; every row is keyed by `session_id`; relationships (entry↔document,
+  thread↔documents, case↔entries/documents/benefit, outcome evidence) are validated in the same session.
+  Wrong-session IDs return 404. Missing/expired tokens return 401 `DEMO_SESSION_REQUIRED`/`EXPIRED`.
+- **Uploads.** PDF/JPEG/PNG, signature + parser validation, ≤10 MB, ≤25 pages, ≤5 files/entry. A
+  durable intent is committed before the Storage write and completed with the document + job in one
+  transaction; replays return the original response; orphans are cleaned by maintenance.
+- **Worker.** Postgres lease (`FOR UPDATE SKIP LOCKED`), ≤3 attempts with backoff, per-target
+  serialization, lease + source-version checks inside the publishing transaction, restart-safe.
+- **Admission gate (`SOURCE_REVIEW_MODE`).** `operator` (default): a trusted operator approves the
+  exact original + canonical page hashes with `python -m app.review` before anything is populated or
+  indexed. `user_confirmation`: clean conversions are indexed and *every* extracted fact/benefit is
+  flagged `needs_review` for the existing review UI. Unreadable/uncertain/out-of-scope sources never
+  enter the Vault or retrieval; out-of-scope originals are deleted.
+- **Retrieval.** Owner, scope (vault/entry/case-linked documents), admission, document version and
+  embedding identity are filtered **before** hybrid lexical+dense ranking; the model receives selected
+  page text only. Embedding-profile changes queue a re-index from the cached conversion.
+- **Guards.** Citations must resolve to exact quotes on supplied pages; benefit/action IDs must be in
+  the supplied context; uncited answers become controlled abstentions; no usable pages → deterministic
+  abstention without a model call; positive assessments require citations; draft contacts must be
+  quoted from supplied text. Drafts are never sent.
+- **Backend-owned rules.** Absolute usage with history (`usage_events`), outcome usage corrected in
+  place (no double counting; unknown baselines never produce a full remainder), deterministic deadline
+  dates (explicit dates and calendar intervals only), DST-aware reminder deliveries with unique keys
+  (reminder + revision + interval + channel), protected idempotent dispatch.
+- **Deletion.** Deleting a document/entry removes chunks/benefits, cancels reminders and jobs, marks
+  historical jobs `stale`, scrubs citations from messages/assessments/drafts/replies, and tombstones the
+  original in the same transaction (Storage deletion retried until it succeeds).
 
 ## Run locally
 
-From `services/backend`:
-
-```powershell
-.\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+```bash
+cd back/services/backend
+python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
+export PYTHONPATH=$PWD:$(cd ../../.. && pwd)            # repo root provides services.llm + contracts
+export LOCAL_DEV=true DATABASE_URL=sqlite:///.data/claimly.sqlite STORAGE_BACKEND=local \
+       LOCAL_STORAGE_DIR=.data/originals FRONTEND_ORIGINS=http://localhost:3000
+.venv/bin/python -m app.migrate
+.venv/bin/uvicorn app.main:app --port 8000          # API
+.venv/bin/python -m app.worker                      # worker (+ maintenance, in-app reminders)
+.venv/bin/python -m app.check_ready --llm           # read-only readiness (booleans only)
 ```
 
-Keep this terminal open. Stop the server with **Ctrl+C**. `--reload` restarts it
-when you edit Python files; omit this flag for deployments.
+Or the whole stack with PostgreSQL: `docker compose up --build` from the repo root (see `compose.yaml`).
+Frontend against it: `NEXT_PUBLIC_API_MODE=http NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000 npm run build && npm start`.
 
-## Verify the endpoint
+## Tests
 
-Open <http://127.0.0.1:8000/health> in a browser. It should return HTTP 200
-with this JSON (the UUID changes for every request):
-
-```json
-{
-  "data": {
-    "status": "ok",
-    "service": "backend",
-    "contract_version": "2.0.0"
-  },
-  "request_id": "b71a096f-c335-46b5-9fe0-8a76be735c33"
-}
+```bash
+.venv/bin/python -m pytest -q                                   # SQLite
+CLAIMLY_TEST_DATABASE_URL=postgresql://user@127.0.0.1:5432/claimly_test?sslmode=disable \
+  .venv/bin/python -m pytest -q                                 # real PostgreSQL (drops schema claimly!)
 ```
 
-The response includes `X-Contract-Version: 2.0.0`. To inspect the header, use the
-browser's Developer Tools > Network, reload the page, and select the `health`
-request. Or run this in a second PowerShell window:
+Tests use the real API, worker, Storage adapter (local), migrations, internal LLM API, prompts and guards.
+Only the Hugging Face HTTP endpoint is an in-memory mock and PDF text comes from a native parser instead
+of Docling. **They prove integration and safety rules, not live-model accuracy.**
 
-```powershell
-$healthResponse = Invoke-WebRequest -Uri http://127.0.0.1:8000/health -UseBasicParsing
-$healthResponse.StatusCode
-$healthResponse.Headers['X-Contract-Version']
-$healthResponse.Content
+## Operator review (operator mode)
+
+```bash
+python -m app.review --list
+python -m app.review <document_id> --session-id <session_id>        # prints hashes + canonical pages
+python -m app.review <document_id> --session-id <session_id> --approve --source-sha <…> --pages-sha <…>
 ```
-
-Interactive API documentation is at <http://127.0.0.1:8000/docs>.
-CORS permits browser requests from `http://localhost:3000` and exposes the
-contract-version header to frontend JavaScript. The current API only needs GET.
-
-## Run tests
-
-From `services/backend`, with the development dependencies installed:
-
-```powershell
-.\.venv\Scripts\python.exe -m pytest -q
-```
-
-Tests check the health body, version header, unique UUIDs, allowed frontend
-requests, CORS preflight, and rejection of other origins for browser access.
-The schema test reads `contracts/backend.openapi.json`, falling back to
-`front/contracts/backend.openapi.json`, and validates the response against
-`HealthEnvelope`. If neither file exists, only this schema test is skipped;
-the explicit response tests still run.
-
-At initial setup, the root-level `contracts/backend.openapi.json` was absent.
-The existing `front/contracts/backend.openapi.json` contains version 2.0.0 and
-its `HealthEnvelope` matches the requested response. It is read for verification
-only; no frontend or contract files are modified.
-
-## Files
-
-- `app/__init__.py`: marks the application as a Python package.
-- `app/main.py`: FastAPI application, CORS, version header, and health route.
-- `app/schemas.py`: typed health response models and per-response UUID generation.
-- `tests/test_health.py`: automated endpoint, CORS, and contract checks.
-- `requirements.txt`: runtime dependencies (FastAPI, Pydantic, and Uvicorn).
-- `requirements-dev.txt`: runtime plus test dependencies.
-- `pytest.ini`: tells pytest where to find tests.
-- `.gitignore`: excludes the local environment, Python caches, and local secrets.
-- `README.md`: setup, run, and verification instructions.
-
-## Configure Supabase for Phase 3A
-
-From `services/backend`, create your ignored local configuration file:
-
-```powershell
-Copy-Item .env.example .env
-```
-
-Edit `.env` locally. Do not paste real credentials into source files or frontend
-configuration. Existing hosting environment variables override `.env` values.
-
-| Variable | What to set |
-| --- | --- |
-| `DATABASE_URL` | Required for database operations. PostgreSQL connection URI from your project's **Connect** dialog, including its database password. |
-| `DEMO_WORKSPACE_ID` | Keep `10000000-0000-4000-8000-000000000000`; it matches the migrated shared workspace. Any other ID fails validation. |
-| `DATABASE_CONNECT_TIMEOUT_SECONDS` | Optional; defaults to `10`, accepts `1` through `60`. |
-
-Use the direct connection if your machine has the required network connectivity,
-or the **session pooler** connection for an IPv4 Windows development setup. Copy
-the exact host, port, username, and database from Supabase rather than guessing.
-For URI passwords containing reserved characters, use percent encoding.
-See [Supabase's connection guide](https://supabase.com/docs/guides/database/connecting-to-postgres).
-
-The module uses Psycopg 3, requires TLS (`sslmode=require`), sets a connection
-timeout, and disables prepared statements for pooler compatibility. The connection
-context commits on success, rolls back on errors, and closes on exit. It is
-synchronous and intended for sync handlers or workers. There is no startup
-connection, fallback database, mock data, automatic migration, or connection pool.
-
-The SQL connection password is different from a Supabase API secret. Uploads now
-also require `SUPABASE_URL`, `SUPABASE_SECRET_KEY` (a backend `sb_secret_...` key),
-and `SUPABASE_STORAGE_BUCKET=claimly-documents`. The bucket must remain private.
-Never put database credentials or secret keys in `NEXT_PUBLIC_*` variables.
-No Supabase Auth setup is needed.
-
-Missing/invalid database settings raise `ConfigurationError` when settings are
-requested; a failed connection raises `DatabaseConnectionError` with a sanitized
-message. Database configuration does not change `/health`, which remains a
-process-liveness endpoint rather than a database-readiness probe.
-
-## Apply migrations later
-
-Migrations are not applied automatically. For a fresh project, use SQL Editor to run
-`migrations/0001_database_foundation.sql` followed by
-`migrations/0002_shared_workspace.sql` as the database owner. See
-[migrations/README.md](migrations/README.md) for the full procedure, tables,
-sample lifecycle, access controls, and verification queries.
-
-New Phase 3A files:
-
-- `.env.example`: credential-free configuration template.
-- `app/config.py`: validates server settings and loads the backend's `.env`.
-- `app/database.py`: opens a transactional PostgreSQL connection on explicit use.
-- `migrations/0001_database_foundation.sql`: six tables, constraints, indexes,
-  timestamp triggers, and access controls.
-- `migrations/0002_shared_workspace.sql`: inserts only the shared workspace.
-- `migrations/README.md`: migration procedure and schema details.
-- `tests/test_database.py`: offline settings and mocked connection tests.
-- `tests/test_migrations.py`: PostgreSQL syntax and basic access-boundary checks.
-
-Run the same install and pytest commands above to include all Phase 3A tests.
-Tests do not need Supabase credentials or network access. They do not execute SQL
-against a database; live migration and permission checks are still outstanding.
-
-## Check an existing database connection
-
-After applying the migrations and configuring `.env`, run this explicitly from
-`services/backend`:
-
-```powershell
-.\.venv\Scripts\python.exe -m app.check_database
-```
-
-The check uses the existing configuration and connection module, starts a
-read-only transaction, and executes `SELECT id, name FROM claimly.workspaces`.
-It reports whether the configured shared workspace exists without printing
-credentials or raw driver errors. Exit codes: `0` = connected and found,
-`1` = configuration/connection/query failure, `2` = query succeeded but workspace
-missing. It does not apply migrations or change records. This command is separate
-from the offline test suite and `/health`.
-
-If the check reports an invalid port, replace the local URI with the exact
-PostgreSQL URI from the project's Connect dialog, filling in only the database
-password (percent-encoded if needed). The port must be numeric, between 1 and
-65535. Use the session pooler URI for an IPv4-only development network. Do not
-share `.env` or paste the URI into logs or chat.

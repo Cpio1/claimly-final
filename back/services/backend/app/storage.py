@@ -1,5 +1,6 @@
 """Minimal server-only Supabase Storage REST adapter, with redirects disabled."""
 
+from pathlib import Path
 from urllib.parse import quote
 import logging
 import socket
@@ -126,3 +127,133 @@ class StorageClient:
     def remove(self, bucket: str, path: str):
         # Recovery must use the bucket persisted with the intent, even if config changes.
         self._request("DELETE", "object/" + quote(bucket, safe=""), operation="recovery_delete", json={"prefixes": [path]})
+
+    def download(self, path: str) -> bytes:
+        return self._request("GET", "object/authenticated/" + quote(self.settings.bucket, safe="") + "/" + quote(path, safe="/"),
+                             operation="download").content
+
+    def delete(self, path: str):
+        # Supabase bulk delete succeeds for already-missing objects, so retries are idempotent.
+        self.remove(self.settings.bucket, path)
+
+    def describe(self) -> str:
+        return "supabase:" + self.settings.bucket
+
+
+class LocalStorage:
+    """Explicit LOCAL_DEV-only private directory (0700/0600); never used in production."""
+
+    def __init__(self, root: str):
+        self.root = Path(root).resolve()
+
+    def _path(self, key: str) -> Path:
+        path = (self.root / key).resolve()
+        if self.root not in path.parents:
+            raise StorageError("invalid_path", operation="path")
+        return path
+
+    def ensure_private(self):
+        self.root.mkdir(parents=True, exist_ok=True, mode=0o700)
+
+    def upload(self, path: str, content: bytes, mime_type: str):
+        target = self._path(path)
+        target.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+        try:
+            with target.open("xb") as handle:
+                handle.write(content)
+        except FileExistsError:
+            fail("upload", "conflict")
+        target.chmod(0o600)
+
+    def download(self, path: str) -> bytes:
+        try:
+            return self._path(path).read_bytes()
+        except FileNotFoundError:
+            fail("download", "not_found")
+
+    def delete(self, path: str):
+        self._path(path).unlink(missing_ok=True)
+
+    def describe(self) -> str:
+        return "local"
+
+
+class S3Storage:
+    """S3-compatible private bucket (e.g. Railway Bucket, Cloudflare R2, AWS S3) via boto3."""
+
+    def __init__(self, settings, client=None, anonymous=None):
+        self.settings = settings
+        self._client, self._anonymous = client, anonymous
+        self._checked = 0.0
+
+    def _clients(self):
+        if self._client is None:
+            import boto3
+            from botocore import UNSIGNED
+            from botocore.config import Config
+
+            common = {"endpoint_url": self.settings.endpoint, "region_name": self.settings.region}
+            config = Config(connect_timeout=10, read_timeout=30, retries={"max_attempts": 2}, s3={"addressing_style": self.settings.addressing_style})
+            self._client = boto3.client("s3", aws_access_key_id=self.settings.access_key_id,
+                                        aws_secret_access_key=self.settings.secret_access_key, config=config, **common)
+            self._anonymous = boto3.client("s3", config=Config(signature_version=UNSIGNED, connect_timeout=10, read_timeout=15,
+                                                               retries={"max_attempts": 1}, s3={"addressing_style": self.settings.addressing_style}), **common)
+        return self._client, self._anonymous
+
+    def _call(self, operation, fn):
+        from botocore.exceptions import BotoCoreError, ClientError
+
+        try:
+            return fn()
+        except ClientError as error:
+            status = error.response.get("ResponseMetadata", {}).get("HTTPStatusCode")
+            code = error.response.get("Error", {}).get("Code")
+            fail(operation, http_category(status or 500, code if code in KNOWN_CODES else None), status)
+        except BotoCoreError:
+            fail(operation, "transport")
+
+    def ensure_private(self):
+        import time as _time
+        from botocore.exceptions import BotoCoreError, ClientError
+
+        if _time.monotonic() - self._checked < 600:
+            return
+        client, anonymous = self._clients()
+        self._call("bucket_check", lambda: client.head_bucket(Bucket=self.settings.bucket))
+        try:
+            anonymous.list_objects_v2(Bucket=self.settings.bucket, MaxKeys=1)
+        except ClientError as error:
+            if error.response.get("ResponseMetadata", {}).get("HTTPStatusCode") not in (401, 403):
+                fail("bucket_check", "invalid_bucket_response")
+        except BotoCoreError:
+            fail("bucket_check", "transport")
+        else:
+            fail("bucket_check", "bucket_not_private")
+        self._checked = _time.monotonic()
+
+    def upload(self, path: str, content: bytes, mime_type: str):
+        client, _ = self._clients()
+        self._call("upload", lambda: client.put_object(Bucket=self.settings.bucket, Key=path, Body=content,
+                                                       ContentType=mime_type))  # UUID paths; no overwrite of other keys
+
+    def download(self, path: str) -> bytes:
+        client, _ = self._clients()
+        return self._call("download", lambda: client.get_object(Bucket=self.settings.bucket, Key=path)["Body"].read())
+
+    def delete(self, path: str):
+        client, _ = self._clients()
+        self._call("delete", lambda: client.delete_object(Bucket=self.settings.bucket, Key=path))
+
+    def describe(self) -> str:
+        return "s3:" + self.settings.bucket
+
+
+def make_storage(settings):
+    """Select the configured private Storage adapter; configuration errors surface as 503s."""
+    from app.config import s3_settings, storage_settings
+
+    if settings.storage_backend == "local":
+        return LocalStorage(settings.local_storage_dir)
+    if settings.storage_backend == "s3":
+        return S3Storage(s3_settings(settings))
+    return StorageClient(storage_settings(settings))

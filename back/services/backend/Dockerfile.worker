@@ -1,0 +1,24 @@
+# Claimly durable worker + maintenance (no public port). Build context: repository root.
+#   docker build -f back/services/backend/Dockerfile.worker -t claimly-worker .
+#   Optional local CPU embeddings: --build-arg LOCAL_EMBEDDINGS=true (adds torch CPU; then set
+#   EMBEDDING_PROVIDER=local, EMBEDDING_MODEL_PATH and EMBEDDING_WEIGHTS_SHA256 at runtime).
+FROM python:3.12-slim
+ARG LOCAL_EMBEDDINGS=false
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 \
+    PYTHONPATH=/app:/app/back/services/backend
+WORKDIR /app
+COPY back/services/backend/requirements-worker.lock.txt back/services/backend/requirements-worker.lock.txt
+RUN pip install -r back/services/backend/requirements-worker.lock.txt \
+ && if [ "$LOCAL_EMBEDDINGS" = "true" ]; then pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu && pip install "safetensors>=0.4.0"; fi
+COPY Claimly_Three_Parts/contracts/ Claimly_Three_Parts/contracts/
+COPY services/llm/app/__init__.py services/llm/app/config.py services/llm/app/contracts.py services/llm/app/hf.py services/llm/app/embeddings.py services/llm/app/
+COPY services/llm/rag/runtime.py services/llm/rag/runtime.py
+COPY services/llm/hf-models.lock.json services/llm/hf-models.lock.json
+# Pinned Qwen tokenizer/config files (tracked in git, hash-locked in hf-models.lock.json).
+COPY services/llm/.hf-models/embedding/ services/llm/.hf-models/embedding/
+COPY back/services/backend/app/ back/services/backend/app/
+COPY back/services/backend/migrations/ back/services/backend/migrations/
+RUN useradd --system --uid 10001 claimly && chown -R claimly /app
+USER claimly
+WORKDIR /app/back/services/backend
+CMD ["python", "-m", "app.worker"]

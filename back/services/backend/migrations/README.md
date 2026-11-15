@@ -1,3 +1,16 @@
+# Migrations
+
+**Current path (isolated anonymous sessions):** `0004_isolated_sessions.sql` and later files are applied by
+`python -m app.migrate` (Railway pre-deploy), each in one transaction with a row in
+`claimly.schema_migrations`; applied files are skipped and edited files are refused. It works on plain
+PostgreSQL (Railway) and on Supabase (role-specific grants are conditional). It is additive: it does not
+drop or alter the legacy tables below. On a fresh database only 0004+ is needed.
+
+**Legacy (retired shared-workspace demo):** 0001–0003 below are kept for history. They are no longer used by
+the API and are never run by the runner (0001 intentionally fails on repeat). Do not re-apply them.
+
+---
+
 # Supabase database foundation (Phase 3A)
 
 These are ordered, manually applied PostgreSQL migrations for Supabase. They

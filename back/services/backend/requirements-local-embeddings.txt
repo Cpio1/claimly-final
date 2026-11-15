@@ -1,0 +1,4 @@
+# Only for EMBEDDING_PROVIDER=local (CPU inference of Qwen/Qwen3-Embedding-0.6B in the worker).
+# Install torch from the CPU index first:  pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
+-r requirements-worker.txt
+safetensors>=0.4.0

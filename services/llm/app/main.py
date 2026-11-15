@@ -41,7 +41,9 @@ def create_app(settings=None, *, processor=None):
             raise Failure('UNAUTHORIZED','An internal service token is required.',401)
     @app.get('/health')
     def health(request: Request):
-        return {'data':{'status':'ok' if settings.hf_token and settings.chat_url else 'degraded',
+        from pathlib import Path
+        ready = bool(settings.hf_token and settings.chat_url and Path(settings.docling_assets).is_dir())
+        return {'data':{'status':'ok' if ready else 'degraded',
                         'service':'llm','contract_version':VERSION},'request_id':request.state.request_id}
     @app.post('/internal/v1/extract')
     async def extract(request: Request):
@@ -65,6 +67,19 @@ def create_app(settings=None, *, processor=None):
         validate('AnswerRequest',body)
         value = engine.answer(body)
         return {'data':value,'request_id':body['request_id'],'contract_version':VERSION}
+    def operation(path, request_schema, response_schema, method):
+        def handler(request: Request, body: dict):
+            authorize(request)
+            validate(request_schema, body)
+            value = method(body)
+            response = {'data':value,'request_id':body['request_id'],'contract_version':VERSION}
+            validate(response_schema, response, output=True)
+            return response
+        app.post(path, name=path.rsplit('/',1)[1])(handler)
+    operation('/internal/v1/match', 'AnswerRequest', 'AnswerResponse', lambda b: engine.match(b))
+    operation('/internal/v1/assess', 'AssessRequest', 'AssessmentResponse', lambda b: engine.assess(b))
+    operation('/internal/v1/draft', 'DraftRequest', 'DraftResponse', lambda b: engine.draft(b))
+    operation('/internal/v1/analyze-reply', 'ReplyRequest', 'ReplyResponse', lambda b: engine.reply(b))
     return app
 
 app = create_app()
