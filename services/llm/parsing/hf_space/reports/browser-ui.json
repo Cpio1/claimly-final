@@ -1,0 +1,18 @@
+{
+  "desktop": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT\nLimited warranty\nFictional Cedar Electronics. Customer: Alex Example.\nLaptop model L1 purchased on 2026-01-04.\nCoverage lasts 24 months from purchase.\nExcludes accidental damage and liquid damage.\nContact service through the original purchase store.\nFictional test source | Page 1"
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "browser_errors": [],
+  "screenshot_files": [
+    "desktop-empty.png",
+    "desktop-parsed.png",
+    "mobile.png",
+    "validation-results.png"
+  ]
+}

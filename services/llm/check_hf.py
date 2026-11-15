@@ -2,13 +2,13 @@
 import argparse
 import json
 from pathlib import Path
-from services.envfile import load
+from services.llm.envfile import load
 from services.llm.app.config import Settings,ROOT
 from services.llm.app.hf import HFClient,checked_url
 from services.llm.app.contracts import Failure
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--env-file',default='.env');p.add_argument('--live',action='store_true');args=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--env-file',default=str(Path(__file__).resolve().parent / '.env'));p.add_argument('--live',action='store_true');args=p.parse_args()
     load(args.env_file);s=Settings.env();client=HFClient(s)
     try:
         checked_url(s.embedding_url);checked_url(s.chat_url);client.embedding_identity

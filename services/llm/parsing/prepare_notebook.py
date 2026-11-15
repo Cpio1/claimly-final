@@ -16,7 +16,7 @@ md('''# Claimly: Docling ingestion experiment
 
 PDF / JPEG / PNG → validation → one reused standard Docling converter with English CPU RapidOCR → conversion/quality checks → **content relevance** → reviewed internal JSON + canonical pages + source-linked chunks.
 
-This notebook implements the **export-only Phase 1 milestone**. It does not call a paid model, generate embeddings, create Vault rows, or implement a chatbot. Production changes require the separate approval in [NEXT_CONVERSATION.md](NEXT_CONVERSATION.md).
+This notebook implements the **export-only Phase 1 milestone**. It does not call a paid model, generate embeddings, create Vault rows, or implement a chatbot. Production changes require separate approval after reviewing [FINAL_STAGE_1.md](FINAL_STAGE_1.md).
 
 The previous unexecuted direct-model starter is preserved without modification in [parsing_tests.legacy.ipynb](.local/archive/parsing_tests.legacy.ipynb). It is archived because [DOCLING_PLAN.md](DOCLING_PLAN.md) selects the Docling path. Shared contracts stay unchanged.''')
 md('''## 1. Environment and pinned versions
@@ -224,7 +224,7 @@ The full batch is an explicit CLI operation:
 services/llm/.venv/bin/python services/llm/parsing/run_lab.py --output runs/final
 ```
 
-Do not use proposed labels to override predictions. The report distinguishes validation, conversion, relevance, quality review, admission, canonical quote checks, timing, process peak RSS, and unresolved cases. Human-reviewed held-out metrics show counts/denominators; absent denominators are `null`, never a perfect score. See [RESULTS.md](RESULTS.md) for measured outcomes and limits.''')
+Do not use proposed labels to override predictions. The report distinguishes validation, conversion, relevance, quality review, admission, canonical quote checks, timing, process peak RSS, and unresolved cases. Human-reviewed held-out metrics show counts/denominators; absent denominators are `null`, never a perfect score. See [FINAL_STAGE_1.md](FINAL_STAGE_1.md) for measured outcomes and limits.''')
 code('''saved_report = LAB / 'runs/final/run_report.json'
 if saved_report.exists():
     batch = json.loads(saved_report.read_text())

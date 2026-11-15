@@ -1,0 +1,11 @@
+# Gradio, spaces and huggingface_hub are managed by the Spaces SDK.
+docling==2.150.1
+rapidocr==3.10.0
+onnxruntime==1.32.0
+pypdf==7.1.0
+Pillow==13.0.0
+transformers==5.23.0
+# Keep torchvision from silently replacing ZeroGPU's supported torch family.
+torch==2.11.0
+torchvision==0.26.0
+mcp>=1.0,<2

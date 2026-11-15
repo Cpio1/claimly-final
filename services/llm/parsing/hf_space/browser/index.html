@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Parse a PDF or image into readable text and source locations, in your browser.">
+  <title>Claimly · Document parser</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="vendor/tesseract.min.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Claimly parser home"><span class="brand-icon">c<span>·</span></span>claimly<span class="brand-divider"></span><span class="brand-sub">Parsing lab</span></a>
+    <div class="local-pill"><span class="dot"></span> Runs in your browser</div>
+  </header>
+  <main>
+    <section class="intro">
+      <div class="eyebrow">DOCUMENTS, WITH THEIR SOURCES INTACT</div>
+      <h1>Your document,<br><span>made readable.</span></h1>
+      <p>Extract text from a PDF or image. Compare it with the original.<br class="desktop-break"> Keep every page and see where each passage came from.</p>
+    </section>
+    <div class="workspace">
+      <aside class="input-panel panel">
+        <div class="section-heading"><span class="step">01</span><h2>Add a document</h2></div>
+        <label class="dropzone" id="dropzone" for="file-input" tabindex="0">
+          <span class="upload-icon" aria-hidden="true">↥</span>
+          <strong>Drop your document here</strong><span>or <u>choose a file</u></span>
+          <small>PDF, JPEG or PNG · up to 10 MiB · 25 pages</small>
+        </label>
+        <input id="file-input" type="file" accept="application/pdf,image/jpeg,image/png,.pdf,.jpg,.jpeg,.png" hidden>
+        <div id="file-card" class="file-card" hidden><span class="file-symbol" aria-hidden="true">▤</span><div><strong id="file-name"></strong><small id="file-size"></small></div><button id="remove-file" class="icon-button" aria-label="Remove document">×</button></div>
+        <button id="parse" class="primary" disabled>Parse document <span aria-hidden="true">↗</span></button>
+        <div class="examples"><h3>Or try a fictional example</h3>
+          <button class="example" data-example="warranty.pdf"><span class="example-icon">▤</span><span><strong>Limited warranty</strong><small>Native PDF · coverage & exclusions</small></span><span class="arrow">↗</span></button>
+          <button class="example" data-example="scan_pdf.pdf"><span class="example-icon">▧</span><span><strong>Scanned warranty</strong><small>Image-only PDF · OCR</small></span><span class="arrow">↗</span></button>
+          <button class="example" data-example="table_bill.pdf"><span class="example-icon">⊞</span><span><strong>Utility bill</strong><small>PDF · amounts in a table</small></span><span class="arrow">↗</span></button>
+          <button class="example" data-example="multipage_contract.pdf"><span class="example-icon">▥</span><span><strong>Service contract</strong><small>Two pages · conditions & exclusions</small></span><span class="arrow">↗</span></button>
+          <button class="example" data-example="png_scan.png"><span class="example-icon">▧</span><span><strong>Image scan</strong><small>PNG · English OCR</small></span><span class="arrow">↗</span></button>
+        </div>
+        <div class="privacy"><span aria-hidden="true">◇</span><p><strong>Your file stays here.</strong><br>Parsing happens in this browser. No document bytes are uploaded to a parsing server.</p></div>
+      </aside>
+      <section class="result-panel panel" aria-label="Parsing results">
+        <div class="result-heading"><div class="section-heading"><span class="step">02</span><h2>Inspect the result</h2></div><button id="clear" class="text-button">Clear</button></div>
+        <div id="status" class="status" data-state="idle" role="status" aria-live="polite"><span class="status-light"></span><span id="status-text">Loading the parsing engine…</span></div>
+        <div id="progress-track" hidden><div id="progress-bar"></div></div>
+        <div class="tabs" role="tablist" aria-label="Result views">
+          <button id="tab-text" role="tab" aria-selected="true" aria-controls="view-text" data-tab="text">Source & text</button>
+          <button id="tab-quality" role="tab" aria-selected="false" aria-controls="view-quality" data-tab="quality">Quality checks</button>
+          <button id="tab-mapping" role="tab" aria-selected="false" aria-controls="view-mapping" data-tab="mapping">Source locations</button>
+        </div>
+        <div id="empty-state" class="empty-state"><div class="empty-illustration" aria-hidden="true"><div class="sheet sheet-back"></div><div class="sheet sheet-front"><span class="sheet-title"></span><i></i><i></i><i></i><div class="sheet-highlight"></div><i></i></div><span class="verified-mark">✓</span></div><h3>A clearer view of your document</h3><p>The original on one side. Readable text on the other.<br>Source details when you need them.</p></div>
+        <div id="result-content" hidden>
+          <div class="page-toolbar"><label for="page-select">Page</label><select id="page-select"></select><span id="page-method" class="method-pill"></span></div>
+          <section id="view-text" role="tabpanel" aria-labelledby="tab-text">
+            <div class="comparison"><div class="source-column"><div class="column-label">ORIGINAL SOURCE</div><div class="canvas-frame"><canvas id="source-preview" aria-label="Original document page"></canvas></div></div><div class="text-column"><div class="column-label">CANONICAL PAGE TEXT<button id="copy" class="text-button">Copy</button></div><pre id="canonical-text" tabindex="0"></pre></div></div>
+          </section>
+          <section id="view-quality" role="tabpanel" aria-labelledby="tab-quality" hidden><div class="quality-cards"><div><small>Page coverage</small><strong id="coverage-value">—</strong></div><div><small>Source review</small><strong>Required</strong></div><div><small>Remote model calls</small><strong>0</strong></div></div><p class="view-note">These checks describe parsing, not source relevance or factual correctness. Compare amounts, dates and exclusions with the original.</p><pre id="quality-json" class="json-output" tabindex="0"></pre></section>
+          <section id="view-mapping" role="tabpanel" aria-labelledby="tab-mapping" hidden><p class="view-note">Every span points into this page’s canonical text. Coordinates come from PDF text items or OCR recognition; they are not original-file byte offsets.</p><pre id="mapping-json" class="json-output" tabindex="0"></pre></section>
+          <div class="result-footer"><span id="result-meta"></span><a id="download" class="download" download="claimly-parsing.json" aria-disabled="true">Download JSON <span aria-hidden="true">↓</span></a></div>
+        </div>
+        <div class="review-note"><span aria-hidden="true">ⓘ</span><p>Parsing is the first step. <strong>Source review is still required.</strong> This demo does not approve documents or add anything to your Vault.</p></div>
+      </section>
+    </div>
+    <footer><span>CLAIMLY <span class="footer-dot">·</span> PARSING LAB</span><p>PDF.js + Tesseract.js · Browser demo, separate from Claimly’s Docling pipeline.</p><a href="README.md" target="_blank" rel="noopener">How it works ↗</a></footer>
+  </main>
+</body>
+</html>

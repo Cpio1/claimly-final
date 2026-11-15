@@ -1,16 +1,16 @@
-> Upload/chat integration is now implemented as a local service slice; see [the integration guide](../README.md). The current embedding runtime uses Qwen3-Embedding-0.6B. MiniLM length measurements below remain historical audit results. Legal source candidates are still inactive pending review.
+> The internal LLM API is separate from the preserved product backend; see [the service guide](../README.md). Backend AI-worker and retrieval integration remain pending. The current embedding adapter targets hosted Qwen3-Embedding-0.6B; MiniLM measurements below are historical. Legal candidates remain inactive pending review.
 
 # Claimly RAG preparation
 
 **Resume here:** [Next-chat RAG handoff](NEXT_CHAT_HANDOFF.md) — complete current state, code map, latest hosting direction, verification limits and starter prompt.
 
-The single implementation prompt is [RAG_TESTING_PROMPT.md](../parsing/RAG_TESTING_PROMPT.md). It describes a local retrieval notebook; answer generation and production integration are later milestones.
+The single implementation prompt is [RAG_TESTING_PROMPT.md](../parsing/RAG_TESTING_PROMPT.md). It defines supervised evidence retrieval and abstention. Product backend integration and legal activation remain separate milestones.
 
 ## Start here
 
 1. Read the [Stage 1 handoff](../parsing/FINAL_STAGE_1.md) and approved document manifest under `../parsing/rag-handoff/`.
 2. Read `claimly_legal_corpus_kit/README.txt`, `reports/local_audit.json` and `catalog/retrieval_source_plan.json` inside the kit. The source plan contains 14 inactive starter bundles plus three validation/guidance references. Review eligibility before indexing.
-3. Load actual pinned embedding weights, rebuild legal chunks to fit the model, and compare lexical/dense/fused retrieval in a notebook. Existing law chunks are oversized: 1,264 of 1,877 exceed 256 MiniLM tokens.
+3. Select an authorized embedding runtime, rebuild legal chunks to fit its pinned tokenizer, and compare lexical/dense/fused retrieval. The current adapter uses a hosted endpoint; a local embedding adapter is not implemented. Historically, 1,264 of 1,877 legacy chunks exceeded the old 256-token MiniLM budget; that is not a Qwen measurement.
 4. Test source quotes, applicable jurisdictions/versions, missing evidence and private document ownership before adding generation.
 
 ## How the source files are used
@@ -38,7 +38,7 @@ flowchart TD
     E --> T[Retrieval notebook: inspect quotes and missing facts]
     E -. Later chatbot .-> B[Backend assembles authorized context]
     B --> F[FastAPI model adapter]
-    F --> M[DeepSeek API or optional local Ollama]
+    F --> M[Configured hosted Qwen chat endpoint]
     M --> Q[Validate claims, citations and existing output schema]
     Q --> A[Backend returns response to chat UI]
 ```

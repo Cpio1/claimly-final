@@ -1,13 +1,16 @@
 {
   "handoff": "services/llm/rag/NEXT_CHAT_HANDOFF.md",
-  "sha256": "71030c0ada01ef3565e981657587b725233366db29efd4fbd95a2ddacc9762d5",
+  "sha256": "58d84e13b198bbbdd78249c289e019f29a606d4526b857cd44208807d088a21e",
   "current_prompt": "services/llm/parsing/RAG_TESTING_PROMPT.md",
-  "historical_prompt_archive": "services/llm/parsing/.local/archive/RAG_TESTING_PROMPT.retrieval-stage.md",
+  "scope": "LLM package only; existing back/ product is preserved",
+  "backend_path": "back/services/backend",
+  "duplicate_backend": "archived locally; not required by the internal LLM service",
+  "backend_ai_integration": "pending; existing upload jobs remain queued",
+  "entrypoint": "services.llm.run",
+  "environment_template": "services/llm/.env.example",
+  "verification_command": "services/llm/.venv/bin/python -B -m pytest services/llm/tests services/llm/parsing/test_ingestion_lab.py -q -p no:cacheprovider",
+  "live_inference_tested": false,
+  "model_weights_changed": false,
   "back_modified": false,
-  "implementation_changed": true,
-  "latest_test_result": "100 passed; live HF inference and local embedding inference untested",
-  "latest_change": "Focused evidence-free abstention and factual-grounding prompt mitigation; no extra model calls or contract changes.",
-  "product_deployment_prompt": "PRODUCT_DEPLOYMENT_PROMPT.md",
-  "deployment_readiness_audit": "DEPLOYMENT_READINESS.md",
-  "latest_documentation_update": "Full-product deployment prompt and source-based prerequisite audit added. Product source was read, not modified."
+  "contracts_modified": false
 }

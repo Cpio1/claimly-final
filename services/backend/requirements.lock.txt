@@ -1,2 +1,0 @@
-# Shared CPU runtime includes Docling validation and Hugging Face tokenization.
--r ../llm/requirements-runtime.lock.txt

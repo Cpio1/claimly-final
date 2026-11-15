@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claimly live browser validation</title>
+<style>body{font:14px/1.6 system-ui;margin:24px;color:#18352b}h1{font-size:24px}iframe{width:100%;height:620px;border:1px solid #ddd;border-radius:12px}pre{background:#f5f8f4;padding:16px;white-space:pre-wrap}.pass{color:#176547}.fail{color:#a52c2c}button,a{padding:10px}#cases{max-height:400px;overflow:auto}</style>
+<h1>Claimly · live browser validation</h1>
+<p>Tests the deployed private Space through an authenticated loopback bridge. Only fictional fixtures are read. Hub credentials never enter the browser.</p>
+<button id="run" disabled>Run validation</button> <a id="save" hidden download="browser-verification.json">Download verification JSON</a>
+<p id="status" role="status">Loading live app…</p><div id="cases"></div><pre id="summary">Waiting</pre>
+<iframe id="demo" src="/" title="Live parsing demo"></iframe>
+<script type="module">
+const $=id=>document.getElementById(id), pause=ms=>new Promise(r=>setTimeout(r,ms));
+let report={scope:'Actual deployed static app through authenticated loopback QA bridge',cases:[],errors:[],started_at:new Date().toISOString()};
+async function waitFor(fn,timeout=150000){let start=Date.now();while(Date.now()-start<timeout){if(await fn())return;await pause(100);}throw Error('Browser validation timeout');}
+await waitFor(()=>document.querySelector('#demo').contentDocument?.documentElement.dataset.parserReady==='true');
+$('run').disabled=false;$('status').textContent='Live app loaded. Ready to validate.';
+async function inspect(fileName,expect,phrase, frame=$('demo')){
+  const win=frame.contentWindow, doc=frame.contentDocument;
+  let bytes;
+  if(fileName==='over_10mb.pdf')bytes=new Uint8Array(10*1024*1024+1);
+  else bytes=new Uint8Array(await(await fetch('/__qa/fixtures/'+fileName)).arrayBuffer());
+  const file=new win.File([bytes],fileName,{type:fileName.endsWith('.pdf')?'application/pdf':fileName.endsWith('.jpg')?'image/jpeg':fileName.endsWith('.png')?'image/png':'text/plain'});
+  const data=new win.DataTransfer();data.items.add(file);const input=doc.querySelector('#file-input');input.files=data.files;input.dispatchEvent(new win.Event('change',{bubbles:true}));
+  await waitFor(()=>doc.querySelector('#file-name').textContent===fileName&&!doc.querySelector('#parse').disabled);
+  doc.querySelector('#parse').click();await pause(100);
+  await waitFor(()=>!doc.querySelector('#parse').disabled&&doc.querySelector('#status').dataset.state!=='working');
+  const status=doc.querySelector('#status').dataset.state,message=doc.querySelector('#status-text').textContent;
+  const href=doc.querySelector('#download').getAttribute('href');
+  if(expect==='invalid'){
+    if(status!=='error'||href||!doc.querySelector('#result-content').hidden)throw Error('Invalid source retained output: '+message);
+    const reasons={'over_25pages.pdf':'1–25','over_10mb.pdf':'10 MiB','encrypted.pdf':'Password','empty.pdf':'empty','corrupt_pdf.pdf':'damaged','unsupported.txt':'Unsupported'};
+    if(reasons[fileName]&&!message.includes(reasons[fileName]))throw Error('Incorrect failure reason: '+message);
+    return {file:fileName,passed:true,status,message};
+  }
+  if(!href)throw Error('Expected parsed output: '+message);
+  const value=await(await win.fetch(href)).json();
+  const digest=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(n=>n.toString(16).padStart(2,'0')).join('');
+  if(value.source.sha256!==digest)throw Error('Source hash mismatch');
+  if(value.admission!=='not_performed'||value.relevance!=='not_evaluated'||value.source_review!=='required')throw Error('Admission/review boundary violated');
+  if(value.page_count!==value.processed_page_count)throw Error('Incomplete coverage');
+  for(const p of value.pages)for(const m of p.mappings)if(p.text.slice(m.start,m.end)!==m.text)throw Error('Mapping mismatch');
+  const text=value.pages.map(p=>p.text).join('\n');
+  if(phrase&&!text.toLowerCase().includes(phrase.toLowerCase()))throw Error('Expected source text missing: '+phrase);
+  if(expect==='native'&&value.pages.some(p=>p.method!=='native_pdf'))throw Error('Native PDF used unexpected method');
+  if(expect==='ocr'&&value.pages.some(p=>p.method!=='english_ocr'))throw Error('Scanned input did not use OCR');
+  if(expect==='blank'&&value.quality.blank_pages!==1)throw Error('Blank page was not identified');
+  if(fileName==='multipage_contract.pdf'&&value.page_count!==2)throw Error('Lost second contract page');
+  return {file:fileName,passed:true,status,page_count:value.page_count,methods:value.pages.map(p=>p.method),elapsed_seconds:value.elapsed_seconds,source_sha256:digest,text_excerpt:text.slice(0,900),warnings:value.pages.flatMap(p=>p.warnings),download_url:href};
+}
+$('run').onclick=async()=>{
+  $('run').disabled=true;
+  const cases=[['warranty.pdf','native','Excludes accidental damage'],['scan_pdf.pdf','ocr','accidental damage'],['png_scan.png','ocr','accidental damage'],['exif_rotated.jpg','ocr','accidental damage'],['table_bill.pdf','native','42.00'],['multipage_contract.pdf','native','No transfer to another vehicle'],['bill.pdf','native','Total: USD 42.00'],['blank_page.pdf','blank',null],['warranty_misleading_name.pdf','native','apples'],['injection_recipe.pdf','native','invent a benefit'],['corrupt_pdf.pdf','invalid'],['encrypted.pdf','invalid'],['empty.pdf','invalid'],['unsupported.txt','invalid'],['over_25pages.pdf','invalid'],['over_10mb.pdf','invalid']];
+  for(const [file,expected,phrase]of cases){$('status').textContent='Validating '+file+'…';let entry;try{entry=await inspect(file,expected,phrase);}catch(e){entry={file,passed:false,error:e.message};}report.cases.push(entry);const row=document.createElement('p');row.className=entry.passed?'pass':'fail';row.textContent=(entry.passed?'PASS ':'FAIL ')+file+(entry.error?' · '+entry.error:'');$('cases').append(row);$('summary').textContent=JSON.stringify(report,null,2);}
+  // Independent browser contexts retain their own text/hash and object URLs.
+  try{
+    const first=await inspect('warranty.pdf','native','Excludes accidental damage');
+    const second=document.createElement('iframe');second.src='/';second.title='Independent parsing session';document.body.append(second);
+    await waitFor(()=>second.contentDocument?.documentElement.dataset.parserReady==='true');
+    const other=await inspect('multipage_contract.pdf','native','No transfer',second);
+    const current=await(await $('demo').contentWindow.fetch(first.download_url)).json();
+    if(current.source.sha256!==first.source_sha256||first.source_sha256===other.source_sha256||first.download_url===other.download_url)throw Error('Session outputs mixed');
+    report.cases.push({file:'independent_browser_sessions',passed:true});second.remove();
+    $('demo').contentDocument.querySelector('#clear').click();await pause(200);
+    if($('demo').contentDocument.querySelector('#download').getAttribute('href'))throw Error('Clear retained download');
+    report.cases.push({file:'clear_discards_result',passed:true});
+  }catch(e){report.cases.push({file:'session_isolation_and_clear',passed:false,error:e.message});}
+  report.requests=await(await fetch('/__qa/network')).json();
+  report.cases.push({file:'no_document_upload_requests_to_app',passed:report.requests.every(r=>r.method==='GET')});
+  report.finished_at=new Date().toISOString();report.passed=report.cases.filter(c=>c.passed).length;report.failed=report.cases.filter(c=>!c.passed).length;
+  await fetch('/__qa/report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(report)});
+  $('status').textContent=`Validation complete: ${report.passed} passed, ${report.failed} failed.`;$('summary').textContent=JSON.stringify(report,null,2);
+  $('save').href=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:'application/json'}));$('save').hidden=false;$('run').disabled=false;
+};
+</script></html>

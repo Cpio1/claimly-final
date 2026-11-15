@@ -4,6 +4,8 @@ services/llm/parsing/.models/
 services/llm/parsing/runs/
 .graphify-venv/
 .local/
+# Separate third-party reference checkout; not part of the Claimly contribution.
+Soup/
 services/llm/parsing/.local/
 services/llm/parsing/rag-handoff/checkpoints/
 services/llm/parsing/rag-handoff/sources/

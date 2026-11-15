@@ -1,23 +1,36 @@
-node_modules/
-.next/
-dist/
-build/
-
-__pycache__/
-*.pyc
+# Local environments and tooling
 .venv/
-venv/
+.venv-rag/
+.graphify-venv/
+.tools/
+# Disposable local output and caches
+.local/
+**/__pycache__/
+**/.pytest_cache/
+**/.ipynb_checkpoints/
+**/.DS_Store
+**/.Rhistory
+# User-supplied raw samples remain local by default
+generated-test/
 
+# Upload/chat runtime secrets, private state and downloaded tokenizers
 .env
 .env.*
 !.env.example
-!.env.*.example
+services/backend/.data/
+services/llm/.hf-models/
+**/__pycache__/
 
-.DS_Store
-*.log
+# Frontend dependencies and generated build output
+node_modules/
+.next/
+*.tsbuildinfo
 
-*.safetensors
-*.gguf
-*.pt
-*.pth
-*.ckpt
+# Downloaded local assets and machine-specific configuration
+.models/
+/docs-sm/
+model.safetensors
+/.codex/*.toml
+
+# Third-party reference checkout has its own Git repository
+/Soup/

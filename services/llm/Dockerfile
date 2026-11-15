@@ -9,7 +9,7 @@ COPY services/llm/parsing/ingestion_lab.py services/llm/parsing/ingestion_lab.py
 COPY services/llm/rag/runtime.py services/llm/rag/runtime.py
 COPY services/llm/hf-models.lock.json services/llm/hf-models.lock.json
 COPY services/llm/check_hf.py services/llm/check_hf.py
-COPY services/backend/ services/backend/
-COPY services/envfile.py services/envfile.py
+COPY services/llm/envfile.py services/llm/envfile.py
+COPY services/llm/run.py services/llm/run.py
 ENV PYTHONDONTWRITEBYTECODE=1 HF_HUB_OFFLINE=1
 CMD ["python","-B","-m","uvicorn","services.llm.app.main:app","--host","0.0.0.0","--port","8001","--no-access-log"]

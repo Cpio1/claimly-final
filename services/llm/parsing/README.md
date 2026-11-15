@@ -48,7 +48,7 @@ A retry gets a different processing identity. It does not silently replace the s
 - `evaluation_manifest.json`: sorted one-per-folder docs-sm smoke sample plus fictional coverage. Labels are agent visual-review proposals or fixture-author expectations, not human-reviewed labels. Unreviewed cases stay unscored.
 - `model-assets.lock.json`, `requirements.lock.txt`: local model/tokenizer hashes and resolved package pins.
 - `runs/final/run_report.json`: complete per-case measured outcomes, timings, warnings, source checks, admission, and held-out metrics with denominators.
-- `RESULTS.md`: readable results, unresolved cases and scope limits.
+- `FINAL_STAGE_1.md`: readable results, unresolved cases and scope limits.
 - `runs/*/diagnostics/`: rejected/review/invalid diagnostics, separated from accepted conversion artifacts.
 - `runs/*/accepted/<document_id>/<version>/<processing_hash>/`: reviewed internal Docling JSON, manifest, canonical pages, source-linked JSONL chunks, and page images.
 
@@ -66,7 +66,7 @@ Checkpoints are immutable per processing identity and integrity-checked on reuse
 
 ## Before production approval
 
-Human-review expected labels and fix unresolved conversion/relevance cases; add genuine phone photographs and broader realistic consumer documents; evaluate a stronger semantic classifier and blind held-out outcomes; tune the chunk budget on longer clauses/tables; test later retrieval/session/version boundaries. Text-model field extraction remains a separate later branch. See `DOCLING_PLAN.md` and `NEXT_CONVERSATION.md` for the approval boundary.
+Human-review expected labels and fix unresolved conversion/relevance cases; add genuine phone photographs and broader realistic consumer documents; evaluate a stronger semantic classifier and blind held-out outcomes; tune the chunk budget on longer clauses/tables; test later retrieval/session/version boundaries. Text-model field extraction remains a separate branch from this notebook. See `DOCLING_PLAN.md`, `FINAL_STAGE_1.md`, and [the current LLM service guide](../README.md) for scope and integration limits. Earlier planning notes are retained in the ignored local archive.
 
 Official APIs were checked against the local source and [pipeline options](https://docling-project.github.io/docling/usage/advanced_options/), [chunking](https://docling-project.github.io/docling/concepts/chunking/), and [serialization](https://docling-project.github.io/docling/_generated/examples/serialization/).
 

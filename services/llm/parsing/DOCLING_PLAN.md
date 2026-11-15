@@ -8,7 +8,7 @@ Build and test one ingestion flow for PDF, JPEG, and PNG inputs:
 
 Raw file -> validation -> configured Docling pipeline -> DoclingDocument -> conversion-quality and relevance checks -> accepted document JSON checkpoint and/or retrieval-ready chunks.
 
-Use [docs-sm](docs-sm/) at services/llm/parsing/docs-sm as the primary local corpus for parsing robustness and rejection testing. Evaluate actual content against Claimly's supported-document policy before admitting it to the Vault or retrieval corpus. Conversion success alone does not establish relevance.
+Use the repository's [docs-sm](../../../docs-sm/) corpus for parsing robustness and rejection testing. Evaluate actual content against Claimly's supported-document policy before admitting it to the Vault or retrieval corpus. Conversion success alone does not establish relevance.
 
 This is the current parsing plan. It replaces the earlier text-PDF-only routing proposal and the direct-model-first experiment as the selected approach for the next notebook work. OCR is included for scanned pages and photos. CSV export and chatbot implementation are outside this stage.
 
@@ -81,7 +81,7 @@ Done when: expected content and source locations are present and incomplete resu
 
 ## Step 4a — Check relevance before upload acceptance
 
-Classify actual readable content, using the policy in [the notebook handoff](NEXT_CONVERSATION.md#5-enforce-the-clarified-document-policy). Supported content includes purchase receipts/bills, warranties, insurance, service agreements/contracts, gift certificates/vouchers, memberships/subscriptions, refund confirmations, and relevant correspondence.
+Classify actual readable content, using the policy below and the [Stage 1 report](FINAL_STAGE_1.md#6-relevance-dates-and-rules). Supported content includes purchase receipts/bills, warranties, insurance, service agreements/contracts, gift certificates/vouchers, memberships/subscriptions, refund confirmations, and relevant correspondence.
 
 Use the existing contract categories: receipt, warranty, insurance, service_agreement, service_contract, gift_certificate, subscription, membership, refund_confirmation, correspondence, and other. The other category does not automatically admit unrelated content.
 
@@ -201,7 +201,7 @@ Done when: field values and evidence match known expectations and the existing c
 
 ### Local docs-sm corpus
 
-Use services/llm/parsing/docs-sm (relative to the notebook: docs-sm/). The local inventory currently contains 5,000 JPEGs across 16 folders. Folder names describe document/layout types; they are not Claimly relevance ground truth.
+The corpus is at repository-root `docs-sm/` (relative to the notebook: `../../../docs-sm/`). The local inventory currently contains 5,000 JPEGs across 16 folders. Folder names describe document/layout types; they are not Claimly relevance ground truth.
 
 | Folder group | Test purpose and labeling rule |
 | --- | --- |
