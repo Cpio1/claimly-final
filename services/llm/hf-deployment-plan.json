@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "provisioned": false,
+  "requires_hf_account_and_billing": true,
+  "secrets_included": false,
+  "embedding": {
+    "repository": "Qwen/Qwen3-Embedding-0.6B",
+    "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "engine": "Text Embeddings Inference (TEI)",
+    "access": "protected",
+    "dimension": 1024,
+    "normalize": true,
+    "application_chunk_budget": 768,
+    "hardware": "Small CPU endpoint for initial benchmark; move to GPU only if latency/throughput requires it.",
+    "prediction_url": "Copy exact URL from endpoint-generated curl; application does not append a path."
+  },
+  "chat": {
+    "repository": "Qwen/Qwen3.8-27B",
+    "revision": "37561816e66b5b9153b1b64c10968c18c1e6f4a0",
+    "engine": "vLLM",
+    "access": "protected",
+    "precision": "BF16/FP16 initially; quantization is a separate evaluated deployment.",
+    "hardware": "80 GB VRAM starting sizing estimate for unquantized 27B; confirm available hardware/region and benchmark.",
+    "max_model_len": 32768,
+    "application_total_token_budget": 24000,
+    "max_output_tokens": 2048,
+    "initial_concurrency": 1,
+    "thinking": false,
+    "response_format": "json_object"
+  },
+  "operations": [
+    "Record actual endpoint URLs and engine image/version after provisioning.",
+    "Deploy both models at the exact pinned revisions.",
+    "Warm endpoints before the first live upload; account for scale-to-zero cold starts.",
+    "Keep HF_TOKEN server-side and grant only the needed endpoint inference access.",
+    "Run python -m services.llm.check_hf --live explicitly to verify paid inference.",
+    "Run the local upload/review/chat workflow, then the production Postgres/Supabase integration checks."
+  ],
+  "cost_note": "Dedicated endpoints incur hosting charges. This file is a reviewable deployment plan, not a provisioning action."
+}

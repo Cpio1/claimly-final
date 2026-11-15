@@ -1,0 +1,35 @@
+﻿row_id,citation,verification,reason
+GA-udap,Ga. Code Ann. §§ 10-1-390 to 10-1-407,source+model,NOT downloaded: Georgia's official code is published only through LexisNexis (JavaScript application); legis.ga.gov does not host the code. Citation not checked against an official page.
+NY-udap,N.Y. Exec. Law § 63(12); N.Y. Gen. Bus. Law §§ 349 and 350,source+model,"NOT downloaded: nysenate.gov answers scripts with a JavaScript challenge (HTTP 403); the LBDC site (public.leginfo.state.ny.us) is a JavaScript, session-token application; the Open Legislation API (legislation.nysenate.gov/api/3) needs a free API key. Citation not checked against an official page."
+GA-lemon_law,Ga. Code § 10-1-780 et seq.,source+model,NOT downloaded: Georgia's official code is published only through LexisNexis (JavaScript application); legis.ga.gov does not host the code. Citation not checked against an official page.
+NY-lemon_law,N.Y. Gen. Bus. Law § 198-a,source+model,"NOT downloaded: nysenate.gov answers scripts with a JavaScript challenge (HTTP 403); the LBDC site (public.leginfo.state.ny.us) is a JavaScript, session-token application; the Open Legislation API (legislation.nysenate.gov/api/3) needs a free API key. Citation not checked against an official page."
+GA-gift_cards,Ga. Code § 10-1-393(b)(33),source,NOT downloaded: Georgia's official code is published only through LexisNexis (JavaScript application); legis.ga.gov does not host the code. Citation not checked against an official page.
+NY-gift_cards,N.Y. Gen. Bus. Law § 396-i,source,"NOT downloaded: nysenate.gov answers scripts with a JavaScript challenge (HTTP 403); the LBDC site (public.leginfo.state.ny.us) is a JavaScript, session-token application; the Open Legislation API (legislation.nysenate.gov/api/3) needs a free API key. Citation not checked against an official page."
+PA-gift_cards,,none_listed,no statute listed in the catalog
+GA-auto_renewal,O.C.G.A. §§ 13-12-1 to 13-12-5,source,NOT downloaded: Georgia's official code is published only through LexisNexis (JavaScript application); legis.ga.gov does not host the code. Citation not checked against an official page.
+MI-auto_renewal,,none_listed,no statute listed in the catalog
+NY-auto_renewal,"N.Y. Gen. Bus. Law §§ 527, 527-a; N.Y. Gen. Oblig. Law § 5-903",source,"NOT downloaded: nysenate.gov answers scripts with a JavaScript challenge (HTTP 403); the LBDC site (public.leginfo.state.ny.us) is a JavaScript, session-token application; the Open Legislation API (legislation.nysenate.gov/api/3) needs a free API key. Citation not checked against an official page."
+OH-auto_renewal,,none_listed,no statute listed in the catalog
+TX-auto_renewal,,none_listed,no statute listed in the catalog
+GA-service_contracts,Ga. Code Ann. § 33-7-6; Ga. Comp. R. & Regs. 120-2-47-.01 to 120-2-47-.14 (motor vehicle service contracts),source,NOT downloaded: Georgia's official code is published only through LexisNexis (JavaScript application); legis.ga.gov does not host the code. Citation not checked against an official page.
+MI-service_contracts,,none_listed,no statute listed in the catalog
+NY-service_contracts,"N.Y. Ins. Law §§ 7901 to 7913; N.Y. Comp. Codes R. & Regs. tit. 11, §§ 390.1 to 390.13",source,"NOT downloaded: nysenate.gov answers scripts with a JavaScript challenge (HTTP 403); the LBDC site (public.leginfo.state.ny.us) is a JavaScript, session-token application; the Open Legislation API (legislation.nysenate.gov/api/3) needs a free API key. Citation not checked against an official page."
+PA-service_contracts,,none_listed,no statute listed in the catalog
+GA-unfair_claims,Ga. Code Ann. §§ 33-6-30 to 33-6-37,source,NOT downloaded: Georgia's official code is published only through LexisNexis (JavaScript application); legis.ga.gov does not host the code. Citation not checked against an official page.
+NY-unfair_claims,N.Y. Ins. Law § 2601,source,"NOT downloaded: nysenate.gov answers scripts with a JavaScript challenge (HTTP 403); the LBDC site (public.leginfo.state.ny.us) is a JavaScript, session-token application; the Open Legislation API (legislation.nysenate.gov/api/3) needs a free API key. Citation not checked against an official page."
+GA-refund_policy,,none_listed,no statute listed in the catalog
+IL-refund_policy,,none_listed,no statute listed in the catalog
+MI-refund_policy,,none_listed,no statute listed in the catalog
+NY-refund_policy,N.Y. Gen. Bus. Law § 218-a,model-high,"NOT downloaded: nysenate.gov answers scripts with a JavaScript challenge (HTTP 403); the LBDC site (public.leginfo.state.ny.us) is a JavaScript, session-token application; the Open Legislation API (legislation.nysenate.gov/api/3) needs a free API key. Citation not checked against an official page."
+NC-refund_policy,,none_listed,no statute listed in the catalog
+OH-refund_policy,,rule_only,no citation
+PA-refund_policy,,none_listed,no statute listed in the catalog
+TX-refund_policy,,none_listed,no statute listed in the catalog
+GA-home_solicitation,O.C.G.A. § 10-1-6,model-medium,NOT downloaded: Georgia's official code is published only through LexisNexis (JavaScript application); legis.ga.gov does not host the code. Citation not checked against an official page.
+NY-home_solicitation,N.Y. Pers. Prop. Law §§ 425 to 431,model-high,"NOT downloaded: nysenate.gov answers scripts with a JavaScript challenge (HTTP 403); the LBDC site (public.leginfo.state.ny.us) is a JavaScript, session-token application; the Open Legislation API (legislation.nysenate.gov/api/3) needs a free API key. Citation not checked against an official page."
+GA-ucc_warranties,O.C.G.A. §§ 11-2-313 to 11-2-318,model-high,NOT downloaded: Georgia's official code is published only through LexisNexis (JavaScript application); legis.ga.gov does not host the code. Citation not checked against an official page.
+NY-ucc_warranties,N.Y. U.C.C. Law §§ 2-313 to 2-318,model-high,"NOT downloaded: nysenate.gov answers scripts with a JavaScript challenge (HTTP 403); the LBDC site (public.leginfo.state.ny.us) is a JavaScript, session-token application; the Open Legislation API (legislation.nysenate.gov/api/3) needs a free API key. Citation not checked against an official page."
+FL-small_claims,Fla. Sm. Cl. R. 7.010(b),source,"NOT downloaded: court rule, published as PDF (Florida Bar / Florida Supreme Court), not on the statutes site."
+GA-small_claims,O.C.G.A. § 15-10-2(5),source,NOT downloaded: Georgia's official code is published only through LexisNexis (JavaScript application); legis.ga.gov does not host the code. Citation not checked against an official page.
+IL-small_claims,Ill. Sup. Ct. R. 281 to 289,source,"NOT downloaded: Supreme Court Rules are PDFs on illinoiscourts.gov, not in the ILCS repository."
+NY-small_claims,N.Y. City Civ. Ct. Act § 1801,source,"NOT downloaded: nysenate.gov answers scripts with a JavaScript challenge (HTTP 403); the LBDC site (public.leginfo.state.ny.us) is a JavaScript, session-token application; the Open Legislation API (legislation.nysenate.gov/api/3) needs a free API key. Citation not checked against an official page."

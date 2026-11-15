@@ -1,0 +1,113 @@
+{
+  "serializer_version": "claimly-pages-v2",
+  "pages": [
+    {
+      "page": 1,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT\nGift certificate\nFictional Bright Dental. Customer: Alex Example. Valid for four dental cleaning services. Redeem with certificate code DEMO-004. Printed expiry: 2027-12-31. Appointment required. No statement about previously used services.\nFictional test source | Page 1",
+      "needs_review": false
+    }
+  ],
+  "item_map": [
+    {
+      "item_ref": "#/texts/0",
+      "page": 1,
+      "start": 0,
+      "end": 54,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        54
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 764.462,
+            "r": 328.041,
+            "b": 756.137,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/1",
+      "page": 1,
+      "start": 55,
+      "end": 71,
+      "text": "Gift certificate",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        16
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 728.924,
+            "r": 175.032,
+            "b": 712.274,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/2",
+      "page": 1,
+      "start": 72,
+      "end": 295,
+      "text": "Fictional Bright Dental. Customer: Alex Example. Valid for four dental cleaning services. Redeem with certificate code DEMO-004. Printed expiry: 2027-12-31. Appointment required. No statement about previously used services.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        223
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 688.616,
+            "r": 480.8280000000003,
+            "b": 602.516,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/3",
+      "page": 1,
+      "start": 296,
+      "end": 326,
+      "text": "Fictional test source | Page 1",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        30
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 42.46199999999999,
+            "r": 169.89299999999997,
+            "b": 34.136999999999944,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    }
+  ],
+  "mapping_issues": []
+}

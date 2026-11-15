@@ -1,0 +1,28 @@
+{
+  "status": "Notebook/export experiment finalized; production not implemented or approved.",
+  "baseline_cases": 55,
+  "baseline_outcomes": {
+    "uncertain": 11,
+    "out_of_scope": 14,
+    "unreadable": 2,
+    "relevant": 20,
+    "invalid_file": 8
+  },
+  "baseline_admitted": 19,
+  "baseline_chunks": 21,
+  "new_generated_cases": 3,
+  "generated_admitted": 1,
+  "human_review_count": 12,
+  "human_prediction_matches": 5,
+  "human_prediction_differences": 7,
+  "rag_checkpoint_count": 20,
+  "rag_default_active_documents": 12,
+  "rag_default_active_chunks": 13,
+  "rag_seed_queries": 12,
+  "shared_contracts_changed": false,
+  "paid_calls": 0,
+  "embedding_calls": 0,
+  "final_tests_passed": 61,
+  "cleanup_removed_bytes": 162414968,
+  "current_title_period_policy": "claimly-content-rules-v3-title-period"
+}

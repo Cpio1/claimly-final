@@ -1,0 +1,409 @@
+{
+  "schema_version": "claimly-legal-source-plan-v1",
+  "as_of": "2026-11-15",
+  "purpose": "Curated retrieval-test candidates; does not build or authorize an active legal index.",
+  "default_active": false,
+  "bundles": [
+    {
+      "catalog_id": "USC-01",
+      "citation": "15 U.S.C. 2301 to 2312",
+      "topic": "warranty",
+      "jurisdiction": "US",
+      "record_count": 12,
+      "record_ids": [
+        "us-usc-15-2301",
+        "us-usc-15-2302",
+        "us-usc-15-2303",
+        "us-usc-15-2304",
+        "us-usc-15-2305",
+        "us-usc-15-2306",
+        "us-usc-15-2307",
+        "us-usc-15-2308",
+        "us-usc-15-2309",
+        "us-usc-15-2310",
+        "us-usc-15-2311",
+        "us-usc-15-2312"
+      ],
+      "sample_source_url": "https://uscode.house.gov/us/usc/t15/s2301/",
+      "source_kind": "statute",
+      "snapshot_versions": [
+        "119-142"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "CFR-01",
+      "citation": "16 CFR Part 700",
+      "topic": "warranty",
+      "jurisdiction": "US",
+      "record_count": 12,
+      "record_ids": [
+        "us-cfr-16-700.1",
+        "us-cfr-16-700.2",
+        "us-cfr-16-700.3",
+        "us-cfr-16-700.4",
+        "us-cfr-16-700.5",
+        "us-cfr-16-700.6",
+        "us-cfr-16-700.7",
+        "us-cfr-16-700.8",
+        "us-cfr-16-700.9",
+        "us-cfr-16-700.10",
+        "us-cfr-16-700.11",
+        "us-cfr-16-700.12"
+      ],
+      "sample_source_url": "https://www.ecfr.gov/current/title-16/section-700.1",
+      "source_kind": "regulation",
+      "snapshot_versions": [
+        "2026-11-12"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "CFR-08",
+      "citation": "16 CFR Part 429",
+      "topic": "cancellation",
+      "jurisdiction": "US",
+      "record_count": 4,
+      "record_ids": [
+        "us-cfr-16-429.0",
+        "us-cfr-16-429.1",
+        "us-cfr-16-429.2",
+        "us-cfr-16-429.3"
+      ],
+      "sample_source_url": "https://www.ecfr.gov/current/title-16/section-429.0",
+      "source_kind": "regulation",
+      "snapshot_versions": [
+        "2026-11-12"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "CFR-09",
+      "citation": "16 CFR Part 435",
+      "topic": "refunds",
+      "jurisdiction": "US",
+      "record_count": 3,
+      "record_ids": [
+        "us-cfr-16-435.1",
+        "us-cfr-16-435.2",
+        "us-cfr-16-435.3"
+      ],
+      "sample_source_url": "https://www.ecfr.gov/current/title-16/section-435.1",
+      "source_kind": "regulation",
+      "snapshot_versions": [
+        "2026-11-12"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "USC-05",
+      "citation": "15 U.S.C. 8401 to 8405",
+      "topic": "subscriptions",
+      "jurisdiction": "US",
+      "record_count": 5,
+      "record_ids": [
+        "us-usc-15-8401",
+        "us-usc-15-8402",
+        "us-usc-15-8403",
+        "us-usc-15-8404",
+        "us-usc-15-8405"
+      ],
+      "sample_source_url": "https://uscode.house.gov/us/usc/t15/s8401/",
+      "source_kind": "statute",
+      "snapshot_versions": [
+        "119-142"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "CFR-14",
+      "citation": "12 CFR Part 1005",
+      "topic": "payments_gift_cards",
+      "jurisdiction": "US",
+      "record_count": 30,
+      "record_ids": [
+        "us-cfr-12-1005.1",
+        "us-cfr-12-1005.2",
+        "us-cfr-12-1005.3",
+        "us-cfr-12-1005.4",
+        "us-cfr-12-1005.5",
+        "us-cfr-12-1005.6",
+        "us-cfr-12-1005.7",
+        "us-cfr-12-1005.8",
+        "us-cfr-12-1005.9",
+        "us-cfr-12-1005.10",
+        "us-cfr-12-1005.11",
+        "us-cfr-12-1005.12",
+        "us-cfr-12-1005.13",
+        "us-cfr-12-1005.14",
+        "us-cfr-12-1005.15",
+        "us-cfr-12-1005.16",
+        "us-cfr-12-1005.17",
+        "us-cfr-12-1005.18",
+        "us-cfr-12-1005.19",
+        "us-cfr-12-1005.20",
+        "us-cfr-12-1005.30",
+        "us-cfr-12-1005.31",
+        "us-cfr-12-1005.32",
+        "us-cfr-12-1005.33",
+        "us-cfr-12-1005.34",
+        "us-cfr-12-1005.35",
+        "us-cfr-12-1005.36",
+        "us-cfr-12-appendix-a-to-part-1005",
+        "us-cfr-12-appendix-c-to-part-1005",
+        "us-cfr-12-supplement-i-to-part-1005"
+      ],
+      "sample_source_url": "https://www.ecfr.gov/current/title-12/section-1005.1",
+      "source_kind": "regulation",
+      "snapshot_versions": [
+        "2026-11-12"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "CFR-15",
+      "citation": "12 CFR Part 1026 (§ 1026.12, § 1026.13)",
+      "topic": "payments",
+      "jurisdiction": "US",
+      "record_count": 2,
+      "record_ids": [
+        "us-cfr-12-1026.12",
+        "us-cfr-12-1026.13"
+      ],
+      "sample_source_url": "https://www.ecfr.gov/current/title-12/section-1026.12",
+      "source_kind": "regulation",
+      "snapshot_versions": [
+        "2026-11-12"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "CFR-19",
+      "citation": "14 CFR Part 260",
+      "topic": "travel",
+      "jurisdiction": "US",
+      "record_count": 11,
+      "record_ids": [
+        "us-cfr-14-260.1",
+        "us-cfr-14-260.2",
+        "us-cfr-14-260.3",
+        "us-cfr-14-260.4",
+        "us-cfr-14-260.5",
+        "us-cfr-14-260.6",
+        "us-cfr-14-260.7",
+        "us-cfr-14-260.8",
+        "us-cfr-14-260.9",
+        "us-cfr-14-260.10",
+        "us-cfr-14-260.11"
+      ],
+      "sample_source_url": "https://www.ecfr.gov/current/title-14/section-260.1",
+      "source_kind": "regulation",
+      "snapshot_versions": [
+        "2026-11-12"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "CFR-21",
+      "citation": "45 CFR Part 149",
+      "topic": "insurance",
+      "jurisdiction": "US",
+      "record_count": 24,
+      "record_ids": [
+        "us-cfr-45-149.10",
+        "us-cfr-45-149.20",
+        "us-cfr-45-149.30",
+        "us-cfr-45-149.100",
+        "us-cfr-45-149.110",
+        "us-cfr-45-149.120",
+        "us-cfr-45-149.130",
+        "us-cfr-45-149.140",
+        "us-cfr-45-149.150",
+        "us-cfr-45-149.310",
+        "us-cfr-45-149.410",
+        "us-cfr-45-149.420",
+        "us-cfr-45-149.430",
+        "us-cfr-45-149.440",
+        "us-cfr-45-149.450",
+        "us-cfr-45-149.510",
+        "us-cfr-45-149.520",
+        "us-cfr-45-149.530",
+        "us-cfr-45-149.610",
+        "us-cfr-45-149.620",
+        "us-cfr-45-149.710",
+        "us-cfr-45-149.720",
+        "us-cfr-45-149.730",
+        "us-cfr-45-149.740"
+      ],
+      "sample_source_url": "https://www.ecfr.gov/current/title-45/section-149.10",
+      "source_kind": "regulation",
+      "snapshot_versions": [
+        "2026-11-12"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "CFR-22",
+      "citation": "29 CFR Part 2560 (§ 2560.503-1)",
+      "topic": "insurance",
+      "jurisdiction": "US",
+      "record_count": 1,
+      "record_ids": [
+        "us-cfr-29-2560.503-1"
+      ],
+      "sample_source_url": "https://www.ecfr.gov/current/title-29/section-2560.503-1",
+      "source_kind": "regulation",
+      "snapshot_versions": [
+        "2026-11-12"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "CA-gift_cards",
+      "citation": "Cal. Civ. Code §§ 1749.45, 1749.5",
+      "topic": "gift_cards",
+      "jurisdiction": "CA",
+      "record_count": 4,
+      "record_ids": [
+        "ca-civ-1749.5-1-gift_cards",
+        "ca-civ-1749.6-2-gift_cards",
+        "ca-civ-1749.45-3-gift_cards",
+        "ca-civ-1749.51-4-gift_cards"
+      ],
+      "sample_source_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1749.5.",
+      "source_kind": "statute",
+      "snapshot_versions": [
+        "https://downloads.leginfo.legislature.ca.gov/pubinfo_2025.zip"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "CA-auto_renewal",
+      "citation": "Cal. Bus. & Prof. Code §§ 17600 to 17606",
+      "topic": "auto_renewal",
+      "jurisdiction": "CA",
+      "record_count": 7,
+      "record_ids": [
+        "ca-bpc-17600-1-auto_renewal",
+        "ca-bpc-17601-2-auto_renewal",
+        "ca-bpc-17602-3-auto_renewal",
+        "ca-bpc-17603-4-auto_renewal",
+        "ca-bpc-17604-5-auto_renewal",
+        "ca-bpc-17605-6-auto_renewal",
+        "ca-bpc-17606-7-auto_renewal"
+      ],
+      "sample_source_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=17600.",
+      "source_kind": "statute",
+      "snapshot_versions": [
+        "https://downloads.leginfo.legislature.ca.gov/pubinfo_2025.zip"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "TX-ucc_warranties",
+      "citation": "Tex. Bus. & Com. Code §§ 2.313 to 2.318",
+      "topic": "ucc_warranties",
+      "jurisdiction": "TX",
+      "record_count": 1,
+      "record_ids": [
+        "tx-ucc_warranties-1"
+      ],
+      "sample_source_url": "https://tcss.legis.texas.gov/resources/BC/htm/BC.2.htm",
+      "source_kind": "statute_or_rule",
+      "snapshot_versions": [
+        "unversioned"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    },
+    {
+      "catalog_id": "FL-refund_policy",
+      "citation": "Fla. Stat. § 501.142",
+      "topic": "refund_policy",
+      "jurisdiction": "FL",
+      "record_count": 1,
+      "record_ids": [
+        "fl-refund_policy-1"
+      ],
+      "sample_source_url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.142.html",
+      "source_kind": "statute_or_rule",
+      "snapshot_versions": [
+        "unversioned"
+      ],
+      "active": false,
+      "review_state": "needs_version_pinpoint_and_applicability_review",
+      "selection_reason": "Starter coverage for source-grounded warranty, refund, subscription, gift-card, payment, travel or insurance retrieval tests; not a claim that this bundle applies to every case."
+    }
+  ],
+  "external_references": [
+    {
+      "id": "cfpb-gift-cards-crosscheck",
+      "url": "https://www.consumerfinance.gov/rules-policy/regulations/1005/20/",
+      "role": "Agency-hosted regulation and official interpretations; tag paragraph authority separately; cross-check existing CFR text instead of counting it as independent corroboration.",
+      "type": "agency_regulation_and_interpretation",
+      "discovery_checked_on": "2026-11-15",
+      "body_downloaded_to_kit": false,
+      "active": false,
+      "review_state": "candidate_only"
+    },
+    {
+      "id": "ftc-warranty-guidance",
+      "url": "https://consumer.ftc.gov/articles/warranties",
+      "role": "Candidate consumer explanation only; nonbinding guidance, not statutory text.",
+      "type": "agency_consumer_guidance",
+      "discovery_checked_on": "2026-11-15",
+      "body_downloaded_to_kit": false,
+      "active": false,
+      "review_state": "candidate_only"
+    },
+    {
+      "id": "govinfo-cfr-validation",
+      "url": "https://www.govinfo.gov/help/cfr",
+      "role": "Publication/version validation reference; not a consumer entitlement or answer-evidence chunk.",
+      "type": "publication_metadata",
+      "discovery_checked_on": "2026-11-15",
+      "body_downloaded_to_kit": false,
+      "active": false,
+      "review_state": "candidate_only"
+    }
+  ],
+  "coverage_gaps": [
+    "NY and GA have no downloaded text.",
+    "Other state/topic gaps remain; see reports/local_audit.json.",
+    "Merchant terms/policies, transaction-specific jurisdiction and historical effective intervals require separate source collection/review.",
+    "No court-effect/amendment/exception completeness certification has been performed."
+  ],
+  "admission_requirements": [
+    "Verify snapshot and raw/source hashes.",
+    "Resolve exact section/subsection and source URL.",
+    "Review version, operative/effective dates and authority status against primary sources.",
+    "Review scope/definitions/exclusions and cross-references.",
+    "Map exact quotes to canonical section text and enforce embedding token limit.",
+    "Record explicit reviewed eligibility for a particular legal test namespace/as_of; default remains inactive."
+  ]
+}

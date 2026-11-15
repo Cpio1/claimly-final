@@ -1,0 +1,138 @@
+{
+  "serializer_version": "claimly-pages-v2",
+  "pages": [
+    {
+      "page": 1,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT\nLimited warranty\nFictional Cedar Electronics. Customer: Alex Example.\nLaptop model L1 purchased on 2026-01-04. Coverage lasts 24 months from purchase. Excludes accidental damage and liquid damage. Contact service through the original purchase store.\nFictional test source  Page 1",
+      "needs_review": false
+    }
+  ],
+  "item_map": [
+    {
+      "item_ref": "#/texts/0",
+      "page": 1,
+      "start": 0,
+      "end": 54,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        54
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 107.31187947591145,
+            "t": 1554.3845825195312,
+            "r": 663.8362630208334,
+            "b": 1539.2787373860676,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/1",
+      "page": 1,
+      "start": 55,
+      "end": 71,
+      "text": "Limited warranty",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        16
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 110.63937377929688,
+            "t": 1472.1416422526042,
+            "r": 410.9462483723958,
+            "b": 1444.4475911458333,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/2",
+      "page": 1,
+      "start": 72,
+      "end": 124,
+      "text": "Fictional Cedar Electronics. Customer: Alex Example.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        52
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 117.29437255859375,
+            "t": 1397.4516194661458,
+            "r": 693.7837727864584,
+            "b": 1389.0594889322917,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/3",
+      "page": 1,
+      "start": 125,
+      "end": 304,
+      "text": "Laptop model L1 purchased on 2026-01-04. Coverage lasts 24 months from purchase. Excludes accidental damage and liquid damage. Contact service through the original purchase store.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        179
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 120.6218770345052,
+            "t": 1339.545878092448,
+            "r": 690.4562174479166,
+            "b": 1190.1658528645833,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/4",
+      "page": 1,
+      "start": 305,
+      "end": 334,
+      "text": "Fictional test source  Page 1",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        29
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 205.4731241861979,
+            "t": 100.02718098958326,
+            "r": 448.380615234375,
+            "b": 88.2783203125,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    }
+  ],
+  "mapping_issues": []
+}

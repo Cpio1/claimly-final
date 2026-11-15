@@ -1,0 +1,13 @@
+# Reproducible local environments, source corpora and generated scratch output
+.models/
+runs/
+docs-sm/
+fixtures/
+.local/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+.Rhistory
+fixture_preview.png
+preview-*.png

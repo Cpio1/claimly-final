@@ -1,0 +1,20 @@
+# Direct runtime dependencies pinned to the tested environment. See runtime-environment.json for the full resolved snapshot.
+fastapi==0.163.0
+starlette==1.10.0
+uvicorn==0.54.0
+python-multipart==0.0.33
+httpx==0.28.1
+jsonschema==4.26.0
+pydantic==2.14.3
+psycopg==3.3.9
+psycopg-binary==3.3.9
+huggingface-hub==1.33.0
+transformers==5.23.0
+tokenizers==0.23.3
+numpy==2.5.4
+Pillow==13.0.0
+pypdf==7.1.0
+docling==2.150.1
+rapidocr==3.10.0
+onnxruntime==1.32.0
+torch==2.15.0

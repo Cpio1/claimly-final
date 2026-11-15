@@ -1,0 +1,188 @@
+{
+  "serializer_version": "claimly-pages-v2",
+  "pages": [
+    {
+      "page": 1,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT\nBill\nFictional Clear Water. Customer: Alex Example.\nWater service for January 2026. Total: USD 42.00.\nThis bill does not specify a due date or any benefit.\nItem\tQuantity\tUSD\nWater service\t1\t30.00\nMeter fee\t1\t12.00\nTotal\t\t42.00\nFictional test source | Page 1",
+      "needs_review": false
+    }
+  ],
+  "item_map": [
+    {
+      "item_ref": "#/texts/0",
+      "page": 1,
+      "start": 0,
+      "end": 54,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        54
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 764.462,
+            "r": 328.041,
+            "b": 756.137,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/1",
+      "page": 1,
+      "start": 55,
+      "end": 59,
+      "text": "Bill",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        4
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 728.924,
+            "r": 82.00800000000001,
+            "b": 712.274,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/2",
+      "page": 1,
+      "start": 60,
+      "end": 106,
+      "text": "Fictional Clear Water. Customer: Alex Example.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        46
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 688.616,
+            "r": 308.06400000000014,
+            "b": 677.516,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/3",
+      "page": 1,
+      "start": 107,
+      "end": 156,
+      "text": "Water service for January 2026. Total: USD 42.00.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        49
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 663.616,
+            "r": 322.7760000000002,
+            "b": 652.516,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/4",
+      "page": 1,
+      "start": 157,
+      "end": 210,
+      "text": "This bill does not specify a due date or any benefit.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        53
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 638.616,
+            "r": 324.14400000000023,
+            "b": 627.516,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/tables/0",
+      "page": 1,
+      "start": 211,
+      "end": 281,
+      "text": "Item\tQuantity\tUSD\nWater service\t1\t30.00\nMeter fee\t1\t12.00\nTotal\t\t42.00",
+      "method": "table-row-major-tabs-v1",
+      "source_charspan": [
+        0,
+        0
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 52.78390884399414,
+            "t": 481.1895446777344,
+            "r": 550.8515014648438,
+            "b": 359.8313293457031,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/5",
+      "page": 1,
+      "start": 282,
+      "end": 312,
+      "text": "Fictional test source | Page 1",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        30
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 42.46199999999999,
+            "r": 169.89299999999997,
+            "b": 34.136999999999944,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    }
+  ],
+  "mapping_issues": []
+}

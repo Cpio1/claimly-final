@@ -1,0 +1,40 @@
+{
+  "scope": "legal kit Markdown/duplicate prompts and RAG OS caches only",
+  "date": "2026-11-15",
+  "removed": [
+    {
+      "path": "README_RU.md",
+      "sha256": "b2277000f522e5e5d9581c3a557b9b82bb5e6e1ace95b43a435d3d606cae707d",
+      "reason": "Obsolete/contradictory setup or duplicate prompt; current instructions consolidated outside the kit."
+    },
+    {
+      "path": "PHASE2_PROMPT.md",
+      "sha256": "3537350b65ba728a9ddfbeabc4ae833d134079806c53cc7ec4381dc6a6e57f50",
+      "reason": "Obsolete/contradictory setup or duplicate prompt; current instructions consolidated outside the kit."
+    },
+    {
+      "path": ".DS_Store",
+      "reason": "Disposable OS cache"
+    }
+  ],
+  "preserved_as_text": [
+    {
+      "from": "reports/RUN_REPORT_RU.md",
+      "to": "reports/RUN_REPORT_RU.txt",
+      "sha256": "72b50df59cd43910a021dd0d7d1f6432503535189614c8cae2a0b3899bb32a35"
+    },
+    {
+      "from": "catalog/compliance_notes_for_claimly_RU.md",
+      "to": "catalog/compliance_notes_for_claimly_RU.txt",
+      "sha256": "ea29dbad5c20b073b9d0d1725e5332b1f015d702c173bd9917a07580b96b2ba6"
+    }
+  ],
+  "preserved_source_file_count": 1597,
+  "protected_files_unchanged": true,
+  "protected_set_sha256": "d58192776170c41d2292d4a9a9e320f7c2be8e02a32d1cc5544e3bdfc4d167f2",
+  "notes": [
+    "No raw corpus, CSV source catalog, original report content, user reviews, contracts or model assets deleted.",
+    "README content consolidated into README.txt and ../README.md; obsolete contradictory text was not treated as corpus evidence.",
+    "catalog_stats.json refreshed from current CSV; historical seed generator was not run."
+  ]
+}

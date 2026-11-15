@@ -1,0 +1,9 @@
+.tools/
+services/llm/.venv/
+services/llm/parsing/.models/
+services/llm/parsing/runs/
+.graphify-venv/
+.local/
+services/llm/parsing/.local/
+services/llm/parsing/rag-handoff/checkpoints/
+services/llm/parsing/rag-handoff/sources/

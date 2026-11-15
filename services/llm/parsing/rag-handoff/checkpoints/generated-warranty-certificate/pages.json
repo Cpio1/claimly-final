@@ -1,0 +1,463 @@
+{
+  "serializer_version": "claimly-pages-v2",
+  "pages": [
+    {
+      "page": 1,
+      "text": "Warranty Certificate\nCustomer name:\nDate of purchase:\nService:\nDylan Aldridge\n12.02.2024\nAccident and sickness insurance\nID number:\n185769504956\nWarranty Period:\nfrom 12.02.2024 to 12.02.2027\nYop\nLucas Bradshaw Insurer's representative\nQUALITY\nASSURANCE\nYour company name\nPhone number: +1 (555)586 - 7594\nThe warranty is valid only in the presence of this certificate, as well as: original purchase document (receipt, invoice), correctly and completely filled out warranty card.",
+      "needs_review": false
+    }
+  ],
+  "item_map": [
+    {
+      "item_ref": "#/texts/0",
+      "page": 1,
+      "start": 0,
+      "end": 20,
+      "text": "Warranty Certificate",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        20
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 66.22530619303386,
+            "t": 727.4573872884115,
+            "r": 703.007080078125,
+            "b": 634.9744262695312,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/1",
+      "page": 1,
+      "start": 21,
+      "end": 35,
+      "text": "Customer name:",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        14
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 74.71572875976562,
+            "t": 599.4474487304688,
+            "r": 276.7878011067708,
+            "b": 575.1988525390625,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/2",
+      "page": 1,
+      "start": 36,
+      "end": 53,
+      "text": "Date of purchase:",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        17
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 73.01764424641927,
+            "t": 553.7698771158854,
+            "r": 291.50453694661456,
+            "b": 522.1903483072917,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/3",
+      "page": 1,
+      "start": 54,
+      "end": 62,
+      "text": "Service:",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        8
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 71.88558451334636,
+            "t": 503.0170491536458,
+            "r": 172.07259114583334,
+            "b": 475.9488525390625,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/4",
+      "page": 1,
+      "start": 63,
+      "end": 77,
+      "text": "Dylan Aldridge",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        14
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 316.4097900390625,
+            "t": 601.703125,
+            "r": 483.9541422526042,
+            "b": 571.2514241536459,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/5",
+      "page": 1,
+      "start": 78,
+      "end": 88,
+      "text": "12.02.2024",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        10
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 316.97580973307294,
+            "t": 551.5142008463541,
+            "r": 444.3321533203125,
+            "b": 526.7017008463542,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/6",
+      "page": 1,
+      "start": 89,
+      "end": 120,
+      "text": "Accident and sickness insurance",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        31
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 316.4097900390625,
+            "t": 503.5809733072917,
+            "r": 682.6300455729166,
+            "b": 475.9488525390625,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/7",
+      "page": 1,
+      "start": 121,
+      "end": 131,
+      "text": "ID number:",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        10
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 73.01764424641927,
+            "t": 455.08380126953125,
+            "r": 213.39263916015625,
+            "b": 427.4517008463542,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/8",
+      "page": 1,
+      "start": 132,
+      "end": 144,
+      "text": "185769504956",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        12
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 318.1078694661458,
+            "t": 452.828125,
+            "r": 486.21826171875,
+            "b": 428.5795491536458,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/9",
+      "page": 1,
+      "start": 145,
+      "end": 161,
+      "text": "Warranty Period:",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        16
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 71.88558451334636,
+            "t": 404.8948974609375,
+            "r": 283.0141194661458,
+            "b": 376.6988525390625,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/10",
+      "page": 1,
+      "start": 162,
+      "end": 191,
+      "text": "from 12.02.2024 to 12.02.2027",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        29
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 317.54184977213544,
+            "t": 404.8948974609375,
+            "r": 663.3850911458334,
+            "b": 378.9545491536458,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/11",
+      "page": 1,
+      "start": 192,
+      "end": 195,
+      "text": "Yop",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        3
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 75.84778340657552,
+            "t": 305.6448974609375,
+            "r": 181.695068359375,
+            "b": 242.48579915364587,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/12",
+      "page": 1,
+      "start": 196,
+      "end": 235,
+      "text": "Lucas Bradshaw Insurer's representative",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        39
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 73.01764424641927,
+            "t": 239.66617838541663,
+            "r": 278.48590087890625,
+            "b": 190.04117838541663,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/13",
+      "page": 1,
+      "start": 236,
+      "end": 243,
+      "text": "QUALITY",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        7
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 885.834228515625,
+            "t": 517.1150512695312,
+            "r": 978.0967610677084,
+            "b": 493.43039957682294,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/14",
+      "page": 1,
+      "start": 244,
+      "end": 253,
+      "text": "ASSURANCE",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        9
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 871.117431640625,
+            "t": 491.73862711588544,
+            "r": 992.8135579427084,
+            "b": 470.8735758463542,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/15",
+      "page": 1,
+      "start": 254,
+      "end": 271,
+      "text": "Your company name",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        17
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 744.8931477864584,
+            "t": 240.2301025390625,
+            "r": 935.6446940104166,
+            "b": 217.109375,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/16",
+      "page": 1,
+      "start": 272,
+      "end": 304,
+      "text": "Phone number: +1 (555)586 - 7594",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        32
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 744.8931477864584,
+            "t": 211.47017415364587,
+            "r": 1048.850341796875,
+            "b": 189.47725423177087,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/17",
+      "page": 1,
+      "start": 305,
+      "end": 478,
+      "text": "The warranty is valid only in the presence of this certificate, as well as: original purchase document (receipt, invoice), correctly and completely filled out warranty card.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        173
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 71.88558451334636,
+            "t": 126.882080078125,
+            "r": 996.7757161458334,
+            "b": 75.00138346354163,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    }
+  ],
+  "mapping_issues": []
+}

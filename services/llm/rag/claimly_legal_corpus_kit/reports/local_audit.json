@@ -1,0 +1,118 @@
+{
+  "audit_version": "claimly-legal-audit-v1",
+  "scope": "Local files only; integrity and coverage are not verification of current law or applicability.",
+  "inputs": {
+    "corpus/federal/cfr_sections.jsonl": "7f21a2b566bf76abce164b65210833c42ff33b378033867722ebd5e2ed8b195b",
+    "corpus/federal/usc_sections.jsonl": "4bfb4cc7728854e31415dddeb0bea02cb4e636b83ba4abdc3f025c9423452f93",
+    "corpus/states/state_sections.jsonl": "b58766b678f87d9102bd357dcb635001f14b6a6949ac62bb873036d6cd0eb6c9",
+    "corpus/federal/chunks.jsonl": "76a4fc0d7f43584779db6e140ec5fd8fac0ad08f8388c0f00aa8f0ded73ee12d",
+    "corpus/states/chunks.jsonl": "d86885caa97a06a0a58a1fb83c73565f9610887d592d1feeada2941886760373",
+    "catalog/state_sources.csv": "f769ba8860109f57f0ef185e6581293c86f670b96fe0a98d785f3fac65c2a13b",
+    "catalog/federal_sources.csv": "e5e19f59ef6f351c03fa7e0b2a90e79bec1596a3cd689217dfa3245dc8c41fff"
+  },
+  "counts": {
+    "cfr_sections": 247,
+    "usc_sections": 103,
+    "state_sections": 987,
+    "federal_chunks": 627,
+    "state_chunks": 1250,
+    "state_catalog_rows": 510,
+    "downloaded_state_catalog_rows": 69,
+    "state_rows_with_citation_not_downloaded": 362,
+    "state_rows_without_citation": 79,
+    "sections_missing_version_date_or_release_point": 987,
+    "sections_with_native_effective_date": 276,
+    "sections_without_normalized_effective_interval": 1337
+  },
+  "state_sections_by_jurisdiction": {
+    "CA": 429,
+    "FL": 222,
+    "IL": 158,
+    "MD": 2,
+    "MI": 74,
+    "NC": 22,
+    "OH": 50,
+    "PA": 16,
+    "SC": 3,
+    "TX": 8,
+    "UT": 3
+  },
+  "catalog_verification_labels": {
+    "model-high": 60,
+    "model-medium": 28,
+    "none_listed": 75,
+    "official": 70,
+    "official-act-only": 1,
+    "rule_only": 4,
+    "snippet+model": 6,
+    "source": 180,
+    "source+model": 86
+  },
+  "integrity": {
+    "duplicate_section_ids": 0,
+    "duplicate_chunk_ids": 0,
+    "section_hash_failures": [],
+    "orphan_chunks": [],
+    "parent_hash_mismatches": [],
+    "missing_source_urls": [],
+    "duplicate_section_text_groups": [
+      [
+        "il-udap-19",
+        "il-home_solicitation-1"
+      ],
+      [
+        "il-udap-84",
+        "il-gift_cards-1"
+      ],
+      [
+        "mi-udap-8",
+        "mi-gift_cards-1"
+      ],
+      [
+        "mi-udap-9",
+        "mi-gift_cards-2"
+      ],
+      [
+        "mi-udap-10",
+        "mi-gift_cards-3"
+      ],
+      [
+        "pa-udap-1",
+        "pa-home_solicitation-1"
+      ],
+      [
+        "ca-bpc-17201.5-3-udap",
+        "ca-bpc-17506.5-35-udap"
+      ],
+      [
+        "ca-bpc-17205-7-udap",
+        "ca-bpc-17534.5-107-udap"
+      ]
+    ],
+    "chunk_text_hash_differs_from_inherited_parent_hash": 1877,
+    "chunk_bodies_not_exact_parent_substrings": 403
+  },
+  "warnings": [
+    "All legal records need an explicit version/applicability review before active retrieval; catalog official is not an admission decision.",
+    "retrieved_at and snapshot version_date are not effective-from/effective-to dates. Native CA effective_date fields are not normalized applicability intervals.",
+    "Existing text_sha256 on a chunk is inherited from its parent section, not computed over contextualized chunk text.",
+    "Legacy chunks use 6000 characters; regenerate token-aware chunks from canonical sections and preserve quote mappings.",
+    "Citation ranges on broad state pages can be wider than the actual pinpoint. Resolve subsection identifiers and cited URL before admitting.",
+    "Exact duplicate text may belong to distinct provisions. Preserve citation aliases; do not merge distinct legal authorities on text hash alone.",
+    "NY and GA have no downloaded section text. Missing coverage is not evidence that a consumer right does not exist."
+  ],
+  "index_built": false,
+  "legal_applicability_verified": false,
+  "token_audit": {
+    "tokenizer_asset_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+    "includes_special_tokens": true,
+    "truncation_enabled": false,
+    "planned_embedding_limit": 256,
+    "chunk_count": 1877,
+    "over_256_tokens": 1264,
+    "max_tokens": 1785,
+    "median_tokens": 459,
+    "p95_tokens": 1382,
+    "note": "Token audit only. Embedding weights and semantic vectors are not produced."
+  }
+}

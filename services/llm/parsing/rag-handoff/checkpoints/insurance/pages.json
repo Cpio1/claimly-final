@@ -1,0 +1,138 @@
+{
+  "serializer_version": "claimly-pages-v2",
+  "pages": [
+    {
+      "page": 1,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT\nInsurance policy\nFictional Harbor Cover. Insured: Alex Example. Policy H-100 covers sudden pipe leaks at the insured home. Deductible: USD 500.00. Coverage limit: USD 10000.00.\nExcludes flood water and gradual wear. Coverage is subject to policy conditions.\nFictional test source | Page 1",
+      "needs_review": false
+    }
+  ],
+  "item_map": [
+    {
+      "item_ref": "#/texts/0",
+      "page": 1,
+      "start": 0,
+      "end": 54,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        54
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 764.462,
+            "r": 328.041,
+            "b": 756.137,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/1",
+      "page": 1,
+      "start": 55,
+      "end": 71,
+      "text": "Insurance policy",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        16
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 728.924,
+            "r": 196.05599999999998,
+            "b": 712.274,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/2",
+      "page": 1,
+      "start": 72,
+      "end": 231,
+      "text": "Fictional Harbor Cover. Insured: Alex Example. Policy H-100 covers sudden pipe leaks at the insured home. Deductible: USD 500.00. Coverage limit: USD 10000.00.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        159
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 688.616,
+            "r": 373.4760000000002,
+            "b": 627.516,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/3",
+      "page": 1,
+      "start": 232,
+      "end": 312,
+      "text": "Excludes flood water and gradual wear. Coverage is subject to policy conditions.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        80
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 613.616,
+            "r": 480.85200000000043,
+            "b": 602.516,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/4",
+      "page": 1,
+      "start": 313,
+      "end": 343,
+      "text": "Fictional test source | Page 1",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        30
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 42.46199999999999,
+            "r": 169.89299999999997,
+            "b": 34.136999999999944,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    }
+  ],
+  "mapping_issues": []
+}

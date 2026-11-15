@@ -1,0 +1,288 @@
+{
+  "schema_version": "claimly-rag-queries-v1",
+  "queries": [
+    {
+      "query_id": "seed-warranty",
+      "question": "How long is the laptop warranty and which damage is excluded?",
+      "source_group": "warranty",
+      "split": "tuning",
+      "demo_session": "session-A",
+      "allowed_document_ids": [
+        "c288883d-2a7f-5c05-a52a-5e6791221b30"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "c288883d-2a7f-5c05-a52a-5e6791221b30",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Coverage lasts 24 months from purchase."
+        },
+        {
+          "document_id": "c288883d-2a7f-5c05-a52a-5e6791221b30",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Excludes accidental damage and liquid damage."
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    },
+    {
+      "query_id": "seed-certificate",
+      "question": "What is the printed certificate expiry and how many services are stated?",
+      "source_group": "certificate",
+      "split": "tuning",
+      "demo_session": "session-A",
+      "allowed_document_ids": [
+        "50189082-5b0f-5019-8fae-9ca3bd2ca88a"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "50189082-5b0f-5019-8fae-9ca3bd2ca88a",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Printed expiry: 2027-12-31. Appointment required."
+        },
+        {
+          "document_id": "50189082-5b0f-5019-8fae-9ca3bd2ca88a",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Valid for four dental cleaning services."
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    },
+    {
+      "query_id": "seed-insurance",
+      "question": "What deductible and exclusions are printed in the insurance policy?",
+      "source_group": "insurance",
+      "split": "tuning",
+      "demo_session": "session-B",
+      "allowed_document_ids": [
+        "cd3d6ac9-9d0c-510a-b9d0-ccf65570370d"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "cd3d6ac9-9d0c-510a-b9d0-ccf65570370d",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Deductible: USD 500.00."
+        },
+        {
+          "document_id": "cd3d6ac9-9d0c-510a-b9d0-ccf65570370d",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Excludes flood water and gradual wear."
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    },
+    {
+      "query_id": "seed-agreement",
+      "question": "What maintenance is included and what is excluded?",
+      "source_group": "agreement",
+      "split": "tuning",
+      "demo_session": "session-B",
+      "allowed_document_ids": [
+        "b560555a-e54e-55b2-9dfe-96370a1dfe25"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "b560555a-e54e-55b2-9dfe-96370a1dfe25",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Includes one preventive maintenance visit. Booking required."
+        },
+        {
+          "document_id": "b560555a-e54e-55b2-9dfe-96370a1dfe25",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Excludes replacement parts."
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    },
+    {
+      "query_id": "seed-contract",
+      "question": "Does the vehicle service contract include repairs or allow transfer?",
+      "source_group": "contract",
+      "split": "tuning",
+      "demo_session": "session-B",
+      "allowed_document_ids": [
+        "4d86ba08-918c-5fbc-b3a2-21f85d2c0689"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "4d86ba08-918c-5fbc-b3a2-21f85d2c0689",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Excludes repairs and government inspections."
+        },
+        {
+          "document_id": "4d86ba08-918c-5fbc-b3a2-21f85d2c0689",
+          "document_version": 1,
+          "page": 2,
+          "quote": "No transfer to another vehicle."
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    },
+    {
+      "query_id": "seed-membership",
+      "question": "What membership period is printed?",
+      "source_group": "membership",
+      "split": "tuning",
+      "demo_session": "session-A",
+      "allowed_document_ids": [
+        "1407cd1b-5cf3-53c3-ade7-c4089842ef5e"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "1407cd1b-5cf3-53c3-ade7-c4089842ef5e",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Membership term: 2026-01-01 through 2026-12-31."
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    },
+    {
+      "query_id": "seed-refund",
+      "question": "What refund amount and timing are stated?",
+      "source_group": "refund",
+      "split": "tuning",
+      "demo_session": "session-B",
+      "allowed_document_ids": [
+        "46a3a9a9-f35b-529d-ba66-940a70a82b88"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "46a3a9a9-f35b-529d-ba66-940a70a82b88",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Refund USD 29.00 processed for order R-17."
+        },
+        {
+          "document_id": "46a3a9a9-f35b-529d-ba66-940a70a82b88",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Credit timing is not specified."
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    },
+    {
+      "query_id": "seed-foreign",
+      "question": "What amount and currency were paid at the Euro shop?",
+      "source_group": "foreign",
+      "split": "tuning",
+      "demo_session": "session-A",
+      "allowed_document_ids": [
+        "ba2c2566-d1af-5677-9e6a-38e47c7bac62"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "ba2c2566-d1af-5677-9e6a-38e47c7bac62",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Amount paid: EUR 19.50."
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    },
+    {
+      "query_id": "seed-receipt",
+      "question": "How much was paid for the coffee maker?",
+      "source_group": "receipt",
+      "split": "tuning",
+      "demo_session": "session-A",
+      "allowed_document_ids": [
+        "074bb24c-0599-53ee-91e2-1ba385f531db"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "074bb24c-0599-53ee-91e2-1ba385f531db",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Coffee maker model M1. Amount paid: USD 89.50."
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    },
+    {
+      "query_id": "seed-subscription",
+      "question": "What does the subscription say about renewal?",
+      "source_group": "subscription",
+      "split": "tuning",
+      "demo_session": "session-B",
+      "allowed_document_ids": [
+        "e96af918-6986-5209-baeb-5461ccdbc1fe"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "e96af918-6986-5209-baeb-5461ccdbc1fe",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Renews monthly unless canceled."
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    },
+    {
+      "query_id": "seed-correspondence",
+      "question": "What service is mentioned for order SC-17?",
+      "source_group": "correspondence",
+      "split": "tuning",
+      "demo_session": "session-B",
+      "allowed_document_ids": [
+        "5ef11d60-8682-5468-9f80-52d89391cfee"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "5ef11d60-8682-5468-9f80-52d89391cfee",
+          "document_version": 1,
+          "page": 1,
+          "quote": "Your order SC-17 includes a maintenance visit."
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    },
+    {
+      "query_id": "seed-generated-warranty-certificate",
+      "question": "What period and purchase-document condition are printed on the uploaded warranty certificate?",
+      "source_group": "generated-warranty-certificate",
+      "split": "tuning",
+      "demo_session": "session-C",
+      "allowed_document_ids": [
+        "646342a0-12b9-5930-806a-6a62d6584e1e"
+      ],
+      "expected_evidence_refs": [
+        {
+          "document_id": "646342a0-12b9-5930-806a-6a62d6584e1e",
+          "document_version": 1,
+          "page": 1,
+          "quote": "from 12.02.2024 to 12.02.2027"
+        },
+        {
+          "document_id": "646342a0-12b9-5930-806a-6a62d6584e1e",
+          "document_version": 1,
+          "page": 1,
+          "quote": "original purchase document"
+        }
+      ],
+      "evaluation_target": "retrieval evidence and citation resolution; no generated answer",
+      "label_provenance": "authored fixture ground truth; not blind held-out evaluation"
+    }
+  ],
+  "next_required": "Add genuinely new held-out source groups and negative/no-evidence, cross-session, version, deletion and authoritative-rule cases before tuning claims."
+}

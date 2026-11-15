@@ -1,0 +1,78 @@
+{
+  "state_rows": 510,
+  "jurisdictions": 51,
+  "state_topics": 10,
+  "state_rows_with_citation": 431,
+  "state_rows_by_verification": {
+    "source+model": 86,
+    "official": 70,
+    "none_listed": 75,
+    "source": 180,
+    "official-act-only": 1,
+    "model-medium": 28,
+    "rule_only": 4,
+    "model-high": 60,
+    "snippet+model": 6
+  },
+  "by_topic": {
+    "auto_renewal": {
+      "none_listed": 16,
+      "official-act-only": 1,
+      "official": 9,
+      "source": 23,
+      "model-medium": 2
+    },
+    "gift_cards": {
+      "none_listed": 16,
+      "source": 28,
+      "official": 7
+    },
+    "home_solicitation": {
+      "model-medium": 22,
+      "snippet+model": 6,
+      "official": 8,
+      "model-high": 15
+    },
+    "lemon_law": {
+      "source+model": 43,
+      "official": 8
+    },
+    "refund_policy": {
+      "none_listed": 37,
+      "source": 6,
+      "official": 2,
+      "rule_only": 4,
+      "model-high": 2
+    },
+    "service_contracts": {
+      "source": 39,
+      "official": 6,
+      "model-medium": 1,
+      "none_listed": 5
+    },
+    "small_claims": {
+      "source": 45,
+      "official": 6
+    },
+    "ucc_warranties": {
+      "model-high": 43,
+      "official": 8
+    },
+    "udap": {
+      "source+model": 43,
+      "official": 8
+    },
+    "unfair_claims": {
+      "source": 39,
+      "official": 8,
+      "model-medium": 3,
+      "none_listed": 1
+    }
+  },
+  "federal_rows": 47,
+  "federal_statutes": 22,
+  "federal_regulations": 25,
+  "datasets_rows": 16,
+  "derived_from": "current CSV catalogs; verification labels are inherited, not reverified",
+  "updated_at": "2026-11-15"
+}

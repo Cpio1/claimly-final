@@ -1,0 +1,138 @@
+{
+  "serializer_version": "claimly-pages-v2",
+  "pages": [
+    {
+      "page": 1,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT\nPurchase receipt\nFictional Maple Store. Customer: Alex Example. Coffee maker model M1. Amount paid: USD 89.50.\nPayment completed on 2026-01-04. No additional benefits stated.\nFictional test source | Page 1",
+      "needs_review": false
+    }
+  ],
+  "item_map": [
+    {
+      "item_ref": "#/texts/0",
+      "page": 1,
+      "start": 0,
+      "end": 54,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        54
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 764.462,
+            "r": 328.041,
+            "b": 756.137,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/1",
+      "page": 1,
+      "start": 55,
+      "end": 71,
+      "text": "Purchase receipt",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        16
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 728.924,
+            "r": 199.062,
+            "b": 712.274,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/2",
+      "page": 1,
+      "start": 72,
+      "end": 165,
+      "text": "Fictional Maple Store. Customer: Alex Example. Coffee maker model M1. Amount paid: USD 89.50.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        93
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 688.616,
+            "r": 324.7800000000002,
+            "b": 652.516,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/3",
+      "page": 1,
+      "start": 166,
+      "end": 229,
+      "text": "Payment completed on 2026-01-04. No additional benefits stated.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        63
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 638.616,
+            "r": 402.85200000000043,
+            "b": 627.516,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/4",
+      "page": 1,
+      "start": 230,
+      "end": 260,
+      "text": "Fictional test source | Page 1",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        30
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 54.0,
+            "t": 42.46199999999999,
+            "r": 169.89299999999997,
+            "b": 34.136999999999944,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    }
+  ],
+  "mapping_issues": []
+}

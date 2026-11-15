@@ -1,0 +1,138 @@
+{
+  "schema_version": "claimly-manual-reviews-v1",
+  "note": "User-entered reviews; source hash validation is required before merging into an evaluation manifest.",
+  "reviews": [
+    {
+      "case_id": "docs-sm-invoice",
+      "relative_path": "docs-sm/invoice/0000137486.jpg",
+      "source_sha256": "317d0b40a10f38a0355493bb1dab6107d2da85b712b8f5c14f64f603eab952af",
+      "expected_outcome": "relevant",
+      "expected_reason": "The most importantly, the document number and dates are correct",
+      "readability": "partial",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-14T23:46:45.618Z"
+    },
+    {
+      "case_id": "invoice-extra-2",
+      "relative_path": "docs-sm/invoice/2084020004.jpg",
+      "source_sha256": "eb939812ee8d70647ea104910a2bbb0e1daf9ab32da46a91b10509f716fb9546",
+      "expected_outcome": "relevant",
+      "expected_reason": "The document number is given correctly, but the part 'PERICO 01/01/95 T012/31/95' should be replace to 'PERIOD 01/01/95 TO 12/31/95'",
+      "readability": "readable",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-14T23:49:53.341Z"
+    },
+    {
+      "case_id": "invoice-extra-3",
+      "relative_path": "docs-sm/invoice/tob04705.73_tob04705.76.jpg",
+      "source_sha256": "7d10ac112ea0e540220adf6546bc6e0f300f05cd391f52943b7c21fdc00625c7",
+      "expected_outcome": "relevant",
+      "expected_reason": "Generally all correct, and most importantly dates and the document number are",
+      "readability": "partial",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-14T23:51:11.234Z"
+    },
+    {
+      "case_id": "bill",
+      "relative_path": "fixtures/bill.pdf",
+      "source_sha256": "307286743bdcdb3b0fa748d2ce32d99b3d09292332dc016c89edb08847962e99",
+      "expected_outcome": "uncertain",
+      "expected_reason": "Accept if there are specific federal or state laws regarding the periods in water service bills",
+      "readability": "readable",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-14T23:52:41.153Z"
+    },
+    {
+      "case_id": "docs-sm-resume",
+      "relative_path": "docs-sm/resume/0000153376.jpg",
+      "source_sha256": "db8d2076b34fe1357e812f9375587097893e07ead28f0d84271f8a794b48046b",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "The ink is unclear in some parts of the text, though the text content is irrelevant for the project's context and scope",
+      "readability": "partial",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-14T23:54:42.777Z"
+    },
+    {
+      "case_id": "docs-sm-budget",
+      "relative_path": "docs-sm/budget/0000009994.jpg",
+      "source_sha256": "2e98fc47af0cd2a5f496cc2fc228f67b568d48974877a1659ea8747cb649b391",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Readable standalone content is unrelated to supported consumer documents",
+      "readability": "readable",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-14T23:55:50.429Z"
+    },
+    {
+      "case_id": "docs-sm-memo",
+      "relative_path": "docs-sm/memo/0000018957.jpg",
+      "source_sha256": "d1e478aada34c7ef84c185eff41e02d4c276e78f6acd940c9067b010d62b5925",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Readable standalone content is unrelated to supported consumer documents",
+      "readability": "readable",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-14T23:56:29.382Z"
+    },
+    {
+      "case_id": "docs-sm-scientific_report",
+      "relative_path": "docs-sm/scientific_report/0000949066.jpg",
+      "source_sha256": "271124459a04fa73f93ca862fa10b7bbfdc23a63e56b50bec322af368df54efd",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Readable standalone content is unrelated to supported consumer documents",
+      "readability": "readable",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-14T23:56:47.203Z"
+    },
+    {
+      "case_id": "docs-sm-news_article",
+      "relative_path": "docs-sm/news_article/0000092722.jpg",
+      "source_sha256": "f67326cc00ee7edae08140dde464c8dc4a2e9a228628bcee930fa01b40d32cff",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Readable standalone content is unrelated to supported consumer documents",
+      "readability": "readable",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-14T23:57:07.816Z"
+    },
+    {
+      "case_id": "docs-sm-email",
+      "relative_path": "docs-sm/email/2064207146a.jpg",
+      "source_sha256": "7c38652ab3975f68175c60850945f0f3917afa413d62f6277a53ea4fc37abd3a",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Readable text yet out of the customer context since the provided text is probably a personal or corporate email",
+      "readability": "readable",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-14T23:58:22.843Z"
+    },
+    {
+      "case_id": "docs-sm-letter",
+      "relative_path": "docs-sm/letter/0000022394.jpg",
+      "source_sha256": "adab5a23b185892e6e935aa09cff38c117076baeec5cc9dd0bfb59704b3d92c0",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Readable text with no application in customer context since the given text is most probably some meeting appointment",
+      "readability": "readable",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-14T23:59:31.814Z"
+    },
+    {
+      "case_id": "docs-sm-handwritten",
+      "relative_path": "docs-sm/handwritten/500002030.jpg",
+      "source_sha256": "6e3db9d6fef000134a8c13ea737e0c194208a88d77d45c44da5508be6fcc333d",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Unreadable texts are generally not supported by the system",
+      "readability": "unreadable",
+      "reviewer": "admin",
+      "human_reviewed": true,
+      "reviewed_at": "2026-11-15T00:00:01.427Z"
+    }
+  ]
+}

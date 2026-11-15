@@ -1,0 +1,1538 @@
+{
+  "as_of": "2026-11-15",
+  "pipeline": {
+    "tokenizer_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "max_tokens": 240,
+    "force_full_page_ocr": true,
+    "ocr_language": "en",
+    "threads": 4,
+    "assets_hash": "eebf9e94341feb3bc07775149e6eccc643c9e81e9dbbfa4f17af6255dfa9055a",
+    "document_timeout": 120.0,
+    "as_of": "2026-11-15"
+  },
+  "cases": [
+    {
+      "run_key": "f595f13f18481630cc038379adb1ecd89f2aa0fff25508475ad41b9defbe9ed0",
+      "document_id": "646342a0-12b9-5930-806a-6a62d6584e1e",
+      "document_version": 1,
+      "filename": "212_Warranty_simple_brown_landscape_3aee88aa90.jpg",
+      "mime_type": "image/jpeg",
+      "sha256": "ebfa57cb1c62072d0a358f2ef926999f294333f31c29c7ab4e7cfb7fa92b0967",
+      "page_count": 1,
+      "preparation": "EXIF orientation 1 normalized; RGB PNG; no resize; (1123, 794)",
+      "validation": "valid",
+      "versions": {
+        "docling": "2.150.1",
+        "docling-core": "2.107.0",
+        "docling-ibm-models": "4.0.4",
+        "docling-parse": "7.26.0",
+        "rapidocr": "3.10.0",
+        "onnxruntime": "1.32.0",
+        "torch": "2.15.0",
+        "transformers": "5.23.0",
+        "pillow": "13.0.0",
+        "pypdf": "7.1.0"
+      },
+      "pipeline": {
+        "tokenizer_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+        "max_tokens": 240,
+        "force_full_page_ocr": true,
+        "ocr_language": "en",
+        "threads": 4,
+        "assets_hash": "eebf9e94341feb3bc07775149e6eccc643c9e81e9dbbfa4f17af6255dfa9055a",
+        "document_timeout": 120.0,
+        "as_of": "2026-11-15"
+      },
+      "serializer_version": "claimly-pages-v2",
+      "processor_version": "claimly-docling-lab-v5",
+      "acceptance_gate": true,
+      "artifact_path": "services/llm/parsing/runs/generated-final/accepted/646342a0-12b9-5930-806a-6a62d6584e1e/1/f595f13f18481630cc038379adb1ecd89f2aa0fff25508475ad41b9defbe9ed0",
+      "resolved_pipeline_options": {
+        "pdf": {
+          "document_timeout": 120.0,
+          "accelerator_options": {
+            "num_threads": 4,
+            "device": "cpu",
+            "cuda_use_flash_attention2": false
+          },
+          "enable_remote_services": false,
+          "allow_external_plugins": false,
+          "artifacts_path": "services/llm/parsing/.models/docling",
+          "do_picture_classification": false,
+          "picture_classification_options": {
+            "engine_options": {
+              "engine_type": "transformers",
+              "top_k": null
+            },
+            "model_spec": {
+              "name": "document_figure_classifier_v2",
+              "repo_id": "docling-project/DocumentFigureClassifier-v2.5",
+              "revision": "main",
+              "engine_overrides": {}
+            }
+          },
+          "do_picture_description": false,
+          "picture_description_options": {
+            "batch_size": 8,
+            "scale": 2.0,
+            "picture_area_threshold": 0.05,
+            "classification_allow": null,
+            "classification_deny": null,
+            "classification_min_confidence": 0.0
+          },
+          "do_chart_extraction": false,
+          "chart_extraction_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "Granite-Vision-4.1-4B",
+              "default_repo_id": "ibm-granite/granite-vision-4.1-4b",
+              "revision": "dd48e97503de471803850df70843cf9eb5da8712",
+              "prompt": "<chart2csv>",
+              "response_format": "plaintext",
+              "supported_engines": [
+                "mlx",
+                "api_ollama",
+                "transformers",
+                "api_openai",
+                "api_lmstudio"
+              ],
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": "bfloat16",
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext"
+                  }
+                },
+                "mlx": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": "0.7.0",
+                  "extra_config": {}
+                }
+              },
+              "api_overrides": {
+                "api_lmstudio": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_ollama": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_openai": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                }
+              },
+              "trust_remote_code": true,
+              "stop_strings": [],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "chart2csv": true,
+            "chart2summary": false,
+            "chart2code": false,
+            "output_format": "granite_vision_charts",
+            "use_natural_language_prompts": false
+          },
+          "images_scale": 1.5,
+          "generate_page_images": true,
+          "generate_picture_images": false,
+          "do_table_structure": true,
+          "extract_form_fields": false,
+          "do_ocr": true,
+          "do_code_enrichment": false,
+          "do_formula_enrichment": false,
+          "force_backend_text": false,
+          "table_structure_options": {},
+          "ocr_options": {
+            "mode": "full_page",
+            "lang": [
+              "en"
+            ],
+            "scale": 3.0,
+            "replace_broken_text_layer": false,
+            "force_full_page_ocr": true
+          },
+          "layout_options": {
+            "keep_empty_clusters": false,
+            "skip_cell_assignment": false,
+            "create_orphan_clusters": true
+          },
+          "code_formula_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "CodeFormulaV2",
+              "default_repo_id": "docling-project/CodeFormulaV2",
+              "revision": "main",
+              "prompt": "",
+              "response_format": "plaintext",
+              "supported_engines": null,
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext",
+                    "extra_generation_config": {
+                      "skip_special_tokens": false
+                    },
+                    "torch_dtype": "bfloat16"
+                  }
+                }
+              },
+              "api_overrides": {},
+              "trust_remote_code": false,
+              "stop_strings": [
+                "</doctag>",
+                "<end_of_utterance>"
+              ],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "scale": 2.0,
+            "max_size": null,
+            "extract_code": true,
+            "extract_formulas": true,
+            "expansion_factor": 0.18,
+            "stop_on_repetition": true
+          },
+          "use_embedded_picture_images": false,
+          "generate_table_images": false,
+          "generate_parsed_pages": false,
+          "use_reading_order_separators": true,
+          "heading_hierarchy_options": {
+            "enabled": false,
+            "use_bookmarks": true,
+            "use_numbering": true,
+            "use_style": true,
+            "use_font_style": true,
+            "style_size_tolerance": 0.05,
+            "numbering_schemes": null,
+            "max_level": 6,
+            "bookmark_match_threshold": 0.8
+          },
+          "script_position_options": {
+            "enabled": false
+          },
+          "ocr_batch_size": 4,
+          "layout_batch_size": 4,
+          "table_batch_size": 4,
+          "batch_polling_interval_seconds": 0.5,
+          "queue_max_size": 100,
+          "stage_shutdown_timeout_seconds": 15.0
+        },
+        "image": {
+          "document_timeout": 120.0,
+          "accelerator_options": {
+            "num_threads": 4,
+            "device": "cpu",
+            "cuda_use_flash_attention2": false
+          },
+          "enable_remote_services": false,
+          "allow_external_plugins": false,
+          "artifacts_path": "services/llm/parsing/.models/docling",
+          "do_picture_classification": false,
+          "picture_classification_options": {
+            "engine_options": {
+              "engine_type": "transformers",
+              "top_k": null
+            },
+            "model_spec": {
+              "name": "document_figure_classifier_v2",
+              "repo_id": "docling-project/DocumentFigureClassifier-v2.5",
+              "revision": "main",
+              "engine_overrides": {}
+            }
+          },
+          "do_picture_description": false,
+          "picture_description_options": {
+            "batch_size": 8,
+            "scale": 2.0,
+            "picture_area_threshold": 0.05,
+            "classification_allow": null,
+            "classification_deny": null,
+            "classification_min_confidence": 0.0
+          },
+          "do_chart_extraction": false,
+          "chart_extraction_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "Granite-Vision-4.1-4B",
+              "default_repo_id": "ibm-granite/granite-vision-4.1-4b",
+              "revision": "dd48e97503de471803850df70843cf9eb5da8712",
+              "prompt": "<chart2csv>",
+              "response_format": "plaintext",
+              "supported_engines": [
+                "mlx",
+                "api_ollama",
+                "transformers",
+                "api_openai",
+                "api_lmstudio"
+              ],
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": "bfloat16",
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext"
+                  }
+                },
+                "mlx": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": "0.7.0",
+                  "extra_config": {}
+                }
+              },
+              "api_overrides": {
+                "api_lmstudio": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_ollama": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_openai": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                }
+              },
+              "trust_remote_code": true,
+              "stop_strings": [],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "chart2csv": true,
+            "chart2summary": false,
+            "chart2code": false,
+            "output_format": "granite_vision_charts",
+            "use_natural_language_prompts": false
+          },
+          "images_scale": 1.5,
+          "generate_page_images": true,
+          "generate_picture_images": false,
+          "do_table_structure": true,
+          "extract_form_fields": false,
+          "do_ocr": true,
+          "do_code_enrichment": false,
+          "do_formula_enrichment": false,
+          "force_backend_text": false,
+          "table_structure_options": {},
+          "ocr_options": {
+            "mode": "full_page",
+            "lang": [
+              "en"
+            ],
+            "scale": 3.0,
+            "replace_broken_text_layer": false,
+            "force_full_page_ocr": true
+          },
+          "layout_options": {
+            "keep_empty_clusters": false,
+            "skip_cell_assignment": false,
+            "create_orphan_clusters": true
+          },
+          "code_formula_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "CodeFormulaV2",
+              "default_repo_id": "docling-project/CodeFormulaV2",
+              "revision": "main",
+              "prompt": "",
+              "response_format": "plaintext",
+              "supported_engines": null,
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext",
+                    "extra_generation_config": {
+                      "skip_special_tokens": false
+                    },
+                    "torch_dtype": "bfloat16"
+                  }
+                }
+              },
+              "api_overrides": {},
+              "trust_remote_code": false,
+              "stop_strings": [
+                "</doctag>",
+                "<end_of_utterance>"
+              ],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "scale": 2.0,
+            "max_size": null,
+            "extract_code": true,
+            "extract_formulas": true,
+            "expansion_factor": 0.18,
+            "stop_on_repetition": true
+          },
+          "use_embedded_picture_images": false,
+          "generate_table_images": false,
+          "generate_parsed_pages": false,
+          "use_reading_order_separators": true,
+          "heading_hierarchy_options": {
+            "enabled": false,
+            "use_bookmarks": true,
+            "use_numbering": true,
+            "use_style": true,
+            "use_font_style": true,
+            "style_size_tolerance": 0.05,
+            "numbering_schemes": null,
+            "max_level": 6,
+            "bookmark_match_threshold": 0.8
+          },
+          "script_position_options": {
+            "enabled": false
+          },
+          "ocr_batch_size": 4,
+          "layout_batch_size": 4,
+          "table_batch_size": 4,
+          "batch_polling_interval_seconds": 0.5,
+          "queue_max_size": 100,
+          "stage_shutdown_timeout_seconds": 15.0
+        }
+      },
+      "conversion_warnings": [],
+      "conversion_status": "success",
+      "conversion_seconds": 4.519255833001807,
+      "quality": {
+        "passed": true,
+        "conversion_status": "success",
+        "errors": [],
+        "warnings": [],
+        "page_checks": [
+          {
+            "page": 1,
+            "state": "text",
+            "characters": 478,
+            "has_page_image": true
+          }
+        ],
+        "visual_review": "required separately; structural checks do not prove OCR completeness or fact correctness"
+      },
+      "relevance": {
+        "outcome": "relevant",
+        "reason": "Supported source title and printed period include the supplied as_of under every valid date interpretation.",
+        "category": "warranty",
+        "evidence": [
+          {
+            "page": 1,
+            "quote": "Warranty Certificate"
+          },
+          {
+            "page": 1,
+            "quote": "Period:\nfrom 12.02.2024 to 12.02.2027"
+          }
+        ],
+        "policy_version": "claimly-content-rules-v3-title-period",
+        "method": "content-rule-baseline",
+        "period_assessment": {
+          "as_of": "2026-11-15",
+          "raw_start": "12.02.2024",
+          "raw_end": "12.02.2027",
+          "state": "within_window",
+          "exact_dates_resolved": false,
+          "interpretations": [
+            {
+              "format": "day_first",
+              "start": "2024-02-12",
+              "end": "2027-02-12",
+              "contains_as_of": true
+            },
+            {
+              "format": "month_first",
+              "start": "2024-12-02",
+              "end": "2027-12-02",
+              "contains_as_of": true
+            }
+          ]
+        },
+        "review_flags": [
+          "Exact day/month interpretation remains unresolved; all valid interpretations were assessed.",
+          "Primary category follows the Warranty heading; insurance wording is retained for later field interpretation."
+        ]
+      },
+      "canonical_hash": "f2b1970cdd386c5809bba7e5fde7ed26725fa4de0433428ba4f32f5c036a0086",
+      "conversion_relevance_eligible": true,
+      "review_state": "reviewed",
+      "elapsed_seconds": 4.587490083067678,
+      "quality_review": {
+        "approved": true,
+        "source_sha256": "ebfa57cb1c62072d0a358f2ef926999f294333f31c29c7ab4e7cfb7fa92b0967",
+        "canonical_hash": "f2b1970cdd386c5809bba7e5fde7ed26725fa4de0433428ba4f32f5c036a0086",
+        "reviewer": "Codex visual/source-passage review; human approval pending",
+        "reason": "Original source visually inspected and all recorded source passages preserved. User-confirmed title-plus-period relevance policy applies. Template/synthetic provenance and interpretation notes remain recorded; no legal coverage or unused benefit is inferred."
+      },
+      "document_serialization_version": "1.11.0",
+      "artifact_hashes": {
+        "chunks.jsonl": "101dff2c2bcddb6f678b013d51837cf16d296351653358d7bf743465069416d4",
+        "page-1.png": "eb8c9fcdb4a366d77d4252ab2266b76c1b3a624a7d5e8992bd933d19d920612c",
+        "document.json": "113ddd41456f4eb7132e1dcd29889f35427855328f68fd03a90f03ea94d4723f",
+        "pages.json": "14a0aceea4407827ab34311ee448feadfebf8d44f058d15a8d589e815e0658cc"
+      },
+      "export_seconds": 0.110598708037287,
+      "case_id": "generated-warranty-certificate",
+      "relative_path": "generated-test/212_Warranty_simple_brown_landscape_3aee88aa90.jpg",
+      "expected_relevance": "relevant",
+      "human_reviewed": false,
+      "split": "tuning",
+      "expected_category": "warranty",
+      "source_passage_checks": [
+        {
+          "quote": "Warranty Certificate",
+          "resolves_after_whitespace_normalization": true
+        },
+        {
+          "quote": "12.02.2024",
+          "resolves_after_whitespace_normalization": true
+        },
+        {
+          "quote": "12.02.2027",
+          "resolves_after_whitespace_normalization": true
+        },
+        {
+          "quote": "Accident and sickness insurance",
+          "resolves_after_whitespace_normalization": true
+        },
+        {
+          "quote": "original purchase document",
+          "resolves_after_whitespace_normalization": true
+        }
+      ],
+      "temporal_state": "within printed 2024-2027 period under either day/month interpretation; exact format unresolved",
+      "source_review_notes": [
+        "Primary category follows the Warranty Certificate title, as clarified by the user. Insurance wording remains a later field-interpretation note and does not block admission.",
+        "12.02 is day/month ambiguous, but both valid 2024-2027 windows contain the explicit 2026-11-15 as_of; preserve raw dates.",
+        "Template/provenance status is retained; acceptance is for the local experiment and does not prove real coverage."
+      ],
+      "provenance": "User-supplied template-like image; issuer authenticity and upstream license not verified.",
+      "chunk_count": 1,
+      "scoring_status": "exploratory; not human-reviewed held-out accuracy"
+    },
+    {
+      "run_key": "b6f9d35328217c984c66b26b3eca361c3e3243b98fe9bf404598ea2f7e4cb2fd",
+      "document_id": "22fa96c1-eb35-5717-ad71-fe5f454a4ba9",
+      "document_version": 1,
+      "filename": "auto-service-receipt-2026-11-15.png",
+      "mime_type": "image/png",
+      "sha256": "bcec6ac55edf3e545a0fd1fdd57b2b77ba56482d62ae30719ee05bc8aeb387b5",
+      "page_count": 1,
+      "preparation": "EXIF orientation 1 normalized; RGB PNG; no resize; (604, 1090)",
+      "validation": "valid",
+      "versions": {
+        "docling": "2.150.1",
+        "docling-core": "2.107.0",
+        "docling-ibm-models": "4.0.4",
+        "docling-parse": "7.26.0",
+        "rapidocr": "3.10.0",
+        "onnxruntime": "1.32.0",
+        "torch": "2.15.0",
+        "transformers": "5.23.0",
+        "pillow": "13.0.0",
+        "pypdf": "7.1.0"
+      },
+      "pipeline": {
+        "tokenizer_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+        "max_tokens": 240,
+        "force_full_page_ocr": true,
+        "ocr_language": "en",
+        "threads": 4,
+        "assets_hash": "eebf9e94341feb3bc07775149e6eccc643c9e81e9dbbfa4f17af6255dfa9055a",
+        "document_timeout": 120.0,
+        "as_of": "2026-11-15"
+      },
+      "serializer_version": "claimly-pages-v2",
+      "processor_version": "claimly-docling-lab-v5",
+      "acceptance_gate": false,
+      "artifact_path": null,
+      "resolved_pipeline_options": {
+        "pdf": {
+          "document_timeout": 120.0,
+          "accelerator_options": {
+            "num_threads": 4,
+            "device": "cpu",
+            "cuda_use_flash_attention2": false
+          },
+          "enable_remote_services": false,
+          "allow_external_plugins": false,
+          "artifacts_path": "services/llm/parsing/.models/docling",
+          "do_picture_classification": false,
+          "picture_classification_options": {
+            "engine_options": {
+              "engine_type": "transformers",
+              "top_k": null
+            },
+            "model_spec": {
+              "name": "document_figure_classifier_v2",
+              "repo_id": "docling-project/DocumentFigureClassifier-v2.5",
+              "revision": "main",
+              "engine_overrides": {}
+            }
+          },
+          "do_picture_description": false,
+          "picture_description_options": {
+            "batch_size": 8,
+            "scale": 2.0,
+            "picture_area_threshold": 0.05,
+            "classification_allow": null,
+            "classification_deny": null,
+            "classification_min_confidence": 0.0
+          },
+          "do_chart_extraction": false,
+          "chart_extraction_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "Granite-Vision-4.1-4B",
+              "default_repo_id": "ibm-granite/granite-vision-4.1-4b",
+              "revision": "dd48e97503de471803850df70843cf9eb5da8712",
+              "prompt": "<chart2csv>",
+              "response_format": "plaintext",
+              "supported_engines": [
+                "mlx",
+                "api_ollama",
+                "transformers",
+                "api_openai",
+                "api_lmstudio"
+              ],
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": "bfloat16",
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext"
+                  }
+                },
+                "mlx": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": "0.7.0",
+                  "extra_config": {}
+                }
+              },
+              "api_overrides": {
+                "api_lmstudio": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_ollama": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_openai": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                }
+              },
+              "trust_remote_code": true,
+              "stop_strings": [],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "chart2csv": true,
+            "chart2summary": false,
+            "chart2code": false,
+            "output_format": "granite_vision_charts",
+            "use_natural_language_prompts": false
+          },
+          "images_scale": 1.5,
+          "generate_page_images": true,
+          "generate_picture_images": false,
+          "do_table_structure": true,
+          "extract_form_fields": false,
+          "do_ocr": true,
+          "do_code_enrichment": false,
+          "do_formula_enrichment": false,
+          "force_backend_text": false,
+          "table_structure_options": {},
+          "ocr_options": {
+            "mode": "full_page",
+            "lang": [
+              "en"
+            ],
+            "scale": 3.0,
+            "replace_broken_text_layer": false,
+            "force_full_page_ocr": true
+          },
+          "layout_options": {
+            "keep_empty_clusters": false,
+            "skip_cell_assignment": false,
+            "create_orphan_clusters": true
+          },
+          "code_formula_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "CodeFormulaV2",
+              "default_repo_id": "docling-project/CodeFormulaV2",
+              "revision": "main",
+              "prompt": "",
+              "response_format": "plaintext",
+              "supported_engines": null,
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext",
+                    "extra_generation_config": {
+                      "skip_special_tokens": false
+                    },
+                    "torch_dtype": "bfloat16"
+                  }
+                }
+              },
+              "api_overrides": {},
+              "trust_remote_code": false,
+              "stop_strings": [
+                "</doctag>",
+                "<end_of_utterance>"
+              ],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "scale": 2.0,
+            "max_size": null,
+            "extract_code": true,
+            "extract_formulas": true,
+            "expansion_factor": 0.18,
+            "stop_on_repetition": true
+          },
+          "use_embedded_picture_images": false,
+          "generate_table_images": false,
+          "generate_parsed_pages": false,
+          "use_reading_order_separators": true,
+          "heading_hierarchy_options": {
+            "enabled": false,
+            "use_bookmarks": true,
+            "use_numbering": true,
+            "use_style": true,
+            "use_font_style": true,
+            "style_size_tolerance": 0.05,
+            "numbering_schemes": null,
+            "max_level": 6,
+            "bookmark_match_threshold": 0.8
+          },
+          "script_position_options": {
+            "enabled": false
+          },
+          "ocr_batch_size": 4,
+          "layout_batch_size": 4,
+          "table_batch_size": 4,
+          "batch_polling_interval_seconds": 0.5,
+          "queue_max_size": 100,
+          "stage_shutdown_timeout_seconds": 15.0
+        },
+        "image": {
+          "document_timeout": 120.0,
+          "accelerator_options": {
+            "num_threads": 4,
+            "device": "cpu",
+            "cuda_use_flash_attention2": false
+          },
+          "enable_remote_services": false,
+          "allow_external_plugins": false,
+          "artifacts_path": "services/llm/parsing/.models/docling",
+          "do_picture_classification": false,
+          "picture_classification_options": {
+            "engine_options": {
+              "engine_type": "transformers",
+              "top_k": null
+            },
+            "model_spec": {
+              "name": "document_figure_classifier_v2",
+              "repo_id": "docling-project/DocumentFigureClassifier-v2.5",
+              "revision": "main",
+              "engine_overrides": {}
+            }
+          },
+          "do_picture_description": false,
+          "picture_description_options": {
+            "batch_size": 8,
+            "scale": 2.0,
+            "picture_area_threshold": 0.05,
+            "classification_allow": null,
+            "classification_deny": null,
+            "classification_min_confidence": 0.0
+          },
+          "do_chart_extraction": false,
+          "chart_extraction_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "Granite-Vision-4.1-4B",
+              "default_repo_id": "ibm-granite/granite-vision-4.1-4b",
+              "revision": "dd48e97503de471803850df70843cf9eb5da8712",
+              "prompt": "<chart2csv>",
+              "response_format": "plaintext",
+              "supported_engines": [
+                "mlx",
+                "api_ollama",
+                "transformers",
+                "api_openai",
+                "api_lmstudio"
+              ],
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": "bfloat16",
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext"
+                  }
+                },
+                "mlx": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": "0.7.0",
+                  "extra_config": {}
+                }
+              },
+              "api_overrides": {
+                "api_lmstudio": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_ollama": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_openai": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                }
+              },
+              "trust_remote_code": true,
+              "stop_strings": [],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "chart2csv": true,
+            "chart2summary": false,
+            "chart2code": false,
+            "output_format": "granite_vision_charts",
+            "use_natural_language_prompts": false
+          },
+          "images_scale": 1.5,
+          "generate_page_images": true,
+          "generate_picture_images": false,
+          "do_table_structure": true,
+          "extract_form_fields": false,
+          "do_ocr": true,
+          "do_code_enrichment": false,
+          "do_formula_enrichment": false,
+          "force_backend_text": false,
+          "table_structure_options": {},
+          "ocr_options": {
+            "mode": "full_page",
+            "lang": [
+              "en"
+            ],
+            "scale": 3.0,
+            "replace_broken_text_layer": false,
+            "force_full_page_ocr": true
+          },
+          "layout_options": {
+            "keep_empty_clusters": false,
+            "skip_cell_assignment": false,
+            "create_orphan_clusters": true
+          },
+          "code_formula_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "CodeFormulaV2",
+              "default_repo_id": "docling-project/CodeFormulaV2",
+              "revision": "main",
+              "prompt": "",
+              "response_format": "plaintext",
+              "supported_engines": null,
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext",
+                    "extra_generation_config": {
+                      "skip_special_tokens": false
+                    },
+                    "torch_dtype": "bfloat16"
+                  }
+                }
+              },
+              "api_overrides": {},
+              "trust_remote_code": false,
+              "stop_strings": [
+                "</doctag>",
+                "<end_of_utterance>"
+              ],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "scale": 2.0,
+            "max_size": null,
+            "extract_code": true,
+            "extract_formulas": true,
+            "expansion_factor": 0.18,
+            "stop_on_repetition": true
+          },
+          "use_embedded_picture_images": false,
+          "generate_table_images": false,
+          "generate_parsed_pages": false,
+          "use_reading_order_separators": true,
+          "heading_hierarchy_options": {
+            "enabled": false,
+            "use_bookmarks": true,
+            "use_numbering": true,
+            "use_style": true,
+            "use_font_style": true,
+            "style_size_tolerance": 0.05,
+            "numbering_schemes": null,
+            "max_level": 6,
+            "bookmark_match_threshold": 0.8
+          },
+          "script_position_options": {
+            "enabled": false
+          },
+          "ocr_batch_size": 4,
+          "layout_batch_size": 4,
+          "table_batch_size": 4,
+          "batch_polling_interval_seconds": 0.5,
+          "queue_max_size": 100,
+          "stage_shutdown_timeout_seconds": 15.0
+        }
+      },
+      "conversion_warnings": [
+        "RapidOCR returned empty result!"
+      ],
+      "conversion_status": "success",
+      "conversion_seconds": 0.6788494579959661,
+      "quality": {
+        "passed": false,
+        "conversion_status": "success",
+        "errors": [],
+        "warnings": [
+          "RapidOCR returned empty result!",
+          "No readable content; do not guess relevance"
+        ],
+        "page_checks": [
+          {
+            "page": 1,
+            "state": "blank",
+            "characters": 0,
+            "has_page_image": true
+          }
+        ],
+        "visual_review": "required separately; structural checks do not prove OCR completeness or fact correctness"
+      },
+      "relevance": {
+        "outcome": "unreadable",
+        "reason": "RapidOCR returned empty result!; No readable content; do not guess relevance"
+      },
+      "canonical_hash": "5a9223acbf9504724d314d33186fc17c1a61ef55a01d0265a4ad4843a05b67cc",
+      "conversion_relevance_eligible": false,
+      "review_state": "quality_review_required",
+      "elapsed_seconds": 0.6974099170183763,
+      "case_id": "generated-auto-service-blank",
+      "relative_path": "generated-test/auto-service-receipt-2026-11-15.png",
+      "expected_relevance": "unreadable",
+      "human_reviewed": false,
+      "split": "tuning",
+      "expected_category": null,
+      "source_passage_checks": [],
+      "temporal_state": "unknown; the filename date is not document evidence",
+      "source_review_notes": [
+        "Valid PNG but completely white. Supply a nonblank source; no OCR text or date may be invented."
+      ],
+      "provenance": "User-supplied test image; every RGBA channel is uniformly 255.",
+      "chunk_count": 0,
+      "scoring_status": "exploratory; not human-reviewed held-out accuracy"
+    },
+    {
+      "run_key": "0d3297a92e76c36d1991303eedeabcdabb154e955396c5d70c0b5d5d1d3aa215",
+      "document_id": "23b657d8-170b-50db-9937-db395b58734a",
+      "document_version": 1,
+      "filename": "target-receipt-2026-11-15.jpeg",
+      "mime_type": "image/jpeg",
+      "sha256": "b57f9e3b877c6d9870675c9ca13d413ea52e424b0f706744c37cc3c25e0cfa33",
+      "page_count": 1,
+      "preparation": "EXIF orientation 1 normalized; RGB PNG; no resize; (604, 1612)",
+      "validation": "valid",
+      "versions": {
+        "docling": "2.150.1",
+        "docling-core": "2.107.0",
+        "docling-ibm-models": "4.0.4",
+        "docling-parse": "7.26.0",
+        "rapidocr": "3.10.0",
+        "onnxruntime": "1.32.0",
+        "torch": "2.15.0",
+        "transformers": "5.23.0",
+        "pillow": "13.0.0",
+        "pypdf": "7.1.0"
+      },
+      "pipeline": {
+        "tokenizer_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+        "max_tokens": 240,
+        "force_full_page_ocr": true,
+        "ocr_language": "en",
+        "threads": 4,
+        "assets_hash": "eebf9e94341feb3bc07775149e6eccc643c9e81e9dbbfa4f17af6255dfa9055a",
+        "document_timeout": 120.0,
+        "as_of": "2026-11-15"
+      },
+      "serializer_version": "claimly-pages-v2",
+      "processor_version": "claimly-docling-lab-v5",
+      "acceptance_gate": false,
+      "artifact_path": null,
+      "resolved_pipeline_options": {
+        "pdf": {
+          "document_timeout": 120.0,
+          "accelerator_options": {
+            "num_threads": 4,
+            "device": "cpu",
+            "cuda_use_flash_attention2": false
+          },
+          "enable_remote_services": false,
+          "allow_external_plugins": false,
+          "artifacts_path": "services/llm/parsing/.models/docling",
+          "do_picture_classification": false,
+          "picture_classification_options": {
+            "engine_options": {
+              "engine_type": "transformers",
+              "top_k": null
+            },
+            "model_spec": {
+              "name": "document_figure_classifier_v2",
+              "repo_id": "docling-project/DocumentFigureClassifier-v2.5",
+              "revision": "main",
+              "engine_overrides": {}
+            }
+          },
+          "do_picture_description": false,
+          "picture_description_options": {
+            "batch_size": 8,
+            "scale": 2.0,
+            "picture_area_threshold": 0.05,
+            "classification_allow": null,
+            "classification_deny": null,
+            "classification_min_confidence": 0.0
+          },
+          "do_chart_extraction": false,
+          "chart_extraction_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "Granite-Vision-4.1-4B",
+              "default_repo_id": "ibm-granite/granite-vision-4.1-4b",
+              "revision": "dd48e97503de471803850df70843cf9eb5da8712",
+              "prompt": "<chart2csv>",
+              "response_format": "plaintext",
+              "supported_engines": [
+                "mlx",
+                "api_ollama",
+                "transformers",
+                "api_openai",
+                "api_lmstudio"
+              ],
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": "bfloat16",
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext"
+                  }
+                },
+                "mlx": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": "0.7.0",
+                  "extra_config": {}
+                }
+              },
+              "api_overrides": {
+                "api_lmstudio": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_ollama": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_openai": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                }
+              },
+              "trust_remote_code": true,
+              "stop_strings": [],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "chart2csv": true,
+            "chart2summary": false,
+            "chart2code": false,
+            "output_format": "granite_vision_charts",
+            "use_natural_language_prompts": false
+          },
+          "images_scale": 1.5,
+          "generate_page_images": true,
+          "generate_picture_images": false,
+          "do_table_structure": true,
+          "extract_form_fields": false,
+          "do_ocr": true,
+          "do_code_enrichment": false,
+          "do_formula_enrichment": false,
+          "force_backend_text": false,
+          "table_structure_options": {},
+          "ocr_options": {
+            "mode": "full_page",
+            "lang": [
+              "en"
+            ],
+            "scale": 3.0,
+            "replace_broken_text_layer": false,
+            "force_full_page_ocr": true
+          },
+          "layout_options": {
+            "keep_empty_clusters": false,
+            "skip_cell_assignment": false,
+            "create_orphan_clusters": true
+          },
+          "code_formula_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "CodeFormulaV2",
+              "default_repo_id": "docling-project/CodeFormulaV2",
+              "revision": "main",
+              "prompt": "",
+              "response_format": "plaintext",
+              "supported_engines": null,
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext",
+                    "extra_generation_config": {
+                      "skip_special_tokens": false
+                    },
+                    "torch_dtype": "bfloat16"
+                  }
+                }
+              },
+              "api_overrides": {},
+              "trust_remote_code": false,
+              "stop_strings": [
+                "</doctag>",
+                "<end_of_utterance>"
+              ],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "scale": 2.0,
+            "max_size": null,
+            "extract_code": true,
+            "extract_formulas": true,
+            "expansion_factor": 0.18,
+            "stop_on_repetition": true
+          },
+          "use_embedded_picture_images": false,
+          "generate_table_images": false,
+          "generate_parsed_pages": false,
+          "use_reading_order_separators": true,
+          "heading_hierarchy_options": {
+            "enabled": false,
+            "use_bookmarks": true,
+            "use_numbering": true,
+            "use_style": true,
+            "use_font_style": true,
+            "style_size_tolerance": 0.05,
+            "numbering_schemes": null,
+            "max_level": 6,
+            "bookmark_match_threshold": 0.8
+          },
+          "script_position_options": {
+            "enabled": false
+          },
+          "ocr_batch_size": 4,
+          "layout_batch_size": 4,
+          "table_batch_size": 4,
+          "batch_polling_interval_seconds": 0.5,
+          "queue_max_size": 100,
+          "stage_shutdown_timeout_seconds": 15.0
+        },
+        "image": {
+          "document_timeout": 120.0,
+          "accelerator_options": {
+            "num_threads": 4,
+            "device": "cpu",
+            "cuda_use_flash_attention2": false
+          },
+          "enable_remote_services": false,
+          "allow_external_plugins": false,
+          "artifacts_path": "services/llm/parsing/.models/docling",
+          "do_picture_classification": false,
+          "picture_classification_options": {
+            "engine_options": {
+              "engine_type": "transformers",
+              "top_k": null
+            },
+            "model_spec": {
+              "name": "document_figure_classifier_v2",
+              "repo_id": "docling-project/DocumentFigureClassifier-v2.5",
+              "revision": "main",
+              "engine_overrides": {}
+            }
+          },
+          "do_picture_description": false,
+          "picture_description_options": {
+            "batch_size": 8,
+            "scale": 2.0,
+            "picture_area_threshold": 0.05,
+            "classification_allow": null,
+            "classification_deny": null,
+            "classification_min_confidence": 0.0
+          },
+          "do_chart_extraction": false,
+          "chart_extraction_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "Granite-Vision-4.1-4B",
+              "default_repo_id": "ibm-granite/granite-vision-4.1-4b",
+              "revision": "dd48e97503de471803850df70843cf9eb5da8712",
+              "prompt": "<chart2csv>",
+              "response_format": "plaintext",
+              "supported_engines": [
+                "mlx",
+                "api_ollama",
+                "transformers",
+                "api_openai",
+                "api_lmstudio"
+              ],
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": "bfloat16",
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext"
+                  }
+                },
+                "mlx": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": "0.7.0",
+                  "extra_config": {}
+                }
+              },
+              "api_overrides": {
+                "api_lmstudio": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_ollama": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                },
+                "api_openai": {
+                  "params": {
+                    "model": "granite-vision-4.1-4b"
+                  }
+                }
+              },
+              "trust_remote_code": true,
+              "stop_strings": [],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "chart2csv": true,
+            "chart2summary": false,
+            "chart2code": false,
+            "output_format": "granite_vision_charts",
+            "use_natural_language_prompts": false
+          },
+          "images_scale": 1.5,
+          "generate_page_images": true,
+          "generate_picture_images": false,
+          "do_table_structure": true,
+          "extract_form_fields": false,
+          "do_ocr": true,
+          "do_code_enrichment": false,
+          "do_formula_enrichment": false,
+          "force_backend_text": false,
+          "table_structure_options": {},
+          "ocr_options": {
+            "mode": "full_page",
+            "lang": [
+              "en"
+            ],
+            "scale": 3.0,
+            "replace_broken_text_layer": false,
+            "force_full_page_ocr": true
+          },
+          "layout_options": {
+            "keep_empty_clusters": false,
+            "skip_cell_assignment": false,
+            "create_orphan_clusters": true
+          },
+          "code_formula_options": {
+            "engine_options": {
+              "engine_type": "auto_inline",
+              "prefer_vllm": false,
+              "trust_remote_code": false
+            },
+            "model_spec": {
+              "name": "CodeFormulaV2",
+              "default_repo_id": "docling-project/CodeFormulaV2",
+              "revision": "main",
+              "prompt": "",
+              "response_format": "plaintext",
+              "supported_engines": null,
+              "engine_overrides": {
+                "transformers": {
+                  "repo_id": null,
+                  "revision": null,
+                  "torch_dtype": null,
+                  "min_engine_version": null,
+                  "extra_config": {
+                    "transformers_model_type": "automodel-imagetexttotext",
+                    "extra_generation_config": {
+                      "skip_special_tokens": false
+                    },
+                    "torch_dtype": "bfloat16"
+                  }
+                }
+              },
+              "api_overrides": {},
+              "trust_remote_code": false,
+              "stop_strings": [
+                "</doctag>",
+                "<end_of_utterance>"
+              ],
+              "temperature": 0.0,
+              "max_new_tokens": 4096,
+              "extra_generation_config": {}
+            },
+            "scale": 2.0,
+            "max_size": null,
+            "extract_code": true,
+            "extract_formulas": true,
+            "expansion_factor": 0.18,
+            "stop_on_repetition": true
+          },
+          "use_embedded_picture_images": false,
+          "generate_table_images": false,
+          "generate_parsed_pages": false,
+          "use_reading_order_separators": true,
+          "heading_hierarchy_options": {
+            "enabled": false,
+            "use_bookmarks": true,
+            "use_numbering": true,
+            "use_style": true,
+            "use_font_style": true,
+            "style_size_tolerance": 0.05,
+            "numbering_schemes": null,
+            "max_level": 6,
+            "bookmark_match_threshold": 0.8
+          },
+          "script_position_options": {
+            "enabled": false
+          },
+          "ocr_batch_size": 4,
+          "layout_batch_size": 4,
+          "table_batch_size": 4,
+          "batch_polling_interval_seconds": 0.5,
+          "queue_max_size": 100,
+          "stage_shutdown_timeout_seconds": 15.0
+        }
+      },
+      "conversion_warnings": [],
+      "conversion_status": "success",
+      "conversion_seconds": 2.279000416980125,
+      "quality": {
+        "passed": true,
+        "conversion_status": "success",
+        "errors": [],
+        "warnings": [],
+        "page_checks": [
+          {
+            "page": 1,
+            "state": "text",
+            "characters": 874,
+            "has_page_image": true
+          }
+        ],
+        "visual_review": "required separately; structural checks do not prove OCR completeness or fact correctness"
+      },
+      "relevance": {
+        "outcome": "relevant",
+        "reason": "Dated purchase with subtotal, total and matching payment amount found in readable source content.",
+        "category": "receipt",
+        "evidence": [
+          {
+            "page": 1,
+            "quote": "TOTAL $65.77"
+          }
+        ],
+        "policy_version": "claimly-content-rules-v3-title-period",
+        "method": "content-rule-baseline"
+      },
+      "canonical_hash": "5740025bc496cf7b3abc363ccd24a3f678e04595d346d76caf73794743b61e4a",
+      "conversion_relevance_eligible": true,
+      "review_state": "quality_review_required",
+      "elapsed_seconds": 2.338387625059113,
+      "case_id": "generated-current-purchase-receipt",
+      "relative_path": "generated-test/target-receipt-2026-11-15.jpeg",
+      "expected_relevance": "relevant",
+      "human_reviewed": false,
+      "split": "tuning",
+      "expected_category": "receipt",
+      "source_passage_checks": [
+        {
+          "quote": "TARGET",
+          "resolves_after_whitespace_normalization": true
+        },
+        {
+          "quote": "11/15/2026",
+          "resolves_after_whitespace_normalization": true
+        },
+        {
+          "quote": "61.52",
+          "resolves_after_whitespace_normalization": true
+        },
+        {
+          "quote": "65.77",
+          "resolves_after_whitespace_normalization": true
+        },
+        {
+          "quote": "VISA",
+          "resolves_after_whitespace_normalization": true
+        },
+        {
+          "quote": "CHARGE",
+          "resolves_after_whitespace_normalization": true
+        },
+        {
+          "quote": "0.88",
+          "resolves_after_whitespace_normalization": false
+        }
+      ],
+      "temporal_state": "purchase date equals experiment as_of; no explicit return deadline",
+      "source_review_notes": [
+        "Synthetic watermark retained.",
+        "Visible item amounts do not reconcile to printed subtotal; preserve printed figures without inventing missing items.",
+        "Printed savings and generic loyalty advertising do not establish an unused benefit or return entitlement."
+      ],
+      "provenance": "User-supplied synthetic receipt; repeated MakeMyReceipt watermark. Not a verified real transaction.",
+      "chunk_count": 0,
+      "scoring_status": "exploratory; not human-reviewed held-out accuracy"
+    }
+  ],
+  "admitted": 1,
+  "chunks": 1,
+  "note": "Current-looking date, supported content, conversion quality and legal applicability are distinct. No legal inference performed."
+}

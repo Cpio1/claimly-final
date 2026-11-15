@@ -1,0 +1,13 @@
+{
+  "handoff": "services/llm/rag/NEXT_CHAT_HANDOFF.md",
+  "sha256": "71030c0ada01ef3565e981657587b725233366db29efd4fbd95a2ddacc9762d5",
+  "current_prompt": "services/llm/parsing/RAG_TESTING_PROMPT.md",
+  "historical_prompt_archive": "services/llm/parsing/.local/archive/RAG_TESTING_PROMPT.retrieval-stage.md",
+  "back_modified": false,
+  "implementation_changed": true,
+  "latest_test_result": "100 passed; live HF inference and local embedding inference untested",
+  "latest_change": "Focused evidence-free abstention and factual-grounding prompt mitigation; no extra model calls or contract changes.",
+  "product_deployment_prompt": "PRODUCT_DEPLOYMENT_PROMPT.md",
+  "deployment_readiness_audit": "DEPLOYMENT_READINESS.md",
+  "latest_documentation_update": "Full-product deployment prompt and source-based prerequisite audit added. Product source was read, not modified."
+}

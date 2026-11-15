@@ -1,0 +1,16 @@
+{
+  "source": "User clarification during manual review",
+  "user_text": "Due dates are also based on what the next agent has information about, as it is planned to be fed with laws, rules, terms, and customer protection.",
+  "interpretation": "The downstream agent is planned to use supplied legal, regulatory, contractual, and consumer-protection context when assessing deadlines. A missing printed due date does not by itself make a supported bill irrelevant.",
+  "stage_boundary": "This ingestion stage preserves source text and evidence. Printed dates and later rule-derived deadline candidates must remain distinguishable. Final deadline calculations remain Backend-owned under the existing plan.",
+  "submitted_review_labels_changed": false,
+  "external_rules_loaded": false,
+  "title_period_policy": {
+    "source": "User clarification after reviewing Stage 1 results",
+    "rule": "A supported title actually printed in readable source content, combined with a relevant period window, establishes document relevance.",
+    "category_priority": "Use the primary supported title; retain other supported-domain wording as later interpretation notes.",
+    "date_ambiguity": "Preserve raw dates; ambiguity is nonblocking when every valid interpretation includes the supplied as_of.",
+    "quality_boundary": "Blank sources, incorrect OCR values, incomplete conversion, prompt injection or clearly unrelated content are not approved by this rule.",
+    "original_human_review_export_changed": false
+  }
+}

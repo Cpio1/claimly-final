@@ -1,0 +1,213 @@
+{
+  "serializer_version": "claimly-pages-v2",
+  "pages": [
+    {
+      "page": 1,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT\nLimited warranty\nFictional Cedar Electronics. Customer: Alex Example.\nLaptop model L1 purchased on 2026-01-04.\nCoverage lasts 24 months from purchase.\nExcludes accidental damage and liquid damage.\nContact service through the original purchase store.\nFictional test source Page 1",
+      "needs_review": false
+    }
+  ],
+  "item_map": [
+    {
+      "item_ref": "#/texts/0",
+      "page": 1,
+      "start": 0,
+      "end": 54,
+      "text": "CLAIMLY TEST FIXTURE - FICTIONAL - NOT A REAL CONTRACT",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        54
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 53.333333333333336,
+            "t": 766.3333333333334,
+            "r": 329.0,
+            "b": 756.6666666666666,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/1",
+      "page": 1,
+      "start": 55,
+      "end": 71,
+      "text": "Limited warranty",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        16
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 49.0,
+            "t": 735.6666666666666,
+            "r": 203.33333333333334,
+            "b": 706.3333333333334,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/2",
+      "page": 1,
+      "start": 72,
+      "end": 124,
+      "text": "Fictional Cedar Electronics. Customer: Alex Example.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        52
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 52.666666666666664,
+            "t": 691.0,
+            "r": 339.0,
+            "b": 677.0,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/3",
+      "page": 1,
+      "start": 125,
+      "end": 165,
+      "text": "Laptop model L1 purchased on 2026-01-04.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        40
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 52.666666666666664,
+            "t": 665.3333333333334,
+            "r": 288.0,
+            "b": 652.3333333333334,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/4",
+      "page": 1,
+      "start": 166,
+      "end": 205,
+      "text": "Coverage lasts 24 months from purchase.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        39
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 53.333333333333336,
+            "t": 640.3333333333334,
+            "r": 277.66666666666663,
+            "b": 626.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/5",
+      "page": 1,
+      "start": 206,
+      "end": 251,
+      "text": "Excludes accidental damage and liquid damage.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        45
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 52.666666666666664,
+            "t": 616.0,
+            "r": 312.0,
+            "b": 601.3333333333333,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/6",
+      "page": 1,
+      "start": 252,
+      "end": 304,
+      "text": "Contact service through the original purchase store.",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        52
+      ],
+      "content_layer": "body",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 53.333333333333336,
+            "t": 590.6666666666667,
+            "r": 329.0,
+            "b": 576.3333333333333,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    },
+    {
+      "item_ref": "#/texts/7",
+      "page": 1,
+      "start": 305,
+      "end": 333,
+      "text": "Fictional test source Page 1",
+      "method": "docling-text-charspan",
+      "source_charspan": [
+        0,
+        28
+      ],
+      "content_layer": "furniture",
+      "source_locations": [
+        {
+          "page": 1,
+          "bbox": {
+            "l": 51.666666666666664,
+            "t": 46.66666666666663,
+            "r": 169.33333333333331,
+            "b": 30.33333333333337,
+            "coord_origin": "BOTTOMLEFT"
+          }
+        }
+      ]
+    }
+  ],
+  "mapping_issues": []
+}

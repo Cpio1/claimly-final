@@ -1,0 +1,78 @@
+{
+  "schema_version": "claimly-generated-test-v1",
+  "source_root": "repository",
+  "as_of": "2026-11-15",
+  "label_status": "Agent visual proposals recorded before conversion; not human-reviewed or blind held-out labels.",
+  "cases": [
+    {
+      "case_id": "generated-warranty-certificate",
+      "relative_path": "generated-test/212_Warranty_simple_brown_landscape_3aee88aa90.jpg",
+      "sha256": "ebfa57cb1c62072d0a358f2ef926999f294333f31c29c7ab4e7cfb7fa92b0967",
+      "source_group": "generated-warranty-certificate",
+      "split": "tuning",
+      "provenance": "User-supplied template-like image; issuer authenticity and upstream license not verified.",
+      "expected_relevance": "relevant",
+      "expected_category": "warranty",
+      "human_reviewed": false,
+      "readability": "readable",
+      "temporal_state": "within printed 2024-2027 period under either day/month interpretation; exact format unresolved",
+      "expected_evidence": [
+        "Warranty Certificate",
+        "12.02.2024",
+        "12.02.2027",
+        "Accident and sickness insurance",
+        "original purchase document"
+      ],
+      "review_reasons": [
+        "Primary category follows the Warranty Certificate title, as clarified by the user. Insurance wording remains a later field-interpretation note and does not block admission.",
+        "12.02 is day/month ambiguous, but both valid 2024-2027 windows contain the explicit 2026-11-15 as_of; preserve raw dates.",
+        "Template/provenance status is retained; acceptance is for the local experiment and does not prove real coverage."
+      ]
+    },
+    {
+      "case_id": "generated-auto-service-blank",
+      "relative_path": "generated-test/auto-service-receipt-2026-11-15.png",
+      "sha256": "bcec6ac55edf3e545a0fd1fdd57b2b77ba56482d62ae30719ee05bc8aeb387b5",
+      "source_group": "generated-auto-service-blank",
+      "split": "tuning",
+      "provenance": "User-supplied test image; every RGBA channel is uniformly 255.",
+      "expected_relevance": "unreadable",
+      "expected_category": null,
+      "human_reviewed": false,
+      "readability": "blank",
+      "temporal_state": "unknown; the filename date is not document evidence",
+      "expected_evidence": [],
+      "review_reasons": [
+        "Valid PNG but completely white. Supply a nonblank source; no OCR text or date may be invented."
+      ]
+    },
+    {
+      "case_id": "generated-current-purchase-receipt",
+      "relative_path": "generated-test/target-receipt-2026-11-15.jpeg",
+      "sha256": "b57f9e3b877c6d9870675c9ca13d413ea52e424b0f706744c37cc3c25e0cfa33",
+      "source_group": "generated-current-purchase-receipt",
+      "split": "tuning",
+      "provenance": "User-supplied synthetic receipt; repeated MakeMyReceipt watermark. Not a verified real transaction.",
+      "expected_relevance": "relevant",
+      "expected_category": "receipt",
+      "human_reviewed": false,
+      "readability": "readable",
+      "temporal_state": "purchase date equals experiment as_of; no explicit return deadline",
+      "expected_evidence": [
+        "TARGET",
+        "11/15/2026",
+        "61.52",
+        "65.77",
+        "VISA",
+        "CHARGE",
+        "0.88"
+      ],
+      "review_reasons": [
+        "Synthetic watermark retained.",
+        "Visible item amounts do not reconcile to printed subtotal; preserve printed figures without inventing missing items.",
+        "Printed savings and generic loyalty advertising do not establish an unused benefit or return entitlement."
+      ]
+    }
+  ],
+  "policy_clarification": "A supported source title combined with a printed relevant period is strong acceptance evidence. Exact date interpretation/category nuance remains visible without blocking when it cannot change period eligibility. Conversion quality, unrelated-content and injection checks still apply."
+}

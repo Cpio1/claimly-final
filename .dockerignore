@@ -1,0 +1,24 @@
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/.data
+**/.models
+**/.hf-models
+**/docs-sm
+**/runs
+**/rag-handoff
+**/claimly_legal_corpus_kit/corpus
+Soup
+.graphify-venv
+graphify-out
+.tools
+.codex
+generated-test
+model.safetensors
+.env
+.env.*
+!.env.example
+.git
+
+# Complete-product source is outside this integration image.
+back/

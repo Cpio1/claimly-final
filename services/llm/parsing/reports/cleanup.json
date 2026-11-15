@@ -1,0 +1,221 @@
+{
+  "scope": "User-authorized parsing artifacts plus workspace-generated caches; source documents, reviews, model assets and RAG checkpoints preserved.",
+  "archived": [
+    {
+      "from": "services/llm/parsing/parsing_tests.legacy.ipynb",
+      "to": "services/llm/parsing/.local/archive/parsing_tests.legacy.ipynb",
+      "sha256": "4d7dbb83192b5974591404a49703f7611a1513b2184b2814bfe9d05fb3ab6528"
+    },
+    {
+      "from": "services/llm/parsing/RESULTS.md",
+      "to": "services/llm/parsing/.local/archive/RESULTS-pre-final.md",
+      "sha256": "a570dec5f06187dc193502eac84cbb355c7cc0ec7e38f441d18b04476d736de1"
+    }
+  ],
+  "removed": [
+    {
+      "path": "services/llm/parsing/runs/baseline",
+      "bytes": 5925478,
+      "reason": "Superseded exploratory checkpoint copies; initial measured report retained in reports/."
+    },
+    {
+      "path": "services/llm/parsing/runs/notebook-demo",
+      "bytes": 367654,
+      "reason": "Reproducible notebook demonstration output; final checkpoints preserved in rag-handoff and runs/final."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/50189082-5b0f-5019-8fae-9ca3bd2ca88a/1/7c1ace4d86eaffe0b2d71f96b8e90f3c669f43571329e6b31d1b2e78fb19470d",
+      "bytes": 131295,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/e3fc7f83-5e1a-5f42-8187-30f2b0022ba9/1/2bf7415589ea9953d53e8d95c1149e3e84d9a11c189c09c7d359c9c73bee0d99",
+      "bytes": 151339,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/c288883d-2a7f-5c05-a52a-5e6791221b30/1/5f76eea5c6d0f9d712f0bb0107de6ea02f6160d779c782a18a7006e84cf4b763",
+      "bytes": 139822,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/5ef11d60-8682-5468-9f80-52d89391cfee/1/d05918d1ff06a5d700342f734eda3120553b2fd1d79b468d61f1139bdb7079a2",
+      "bytes": 114158,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/46a3a9a9-f35b-529d-ba66-940a70a82b88/1/ca8b694108dfe8d988b06b99de8dbc24ea5c793cc7151380956e3abc829b424e",
+      "bytes": 104647,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/2c4a4a9f-4fb1-5cab-bedf-65ad244c9f6b/1/e8e840f2a8d8612b9e6e593d7af1e5759a137bad4045653838927daa413fe517",
+      "bytes": 424875,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/e96af918-6986-5209-baeb-5461ccdbc1fe/1/d81e0e52c7f5b647688390fa9d188809a5d9979542b5c59b53b2b9c2257c6103",
+      "bytes": 119199,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/074bb24c-0599-53ee-91e2-1ba385f531db/1/f6367ea7e362028fd398c4dcdb276c28a6d13a41324613e444614a6741895dea",
+      "bytes": 117182,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/cd3d6ac9-9d0c-510a-b9d0-ccf65570370d/1/ed8daf0800bae857b997db9d47f20a11fd3b90756a75e5fbae2f9ae1f616fe27",
+      "bytes": 138911,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/78e42cee-de50-54dc-8888-f1569f5113a0/1/c525c3d4c82d38215c832cfd65e17e811fbe60734008bb8a7832d64fea6dfce3",
+      "bytes": 970903,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/bea9dee4-9d30-587a-b42a-1d446a116e7f/1/684532e3d1b227c1b2be05eba21b3dfc5901355f6e0aed7c8037a8fbf1f93cf7",
+      "bytes": 130459,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/37c4fb36-057e-5763-a031-1f403dab116c/1/56019fa9840f0da2b0d261402bde1f9c7b6156831a07d633e46f2941d65b10fa",
+      "bytes": 153101,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/0453e571-5147-5b0c-82b3-6b8a2c8c10a2/1/2ed9b19ae435c4eece5410ddd8d8e2e7d3134d579c30c2ff1cf571390194fdda",
+      "bytes": 104994,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/0ef84c33-40b4-55d5-90d6-6f9f32b5ebe0/1/44a0b243b27bfd5d335538fafa6db485f4d13f5d4258f996b9d1dcf52ed8734d",
+      "bytes": 148483,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/4d86ba08-918c-5fbc-b3a2-21f85d2c0689/1/db9d07b72ba366ac7c3636ffc021321e39a098da427edf2466404fa7f8b35132",
+      "bytes": 210962,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/b560555a-e54e-55b2-9dfe-96370a1dfe25/1/949579d5e38beab1c558ab5f38ae0a8a24c2e310f279d438dfb4de0627b9dba5",
+      "bytes": 125166,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/1404e287-325c-5352-b3c3-2358dd26e3a5/1/d60412d30d96dcdb4389518745f5c161514da8b2bbb62f0b6d438879511bfd22",
+      "bytes": 635257,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/1407cd1b-5cf3-53c3-ade7-c4089842ef5e/1/c49b27749904edde31ce5d6d421153439c3a363620a4c0d468dc11f57614f1b9",
+      "bytes": 115009,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/runs/final/accepted/ba2c2566-d1af-5677-9e6a-38e47c7bac62/1/89be5e3eff6034651c29e8fa6f1a88def7e9b126a0845a822e3e853694841815",
+      "bytes": 104839,
+      "reason": "Superseded processing-version checkpoint; current report and portable handoff retain the active experiment record."
+    },
+    {
+      "path": "services/llm/parsing/fixture_preview.png",
+      "bytes": 68816,
+      "reason": "Disposable fixture preview, syntax-check scratch or empty session history."
+    },
+    {
+      "path": "services/llm/parsing/runs/manual-review/gallery-script.js",
+      "bytes": 4772,
+      "reason": "Disposable fixture preview, syntax-check scratch or empty session history."
+    },
+    {
+      "path": "services/llm/parsing/.Rhistory",
+      "bytes": 0,
+      "reason": "Disposable fixture preview, syntax-check scratch or empty session history."
+    },
+    {
+      "path": ".pytest_cache",
+      "bytes": 5387,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": ".DS_Store",
+      "bytes": 10244,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": "Claimly_Three_Parts/.DS_Store",
+      "bytes": 10244,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": "graphify-out/.DS_Store",
+      "bytes": 6148,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": "graphify-out/cache/.DS_Store",
+      "bytes": 6148,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": "graphify-out/cache/ast/.DS_Store",
+      "bytes": 6148,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": "services/.DS_Store",
+      "bytes": 6148,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": "services/llm/.DS_Store",
+      "bytes": 6148,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": "services/llm/parsing/__pycache__",
+      "bytes": 216615,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": "services/llm/parsing/.ipynb_checkpoints",
+      "bytes": 9243,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": "services/llm/parsing/.DS_Store",
+      "bytes": 6148,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": "services/llm/parsing/docs-sm/.DS_Store",
+      "bytes": 10244,
+      "reason": "Disposable Python/pytest/notebook/OS cache."
+    },
+    {
+      "path": ".tools/graphify",
+      "bytes": 151608782,
+      "reason": "Duplicate tool environment installed during this stage; the pre-existing .graphify-venv is retained for the next stage."
+    },
+    {
+      "path": "services/llm/parsing/__pycache__",
+      "bytes": 143384,
+      "reason": "Disposable cache recreated while verifying the title-plus-period policy update."
+    }
+  ],
+  "preserved": [
+    "generated-test/",
+    "services/llm/parsing/docs-sm/",
+    "services/llm/parsing/manual_reviews.json",
+    "services/llm/parsing/manual_review_notes.json",
+    "services/llm/parsing/.models/",
+    "services/llm/.venv/",
+    ".graphify-venv/",
+    "services/llm/parsing/rag-handoff/",
+    "graphify-out/"
+  ],
+  "root_git_repository_present": false,
+  "removed_bytes": 162558352,
+  "archive_note": "Original direct-model notebook and earlier results are preserved outside Git under the parsing .local/archive directory."
+}

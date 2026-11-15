@@ -1,0 +1,1265 @@
+{
+  "manifest_version": "claimly-lab-v1",
+  "cases": [
+    {
+      "case_id": "docs-sm-advertisement",
+      "relative_path": "docs-sm/advertisement/0000126151.jpg",
+      "sha256": "d42baafeaa7c851170558c5006c1218395cee705194ed362168afb795665b2ef",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "advertisement",
+      "source_group": "d42baafeaa7c851170558c5006c1218395cee705194ed362168afb795665b2ef",
+      "split": "tuning",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "uncertain",
+      "expected_reason": "General Raleigh free-sample advertisement; small offer terms are not fully legible.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "FREE SAMPLE"
+        },
+        {
+          "page": 1,
+          "quote": "RALEIGH"
+        }
+      ],
+      "readability": "partial",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-budget",
+      "relative_path": "docs-sm/budget/0000009994.jpg",
+      "sha256": "2e98fc47af0cd2a5f496cc2fc228f67b568d48974877a1659ea8747cb649b391",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "budget",
+      "source_group": "2e98fc47af0cd2a5f496cc2fc228f67b568d48974877a1659ea8747cb649b391",
+      "split": "tuning",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Institutional tobacco research grant budget, not a consumer bill.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "GRANT EXPENDITURES"
+        },
+        {
+          "page": 1,
+          "quote": "TENTATIVE BUDGET"
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-email",
+      "relative_path": "docs-sm/email/2064207146a.jpg",
+      "sha256": "7c38652ab3975f68175c60850945f0f3917afa413d62f6277a53ea4fc37abd3a",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "email",
+      "source_group": "7c38652ab3975f68175c60850945f0f3917afa413d62f6277a53ea4fc37abd3a",
+      "split": "tuning",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Internal request for stationery/letterhead, unrelated to a consumer purchase.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Mark Friedman"
+        },
+        {
+          "page": 1,
+          "quote": "letterhead"
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-file_folder",
+      "relative_path": "docs-sm/file_folder/0000319200.jpg",
+      "sha256": "de8a86e8d16137ee0922e6c0b2393639e5743f13ae8198d654637876a8827448",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "file_folder",
+      "source_group": "de8a86e8d16137ee0922e6c0b2393639e5743f13ae8198d654637876a8827448",
+      "split": "held_out",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Cover of a tobacco smoking/health controversy report.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Smoking and Health"
+        },
+        {
+          "page": 1,
+          "quote": "THE CONTINUING CONTROVERSY"
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-form",
+      "relative_path": "docs-sm/form/0000980962.jpg",
+      "sha256": "ce239fea305c625aa8a22d97a5d9a3d4a67c7f6454ec835f031ff4e7a5b89893",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "form",
+      "source_group": "ce239fea305c625aa8a22d97a5d9a3d4a67c7f6454ec835f031ff4e7a5b89893",
+      "split": "tuning",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "uncertain",
+      "expected_reason": "Handwritten numeric laboratory-style sheet; context and numbers need review.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "H2O"
+        },
+        {
+          "page": 1,
+          "quote": "NIC"
+        }
+      ],
+      "readability": "partial",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-handwritten",
+      "relative_path": "docs-sm/handwritten/500002030.jpg",
+      "sha256": "6e3db9d6fef000134a8c13ea737e0c194208a88d77d45c44da5508be6fcc333d",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "handwritten",
+      "source_group": "6e3db9d6fef000134a8c13ea737e0c194208a88d77d45c44da5508be6fcc333d",
+      "split": "held_out",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "CAB airline complaint-policy note, not a consumer booking, refund or service record.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "C.A.B. file"
+        },
+        {
+          "page": 1,
+          "quote": "complaint"
+        }
+      ],
+      "readability": "difficult",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-invoice",
+      "relative_path": "docs-sm/invoice/0000137486.jpg",
+      "sha256": "317d0b40a10f38a0355493bb1dab6107d2da85b712b8f5c14f64f603eab952af",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "invoice",
+      "source_group": "317d0b40a10f38a0355493bb1dab6107d2da85b712b8f5c14f64f603eab952af",
+      "split": "held_out",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "uncertain",
+      "expected_reason": "Corporate public relations invoice; consumer relevance is unconfirmed.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "KM&G International Inc."
+        },
+        {
+          "page": 1,
+          "quote": "P. R. SERVICES"
+        },
+        {
+          "page": 1,
+          "quote": "1,702.52"
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-letter",
+      "relative_path": "docs-sm/letter/0000022394.jpg",
+      "sha256": "adab5a23b185892e6e935aa09cff38c117076baeec5cc9dd0bfb59704b3d92c0",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "letter",
+      "source_group": "adab5a23b185892e6e935aa09cff38c117076baeec5cc9dd0bfb59704b3d92c0",
+      "split": "tuning",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Visit arrangements to a university; no paid booking or service entitlement.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "April 12, 1968"
+        },
+        {
+          "page": 1,
+          "quote": "confirm my arrangements to visit you"
+        }
+      ],
+      "readability": "partial",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-memo",
+      "relative_path": "docs-sm/memo/0000018957.jpg",
+      "sha256": "d1e478aada34c7ef84c185eff41e02d4c276e78f6acd940c9067b010d62b5925",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "memo",
+      "source_group": "d1e478aada34c7ef84c185eff41e02d4c276e78f6acd940c9067b010d62b5925",
+      "split": "tuning",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Internal manufacturing filter-rod waste study.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Duolite Filter Rod Waste"
+        },
+        {
+          "page": 1,
+          "quote": "Percent waste"
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-news_article",
+      "relative_path": "docs-sm/news_article/0000092722.jpg",
+      "sha256": "f67326cc00ee7edae08140dde464c8dc4a2e9a228628bcee930fa01b40d32cff",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "news_article",
+      "source_group": "f67326cc00ee7edae08140dde464c8dc4a2e9a228628bcee930fa01b40d32cff",
+      "split": "held_out",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Newspaper clipping about cigarette labeling.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Misled"
+        },
+        {
+          "page": 1,
+          "quote": "smokes"
+        }
+      ],
+      "readability": "partial",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-presentation",
+      "relative_path": "docs-sm/presentation/0000073682.jpg",
+      "sha256": "f9308df48e98490a7068a58ffbdce4aba9e874b46cacae1f64bcbe33b60cbfb0",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "presentation",
+      "source_group": "f9308df48e98490a7068a58ffbdce4aba9e874b46cacae1f64bcbe33b60cbfb0",
+      "split": "tuning",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Instructions for a cigarette similarity research test.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "SIMILARITY SMOKING TEST"
+        }
+      ],
+      "readability": "partial",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-questionnaire",
+      "relative_path": "docs-sm/questionnaire/0000002206.jpg",
+      "sha256": "60fb849027b3102aa5f295bb68336bc592e85b95873521e79e1340eeefba4530",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "questionnaire",
+      "source_group": "60fb849027b3102aa5f295bb68336bc592e85b95873521e79e1340eeefba4530",
+      "split": "tuning",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Market research report cover about advertising directions.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "ADVERTISING/MERCHANDISING/PRODUCT"
+        },
+        {
+          "page": 1,
+          "quote": "Market Facts"
+        }
+      ],
+      "readability": "partial",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-resume",
+      "relative_path": "docs-sm/resume/0000153376.jpg",
+      "sha256": "db8d2076b34fe1357e812f9375587097893e07ead28f0d84271f8a794b48046b",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "resume",
+      "source_group": "db8d2076b34fe1357e812f9375587097893e07ead28f0d84271f8a794b48046b",
+      "split": "held_out",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Academic curriculum vitae.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "CURRICULUM VITAE"
+        },
+        {
+          "page": 1,
+          "quote": "George A. Santisteban"
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-scientific_publication",
+      "relative_path": "docs-sm/scientific_publication/0000088354.jpg",
+      "sha256": "095108897d22f1f5d33d41974728e0bf84406acda4ba4030952cb8aa71443322",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "scientific_publication",
+      "source_group": "095108897d22f1f5d33d41974728e0bf84406acda4ba4030952cb8aa71443322",
+      "split": "tuning",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Medical dictionary definitions; no consumer policy.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "aglossostomia"
+        },
+        {
+          "page": 1,
+          "quote": "agromania"
+        }
+      ],
+      "readability": "difficult",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-scientific_report",
+      "relative_path": "docs-sm/scientific_report/0000949066.jpg",
+      "sha256": "271124459a04fa73f93ca862fa10b7bbfdc23a63e56b50bec322af368df54efd",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "scientific_report",
+      "source_group": "271124459a04fa73f93ca862fa10b7bbfdc23a63e56b50bec322af368df54efd",
+      "split": "tuning",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Chemical laboratory methods list.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "CHEMICAL METHODS"
+        },
+        {
+          "page": 1,
+          "quote": "Gas Chromatographic Methods"
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "docs-sm-specification",
+      "relative_path": "docs-sm/specification/0000046972.jpg",
+      "sha256": "c194e54f22c281b3fc3023889c2567b24e746dab7fbadede00dd72acab4a97c4",
+      "source": "local docs-sm; upstream provenance/license unverified",
+      "folder": "specification",
+      "source_group": "c194e54f22c281b3fc3023889c2567b24e746dab7fbadede00dd72acab4a97c4",
+      "split": "tuning",
+      "primary_test_group": "parser_robustness",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Tobacco sample manufacturing specifications.",
+      "expected_category": null,
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "SAMPLE SPECIFICATIONS"
+        },
+        {
+          "page": 1,
+          "quote": "VICEROY 84"
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "Codex visual inspection of original before OCR; pending human review"
+    },
+    {
+      "case_id": "receipt",
+      "relative_path": "fixtures/receipt.pdf",
+      "sha256": "d265de6afbb85747d79ee8f3c56697e34ffd5a7bf0fd6b0e0d1e023a1e650c43",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "receipt",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "receipt",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Maple Store. Customer: Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "Coffee maker model M1. Amount paid: USD 89.50."
+        },
+        {
+          "page": 1,
+          "quote": "Payment completed on 2026-01-04. No additional benefits stated."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "bill",
+      "relative_path": "fixtures/bill.pdf",
+      "sha256": "307286743bdcdb3b0fa748d2ce32d99b3d09292332dc016c89edb08847962e99",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "bill",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "receipt",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Clear Water. Customer: Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "Water service for January 2026. Total: USD 42.00."
+        },
+        {
+          "page": 1,
+          "quote": "This bill does not specify a due date or any benefit."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "warranty",
+      "relative_path": "fixtures/warranty.pdf",
+      "sha256": "6122f9d2bec2a2cde646b8bfed08a3e2ae1f04a5315c902ce019b892a66cda1e",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "warranty",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "warranty",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Cedar Electronics. Customer: Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "Laptop model L1 purchased on 2026-01-04."
+        },
+        {
+          "page": 1,
+          "quote": "Coverage lasts 24 months from purchase."
+        },
+        {
+          "page": 1,
+          "quote": "Excludes accidental damage and liquid damage."
+        },
+        {
+          "page": 1,
+          "quote": "Contact service through the original purchase store."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "certificate",
+      "relative_path": "fixtures/certificate.pdf",
+      "sha256": "423d1d0fba3500ea73de88b7b4ef095a241ff8d7d1d7995736d972e07399bbd1",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "certificate",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "gift_certificate",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Bright Dental. Customer: Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "Valid for four dental cleaning services. Redeem with certificate code DEMO-004."
+        },
+        {
+          "page": 1,
+          "quote": "Printed expiry: 2027-12-31. Appointment required."
+        },
+        {
+          "page": 1,
+          "quote": "No statement about previously used services."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "insurance",
+      "relative_path": "fixtures/insurance.pdf",
+      "sha256": "ec6974914b1c0a7867020a5a6b32c09cba407a078969edd42d2413eb395f02b8",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "insurance",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "insurance",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Harbor Cover. Insured: Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "Policy H-100 covers sudden pipe leaks at the insured home."
+        },
+        {
+          "page": 1,
+          "quote": "Deductible: USD 500.00. Coverage limit: USD 10000.00."
+        },
+        {
+          "page": 1,
+          "quote": "Excludes flood water and gradual wear. Coverage is subject to policy conditions."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "agreement",
+      "relative_path": "fixtures/agreement.pdf",
+      "sha256": "a77bbdac3a34b88a6d1444bc9b85ced9ffe3a22b4e7ebb040d0799dda2dc6e54",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "agreement",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "service_agreement",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Bean Care. Customer: Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "Coffee machine model M1 service term: twelve months."
+        },
+        {
+          "page": 1,
+          "quote": "Includes one preventive maintenance visit. Booking required."
+        },
+        {
+          "page": 1,
+          "quote": "Excludes replacement parts."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "contract",
+      "relative_path": "fixtures/contract.pdf",
+      "sha256": "993ac24d89d7b57e0056b4d980c52bf1241ef46c4aaecc71262dffb5da6e99eb",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "contract",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "service_contract",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Vehicle Care. Customer: Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "One vehicle diagnostic visit during the twelve month service term."
+        },
+        {
+          "page": 1,
+          "quote": "Excludes repairs and government inspections."
+        },
+        {
+          "page": 1,
+          "quote": "Customer must book an appointment before the term ends."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "subscription",
+      "relative_path": "fixtures/subscription.pdf",
+      "sha256": "dca7d4dc7a97aa6cf05f641c47abf278181fd089d9e4cd93ca0470c2409bbd77",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "subscription",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "subscription",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Read Club. Customer: Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "Monthly reading subscription. Amount paid: USD 8.00."
+        },
+        {
+          "page": 1,
+          "quote": "Renews monthly unless canceled. No extra benefits stated."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "membership",
+      "relative_path": "fixtures/membership.pdf",
+      "sha256": "f57ca0e9e206d60d0eb688691645af1a5e361f461c98e901938fa12d374cf00b",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "membership",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "membership",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Local Gym. Member: Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "Membership term: 2026-01-01 through 2026-12-31."
+        },
+        {
+          "page": 1,
+          "quote": "Access to the fitness room. Excludes personal training."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "refund",
+      "relative_path": "fixtures/refund.pdf",
+      "sha256": "36da20d91fd7a93d4461cfb866a9e799da26a7258cd35ca76b2e394bd860a73c",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "refund",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "refund_confirmation",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Maple Store. Customer: Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "Refund USD 29.00 processed for order R-17."
+        },
+        {
+          "page": 1,
+          "quote": "Credit timing is not specified."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "correspondence",
+      "relative_path": "fixtures/correspondence.pdf",
+      "sha256": "88c398ab220bdb1916f4d90575aa7f9a52ceb07601bb380b64f9579e7f17dd72",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "correspondence",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "correspondence",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Bean Care to Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "Your order SC-17 includes a maintenance visit."
+        },
+        {
+          "page": 1,
+          "quote": "Please contact the service desk to arrange the visit."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "foreign",
+      "relative_path": "fixtures/foreign.pdf",
+      "sha256": "cb17e5d87027b51bf5a84401277f8288540bdf697234c62bf9975214e6856b32",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "foreign",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "relevant",
+      "expected_outcome": "relevant",
+      "expected_reason": "Fictional supported consumer document; no due-date/benefit requirement.",
+      "expected_category": "receipt",
+      "expected_evidence": [
+        {
+          "page": 1,
+          "quote": "Fictional Euro Shop. Customer: Alex Example."
+        },
+        {
+          "page": 1,
+          "quote": "Amount paid: EUR 19.50. Total: 19.50."
+        },
+        {
+          "page": 1,
+          "quote": "Paid in euros. No additional benefits stated."
+        }
+      ],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "clear_simulated_photo",
+      "relative_path": "fixtures/clear_simulated_photo.jpg",
+      "sha256": "e081861607924b133d36b476c948a6eecc234198d238abb9dbb5dff2aa407bc0",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "warranty",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "difficult",
+      "expected_outcome": "relevant",
+      "expected_reason": "Rasterized PDF; simulated camera/scan, not actual photography.",
+      "expected_category": "warranty",
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "png_scan",
+      "relative_path": "fixtures/png_scan.png",
+      "sha256": "a4cc8f090e5b8a17592630030350a7a29a024eed59d6461222359f3ffd083e79",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "warranty",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "difficult",
+      "expected_outcome": "relevant",
+      "expected_reason": "Rasterized PDF; simulated camera/scan, not actual photography.",
+      "expected_category": "warranty",
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "exif_rotated",
+      "relative_path": "fixtures/exif_rotated.jpg",
+      "sha256": "a059e3eecb3dba8d84f9216202d351dfece4ecf26bddee79071828551f6afaed",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "warranty",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "difficult",
+      "expected_outcome": "relevant",
+      "expected_reason": "EXIF orientation must restore upright text.",
+      "expected_category": "warranty",
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "shadowed_simulated_photo",
+      "relative_path": "fixtures/shadowed_simulated_photo.jpg",
+      "sha256": "1d11f749876cb471c8a12257915ac0403c29a88b518fc004f73652449951b089",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "warranty",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "difficult",
+      "expected_outcome": "relevant",
+      "expected_reason": "Simulated dim/tilted image; not actual phone photo.",
+      "expected_category": "warranty",
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "scan_pdf",
+      "relative_path": "fixtures/scan_pdf.pdf",
+      "sha256": "66a52ae341a0ed6cbc5037c998e9068776caa7e3a79502b30bf3dc14bfc4a32f",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "warranty",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "difficult",
+      "expected_outcome": "relevant",
+      "expected_reason": "Image-only PDF.",
+      "expected_category": "warranty",
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "mixed_pdf",
+      "relative_path": "fixtures/mixed_pdf.pdf",
+      "sha256": "324db9847e3f91caed0ae260e00c7aa60a4c494adbf5b300a3a7e6aefdc689ad",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "warranty",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "difficult",
+      "expected_outcome": "relevant",
+      "expected_reason": "Native header plus scanned warranty body.",
+      "expected_category": "warranty",
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "multipage_contract",
+      "relative_path": "fixtures/multipage_contract.pdf",
+      "sha256": "1277c8326c145000d5764b5cb5c07d2f96f6ea6c359e2a5f07be172f050f06bb",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "contract",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "difficult",
+      "expected_outcome": "relevant",
+      "expected_reason": "Two-page contract; conditions must remain linked.",
+      "expected_category": "service_contract",
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "table_bill",
+      "relative_path": "fixtures/table_bill.pdf",
+      "sha256": "f22ed8fd3a8b661b4001db8e6fbdd81cdb1f7bdd34d79c6e55f608c846e3eead",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "bill",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "difficult",
+      "expected_outcome": "relevant",
+      "expected_reason": "Table-heavy bill without a due date.",
+      "expected_category": "receipt",
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "recipe",
+      "relative_path": "fixtures/recipe.pdf",
+      "sha256": "ac297312c50a3cfd6eb5c265dc36764adf12c4334ff98024c1bcc421d2ef863f",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "recipe",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "unrelated",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Standalone unrelated content; title is not a consumer entitlement.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "essay",
+      "relative_path": "fixtures/essay.pdf",
+      "sha256": "c0e60ab81b8d8a5b75e36702a8ee7bb66c0d5cd464f3f2f061760f3d49fa7d11",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "essay",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "unrelated",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Standalone unrelated content; title is not a consumer entitlement.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "identity",
+      "relative_path": "fixtures/identity.pdf",
+      "sha256": "6b5cb9d1895464370b0579c559b6bbfeab61f8e3d9b98403cc37326ecc03be59",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "identity",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "unrelated",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Standalone unrelated content; title is not a consumer entitlement.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "science",
+      "relative_path": "fixtures/science.pdf",
+      "sha256": "ceeedb091e4ba3bd33e44efc878744c04ace81f267ac677cd285d7a9bd180057",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "science",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "unrelated",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Standalone unrelated content; title is not a consumer entitlement.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "ad",
+      "relative_path": "fixtures/ad.pdf",
+      "sha256": "9c93cd4ae9c34721d7ad0a3d2b6a622c244d7dfd28eaf1f0600a0d289654dbf7",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "ad",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "unrelated",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Standalone unrelated content; title is not a consumer entitlement.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "warranty_misleading_name",
+      "relative_path": "fixtures/warranty_misleading_name.pdf",
+      "sha256": "ac297312c50a3cfd6eb5c265dc36764adf12c4334ff98024c1bcc421d2ef863f",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "recipe",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "adversarial",
+      "expected_outcome": "out_of_scope",
+      "expected_reason": "Filename cannot override a recipe.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "injection_recipe",
+      "relative_path": "fixtures/injection_recipe.pdf",
+      "sha256": "decefc4c67562008b7cb34239189532bfaaaaadbe232e1c7ce7e4c2561b40b64",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "recipe",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "adversarial",
+      "expected_outcome": "uncertain",
+      "expected_reason": "Model instructions cannot authorize acceptance.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "injection_warranty",
+      "relative_path": "fixtures/injection_warranty.pdf",
+      "sha256": "e9b79c86e11e0b5374b8e4e3ed52394cb0f88aa5a62a8f0f7da9554d3b07ed8f",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "warranty",
+      "folder": "supplemental",
+      "split": "held_out",
+      "primary_test_group": "adversarial",
+      "expected_outcome": "uncertain",
+      "expected_reason": "Relevant source with embedded instructions requires review.",
+      "expected_category": "warranty",
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "warranty_title_essay",
+      "relative_path": "fixtures/warranty_title_essay.pdf",
+      "sha256": "7cf2e7930661c6bc14129cf26f8409cc9d61caaaf47d78d9dbf6c1e404cba230",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "essay",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "adversarial",
+      "expected_outcome": "uncertain",
+      "expected_reason": "A title alone does not establish substantive coverage.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "boarding_pass",
+      "relative_path": "fixtures/boarding_pass.pdf",
+      "sha256": "165be6a303a4a64273e2353d0aeb18f7f037021e39596af228f12588236628c9",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "boarding",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "adversarial",
+      "expected_outcome": "uncertain",
+      "expected_reason": "Boarding pass alone requires review.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "readable",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "blank_page",
+      "relative_path": "fixtures/blank_page.pdf",
+      "sha256": "b37a58fb510237b6b60b1e610deecd3eb013ff71836b831faf66958f83affbe3",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "blank",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "blank",
+      "expected_outcome": "unreadable",
+      "expected_reason": "Blank page remains distinguishable from conversion failure.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "blank",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "empty",
+      "relative_path": "fixtures/empty.pdf",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "empty",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "invalid",
+      "expected_outcome": "invalid_file",
+      "expected_reason": "Explicit file validation rejection.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "invalid",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "corrupt_pdf",
+      "relative_path": "fixtures/corrupt_pdf.pdf",
+      "sha256": "20426903f85bcf7df405085cec0e604d25e3b63734ef5b586a85de92a9c10b00",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "corrupt_pdf",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "invalid",
+      "expected_outcome": "invalid_file",
+      "expected_reason": "Explicit file validation rejection.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "invalid",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "corrupt_jpeg",
+      "relative_path": "fixtures/corrupt_jpeg.jpg",
+      "sha256": "7127c0ed30936109cf57798e7678e27afeff223f530c77fa0974a2129af18bb5",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "corrupt_jpeg",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "invalid",
+      "expected_outcome": "invalid_file",
+      "expected_reason": "Explicit file validation rejection.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "invalid",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "unsupported",
+      "relative_path": "fixtures/unsupported.txt",
+      "sha256": "c9ecf5e54c7b3f2640ecca21f96d4c3625a2b7935104f41c5ede29935a9e52c9",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "unsupported",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "invalid",
+      "expected_outcome": "invalid_file",
+      "expected_reason": "Explicit file validation rejection.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "invalid",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "heic",
+      "relative_path": "fixtures/heic.heic",
+      "sha256": "91997815df379d090cdbe1ee622b38b339b8b669bb5daae9e9df77c3c475e8be",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "heic",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "invalid",
+      "expected_outcome": "invalid_file",
+      "expected_reason": "Explicit file validation rejection.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "invalid",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "over_10mb",
+      "relative_path": "fixtures/over_10mb.pdf",
+      "sha256": "d57dd4e6917affa0ce55925140bf95cce7dab26448fa9a80bac1acad44660ad5",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "over_10mb",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "invalid",
+      "expected_outcome": "invalid_file",
+      "expected_reason": "Explicit file validation rejection.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "invalid",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "encrypted",
+      "relative_path": "fixtures/encrypted.pdf",
+      "sha256": "4bf3870a5b57092783dbe9aa6a4fe69adfa7cfb8b42b49d6c4573c828cee3d94",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "encrypted",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "invalid",
+      "expected_outcome": "invalid_file",
+      "expected_reason": "Explicit file validation rejection.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "invalid",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    },
+    {
+      "case_id": "over_25pages",
+      "relative_path": "fixtures/over_25pages.pdf",
+      "sha256": "968ae2c6557d9823b32f73245f89b8c3902a23eb52bf89c8886fdce2e2f31a36",
+      "source": "fictional fixture generated by build_fixtures.py v1",
+      "source_group": "over_25pages",
+      "folder": "supplemental",
+      "split": "tuning",
+      "primary_test_group": "invalid",
+      "expected_outcome": "invalid_file",
+      "expected_reason": "Explicit file validation rejection.",
+      "expected_category": null,
+      "expected_evidence": [],
+      "readability": "invalid",
+      "human_reviewed": false,
+      "label_provenance": "fixture author ground truth; pending human review"
+    }
+  ],
+  "notice": "All expected labels await human review. Unreviewed cases excluded from scored held-out metrics."
+}

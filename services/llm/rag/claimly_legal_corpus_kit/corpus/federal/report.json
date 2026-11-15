@@ -1,0 +1,299 @@
+{
+  "generated_at": "2026-11-15T01:12:07Z",
+  "cfr_sections": 247,
+  "usc_sections": 103,
+  "chunks": 627,
+  "rows_with_warnings": 0,
+  "rows": [
+    {
+      "id": "CFR-01",
+      "citation": "16 CFR Part 700",
+      "sections_found": 12,
+      "warnings": []
+    },
+    {
+      "id": "CFR-02",
+      "citation": "16 CFR Part 701",
+      "sections_found": 4,
+      "warnings": []
+    },
+    {
+      "id": "CFR-03",
+      "citation": "16 CFR Part 702",
+      "sections_found": 3,
+      "warnings": []
+    },
+    {
+      "id": "CFR-04",
+      "citation": "16 CFR Part 703",
+      "sections_found": 8,
+      "warnings": []
+    },
+    {
+      "id": "CFR-05",
+      "citation": "16 CFR Part 239",
+      "sections_found": 5,
+      "warnings": []
+    },
+    {
+      "id": "CFR-06",
+      "citation": "16 CFR Part 251",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "CFR-07",
+      "citation": "16 CFR Part 425",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "CFR-08",
+      "citation": "16 CFR Part 429",
+      "sections_found": 4,
+      "warnings": []
+    },
+    {
+      "id": "CFR-09",
+      "citation": "16 CFR Part 435",
+      "sections_found": 3,
+      "warnings": []
+    },
+    {
+      "id": "CFR-10",
+      "citation": "16 CFR Part 310",
+      "sections_found": 9,
+      "warnings": []
+    },
+    {
+      "id": "CFR-11",
+      "citation": "16 CFR Part 433",
+      "sections_found": 3,
+      "warnings": []
+    },
+    {
+      "id": "CFR-12",
+      "citation": "16 CFR Part 455",
+      "sections_found": 7,
+      "warnings": [],
+      "notes": [
+        "skipped image-only item: Figure 1 to Part 455",
+        "skipped image-only item: Figure 2 to Part 455",
+        "skipped image-only item: Figure 3 to Part 455",
+        "skipped image-only item: Figure 4 to Part 455",
+        "skipped image-only item: Figure 5 to Part 455",
+        "skipped image-only item: Figure 6 to Part 455"
+      ]
+    },
+    {
+      "id": "CFR-13",
+      "citation": "16 CFR Part 464",
+      "sections_found": 5,
+      "warnings": []
+    },
+    {
+      "id": "CFR-14",
+      "citation": "12 CFR Part 1005",
+      "sections_found": 30,
+      "warnings": []
+    },
+    {
+      "id": "CFR-15",
+      "citation": "12 CFR Part 1026 (§ 1026.12, § 1026.13)",
+      "sections_found": 2,
+      "warnings": []
+    },
+    {
+      "id": "CFR-16",
+      "citation": "14 CFR Part 250",
+      "sections_found": 12,
+      "warnings": []
+    },
+    {
+      "id": "CFR-17",
+      "citation": "14 CFR Part 254",
+      "sections_found": 6,
+      "warnings": []
+    },
+    {
+      "id": "CFR-18",
+      "citation": "14 CFR Part 259",
+      "sections_found": 9,
+      "warnings": []
+    },
+    {
+      "id": "CFR-19",
+      "citation": "14 CFR Part 260",
+      "sections_found": 11,
+      "warnings": []
+    },
+    {
+      "id": "CFR-20",
+      "citation": "45 CFR Part 147 (§ 147.130, § 147.136)",
+      "sections_found": 2,
+      "warnings": []
+    },
+    {
+      "id": "CFR-21",
+      "citation": "45 CFR Part 149",
+      "sections_found": 24,
+      "warnings": []
+    },
+    {
+      "id": "CFR-22",
+      "citation": "29 CFR Part 2560 (§ 2560.503-1)",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "CFR-23",
+      "citation": "40 CFR Part 85, Subpart V",
+      "sections_found": 24,
+      "warnings": []
+    },
+    {
+      "id": "CFR-24",
+      "citation": "49 CFR Part 577",
+      "sections_found": 14,
+      "warnings": []
+    },
+    {
+      "id": "CFR-25",
+      "citation": "49 CFR Part 375",
+      "sections_found": 47,
+      "warnings": []
+    },
+    {
+      "id": "USC-10",
+      "citation": "9 U.S.C. 1 to 16",
+      "sections_found": 16,
+      "warnings": []
+    },
+    {
+      "id": "USC-01",
+      "citation": "15 U.S.C. 2301 to 2312",
+      "sections_found": 12,
+      "warnings": []
+    },
+    {
+      "id": "USC-02",
+      "citation": "15 U.S.C. 45",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-03",
+      "citation": "15 U.S.C. 45b",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-04",
+      "citation": "15 U.S.C. 57b",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-05",
+      "citation": "15 U.S.C. 8401 to 8405",
+      "sections_found": 5,
+      "warnings": []
+    },
+    {
+      "id": "USC-06",
+      "citation": "15 U.S.C. 1693 to 1693r",
+      "sections_found": 22,
+      "warnings": []
+    },
+    {
+      "id": "USC-07",
+      "citation": "15 U.S.C. 1666 to 1666j",
+      "sections_found": 13,
+      "warnings": []
+    },
+    {
+      "id": "USC-08",
+      "citation": "15 U.S.C. 1643",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-09",
+      "citation": "15 U.S.C. 7001 to 7006",
+      "sections_found": 6,
+      "warnings": []
+    },
+    {
+      "id": "USC-11",
+      "citation": "15 U.S.C. 1011 to 1015",
+      "sections_found": 5,
+      "warnings": []
+    },
+    {
+      "id": "USC-21",
+      "citation": "15 U.S.C. 2064",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-22",
+      "citation": "15 U.S.C. 6101 to 6108",
+      "sections_found": 8,
+      "warnings": []
+    },
+    {
+      "id": "USC-15",
+      "citation": "29 U.S.C. 1133",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-20",
+      "citation": "39 U.S.C. 3009",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-12",
+      "citation": "42 U.S.C. 300gg-13",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-13",
+      "citation": "42 U.S.C. 300gg-19",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-14",
+      "citation": "42 U.S.C. 300gg-111, 300gg-131, 300gg-132",
+      "sections_found": 3,
+      "warnings": []
+    },
+    {
+      "id": "USC-19",
+      "citation": "42 U.S.C. 7541",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-16",
+      "citation": "49 U.S.C. 41712",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-17",
+      "citation": "49 U.S.C. 42305",
+      "sections_found": 1,
+      "warnings": []
+    },
+    {
+      "id": "USC-18",
+      "citation": "49 U.S.C. 30120",
+      "sections_found": 1,
+      "warnings": []
+    }
+  ]
+}
